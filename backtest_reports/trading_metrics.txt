@@ -1,0 +1,35 @@
+
+================================================================================
+                        TRADING METRICS REPORT
+================================================================================
+Generated: 2026-04-01 16:07:25
+
+BACKTEST PERIOD
+--------------------------------------------------------------------------------
+Start: 2023-01-01
+End: 2026-04-01
+Duration: 1186 days (169.4 weeks)
+
+TRADE STATISTICS
+--------------------------------------------------------------------------------
+Total Number of Trades: 1
+Trades per Week (avg): 0.01
+Win Rate: 0.00%
+Best Trade: 364.22%
+Worst Trade: N/A
+Average Profit per Trade: 364.22%
+
+PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+Total Return: -65.49%
+Annualized Return: -18.43%
+Sharpe Ratio: -0.3400
+Sortino Ratio: -0.5000
+Max Drawdown: -83.74%
+Volatility (Ann.): 54.74%
+
+STRATEGY: Simple EMA Crossover (for demonstration only)
+- The live signal generator uses the ensemble ML model
+- This backtest shows basic strategy performance
+
+================================================================================

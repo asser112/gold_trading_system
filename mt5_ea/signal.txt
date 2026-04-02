@@ -1,0 +1,8 @@
+{
+  "signal": "sell",
+  "confidence": 0.6478,
+  "sl": 4623.54,
+  "tp": 4556.06,
+  "reason": "Technical indicator (sell)",
+  "timestamp": "2026-04-02T16:37:38.642361"
+}

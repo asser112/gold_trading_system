@@ -1,0 +1,24 @@
+===========================================================
+ENSEMBLE MODEL TRADING METRICS - REAL NEWS DATA
+===========================================================
+
+Period: 2025-08-22 to 2026-04-01 (Last ~7 months available)
+Data Source: Real yfinance data with simulated news sentiment
+Total Trades: 90621
+  Wins: 45510
+  Losses: 45111
+Win Rate: 50.22%
+Total Return: -714.54%
+Average Profit per Trade: $-0.79
+Average Pips per Trade: 3621.92
+Sharpe Ratio: -0.0142
+Max Drawdown: 9373.69%
+Final Equity: $-61453.61
+Trades per Week: 1737.94
+
+===========================================================
+Model: XGBoost (F1: 0.6126)
+Features: 20 (with sentiment_score as 2nd most important)
+Confidence Threshold: 0.7
+Sentiment Score Feature Importance: 23.71% (rank 2)
+===========================================================

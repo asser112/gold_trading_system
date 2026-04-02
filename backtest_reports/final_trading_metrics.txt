@@ -1,0 +1,26 @@
+===========================================================
+ENSEMBLE MODEL TRADING METRICS - FINAL
+===========================================================
+
+Period: 2025-08-22 to 2026-04-01 (~7 months)
+Data Source: Real yfinance data + GNews real news (33 articles)
+Total Trades: 24830
+  Wins: 12101
+  Losses: 12729
+Win Rate: 48.74%
+Total Return: -20447.01%
+Average Profit per Trade: $-82.35
+Average Pips per Trade: 3349.13
+Sharpe Ratio: -2.3888
+Max Drawdown: 331.30%
+Final Equity: $-2034701.06
+Trades per Week: 476.73
+
+===========================================================
+Strategy Configuration:
+- Confidence Threshold: 0.85
+- Min Hold Time: 12 bars (1 hour)
+- Trend Filter: enabled
+- Volatility Filter: enabled
+- Sentiment Score Importance: 23.71% (rank 2)
+===========================================================

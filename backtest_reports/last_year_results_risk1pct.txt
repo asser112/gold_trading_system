@@ -1,0 +1,33 @@
+============================================================
+ENSEMBLE BACKTEST RESULTS (Last 12 Months)
+============================================================
+
+Period: 2025-04-01 00:00:00 to 2026-03-31 23:55:00
+Initial Balance: $10,000.00
+Spread: 2 pips
+Commission: 0.10%
+Slippage: 0.01 pips
+Risk per Trade: 0.03%
+Stop Loss Pips: 100
+Confidence Threshold: 0.85
+------------------------------------------------------------
+
+Total Trades: 9104
+  Wins: 4612
+  Losses: 4492
+Average Trades per Week: 174.60
+Win Rate: 50.66%
+Total Return: 272.36%
+Average Profit per Trade: $2.99
+Average Pips per Trade: 99.72
+Sharpe Ratio: 0.7944
+Max Drawdown: 43.56%
+Final Equity: $37236.24
+Total Net Profit: $27,236.24
+
+============================================================
+Model: Ensemble Strategy (XGBoost + News Sentiment)
+Features: 20 (with news sentiment)
+Confidence Threshold: 0.85
+Note: Full year data (2025-04-01 to 2026-04-01)
+============================================================

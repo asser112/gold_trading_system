@@ -1,0 +1,14 @@
+XGBOOST BACKTEST RESULTS (Last 12 Months)
+============================================================
+Period: 2025-04-02 to 2026-04-02
+Initial Balance: $10,000.00
+------------------------------------------------------------
+Total Trades: 102
+Average Trades per Week: 1.96
+Win Rate: 59.80%
+Average Profit per Trade: $23.28
+Sharpe Ratio: 1.2024
+Max Drawdown: 0.00%
+Final Equity: $12,374.44
+Total Net Profit: $2,374.44
+============================================================

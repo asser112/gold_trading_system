@@ -1,0 +1,1251 @@
+2026-04-02 03:16:15,549 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 03:16:15,549 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:16:45,875 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 03:16:45,875 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:17:16,097 - __main__ - INFO - Iteration 3: Signal=0, Confidence=0.0
+2026-04-02 03:17:16,097 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:17:46,303 - __main__ - INFO - Iteration 4: Signal=0, Confidence=0.0
+2026-04-02 03:17:46,303 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:18:16,564 - __main__ - INFO - Iteration 5: Signal=0, Confidence=0.0
+2026-04-02 03:18:16,565 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:18:46,819 - __main__ - INFO - Iteration 6: Signal=0, Confidence=0.0
+2026-04-02 03:18:46,819 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:19:17,010 - __main__ - INFO - Iteration 7: Signal=0, Confidence=0.0
+2026-04-02 03:19:17,010 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:19:47,185 - __main__ - INFO - Iteration 8: Signal=0, Confidence=0.0
+2026-04-02 03:19:47,185 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:20:17,436 - __main__ - INFO - Iteration 9: Signal=0, Confidence=0.0
+2026-04-02 03:20:17,436 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:20:47,650 - __main__ - INFO - Iteration 10: Signal=0, Confidence=0.0
+2026-04-02 03:20:47,650 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:21:17,827 - __main__ - INFO - Iteration 11: Signal=0, Confidence=0.0
+2026-04-02 03:21:17,827 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:21:48,079 - __main__ - INFO - Iteration 12: Signal=0, Confidence=0.0
+2026-04-02 03:21:48,079 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:22:18,290 - __main__ - INFO - Iteration 13: Signal=0, Confidence=0.0
+2026-04-02 03:22:18,291 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:22:20,440 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 03:22:20,440 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:22:48,546 - __main__ - INFO - Iteration 14: Signal=0, Confidence=0.0
+2026-04-02 03:22:48,546 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:22:50,679 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 03:22:50,679 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:23:18,815 - __main__ - INFO - Iteration 15: Signal=0, Confidence=0.0
+2026-04-02 03:23:18,815 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:23:20,928 - __main__ - INFO - Iteration 3: Signal=0, Confidence=0.0
+2026-04-02 03:23:20,928 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:23:49,118 - __main__ - INFO - Iteration 16: Signal=0, Confidence=0.0
+2026-04-02 03:23:49,118 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:23:51,235 - __main__ - INFO - Iteration 4: Signal=0, Confidence=0.0
+2026-04-02 03:23:51,235 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:24:19,390 - __main__ - INFO - Iteration 17: Signal=0, Confidence=0.0
+2026-04-02 03:24:19,390 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:24:21,460 - __main__ - INFO - Iteration 5: Signal=0, Confidence=0.0
+2026-04-02 03:24:21,460 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:24:49,665 - __main__ - INFO - Iteration 18: Signal=0, Confidence=0.0
+2026-04-02 03:24:49,665 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:24:51,789 - __main__ - INFO - Iteration 6: Signal=0, Confidence=0.0
+2026-04-02 03:24:51,790 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:25:19,915 - __main__ - INFO - Iteration 19: Signal=0, Confidence=0.0
+2026-04-02 03:25:19,915 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:25:21,985 - __main__ - INFO - Iteration 7: Signal=0, Confidence=0.0
+2026-04-02 03:25:21,985 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:25:50,300 - __main__ - INFO - Iteration 20: Signal=0, Confidence=0.0
+2026-04-02 03:25:50,300 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:25:52,273 - __main__ - INFO - Iteration 8: Signal=0, Confidence=0.0
+2026-04-02 03:25:52,273 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:26:20,499 - __main__ - INFO - Iteration 21: Signal=0, Confidence=0.0
+2026-04-02 03:26:20,500 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:26:22,607 - __main__ - INFO - Iteration 9: Signal=0, Confidence=0.0
+2026-04-02 03:26:22,607 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:26:50,753 - __main__ - INFO - Iteration 22: Signal=0, Confidence=0.0
+2026-04-02 03:26:50,753 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:26:52,926 - __main__ - INFO - Iteration 10: Signal=0, Confidence=0.0
+2026-04-02 03:26:52,926 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:27:20,996 - __main__ - INFO - Iteration 23: Signal=0, Confidence=0.0
+2026-04-02 03:27:20,997 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:27:23,194 - __main__ - INFO - Iteration 11: Signal=0, Confidence=0.0
+2026-04-02 03:27:23,194 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:27:51,310 - __main__ - INFO - Iteration 24: Signal=0, Confidence=0.0
+2026-04-02 03:27:51,310 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:27:53,507 - __main__ - INFO - Iteration 12: Signal=0, Confidence=0.0
+2026-04-02 03:27:53,507 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:28:21,543 - __main__ - INFO - Iteration 25: Signal=0, Confidence=0.0
+2026-04-02 03:28:21,543 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:28:23,696 - __main__ - INFO - Iteration 13: Signal=0, Confidence=0.0
+2026-04-02 03:28:23,696 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:28:51,794 - __main__ - INFO - Iteration 26: Signal=0, Confidence=0.0
+2026-04-02 03:28:51,794 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:28:53,936 - __main__ - INFO - Iteration 14: Signal=0, Confidence=0.0
+2026-04-02 03:28:53,936 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:29:22,105 - __main__ - INFO - Iteration 27: Signal=0, Confidence=0.0
+2026-04-02 03:29:22,105 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:29:24,209 - __main__ - INFO - Iteration 15: Signal=0, Confidence=0.0
+2026-04-02 03:29:24,209 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:29:52,384 - __main__ - INFO - Iteration 28: Signal=0, Confidence=0.0
+2026-04-02 03:29:52,385 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:29:54,558 - __main__ - INFO - Iteration 16: Signal=0, Confidence=0.0
+2026-04-02 03:29:54,558 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:30:22,688 - __main__ - INFO - Iteration 29: Signal=0, Confidence=0.0
+2026-04-02 03:30:22,688 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:30:24,823 - __main__ - INFO - Iteration 17: Signal=0, Confidence=0.0
+2026-04-02 03:30:24,823 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:30:52,971 - __main__ - INFO - Iteration 30: Signal=0, Confidence=0.0
+2026-04-02 03:30:52,971 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:30:55,058 - __main__ - INFO - Iteration 18: Signal=0, Confidence=0.0
+2026-04-02 03:30:55,058 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:31:23,253 - __main__ - INFO - Iteration 31: Signal=0, Confidence=0.0
+2026-04-02 03:31:23,253 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:31:25,376 - __main__ - INFO - Iteration 19: Signal=0, Confidence=0.0
+2026-04-02 03:31:25,377 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:31:53,500 - __main__ - INFO - Iteration 32: Signal=0, Confidence=0.0
+2026-04-02 03:31:53,500 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:31:55,601 - __main__ - INFO - Iteration 20: Signal=0, Confidence=0.0
+2026-04-02 03:31:55,602 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:32:23,706 - __main__ - INFO - Iteration 33: Signal=0, Confidence=0.0
+2026-04-02 03:32:23,706 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:32:25,857 - __main__ - INFO - Iteration 21: Signal=0, Confidence=0.0
+2026-04-02 03:32:25,857 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:32:53,954 - __main__ - INFO - Iteration 34: Signal=0, Confidence=0.0
+2026-04-02 03:32:53,954 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:32:56,105 - __main__ - INFO - Iteration 22: Signal=0, Confidence=0.0
+2026-04-02 03:32:56,105 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:33:24,220 - __main__ - INFO - Iteration 35: Signal=0, Confidence=0.0
+2026-04-02 03:33:24,220 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:33:26,358 - __main__ - INFO - Iteration 23: Signal=0, Confidence=0.0
+2026-04-02 03:33:26,358 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:33:54,478 - __main__ - INFO - Iteration 36: Signal=0, Confidence=0.0
+2026-04-02 03:33:54,479 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:33:56,617 - __main__ - INFO - Iteration 24: Signal=0, Confidence=0.0
+2026-04-02 03:33:56,617 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:34:24,712 - __main__ - INFO - Iteration 37: Signal=0, Confidence=0.0
+2026-04-02 03:34:24,712 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:34:26,875 - __main__ - INFO - Iteration 25: Signal=0, Confidence=0.0
+2026-04-02 03:34:26,875 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:34:55,029 - __main__ - INFO - Iteration 38: Signal=0, Confidence=0.0
+2026-04-02 03:34:55,029 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:34:57,180 - __main__ - INFO - Iteration 26: Signal=0, Confidence=0.0
+2026-04-02 03:34:57,181 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:35:25,286 - __main__ - INFO - Iteration 39: Signal=0, Confidence=0.0
+2026-04-02 03:35:25,286 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:35:27,477 - __main__ - INFO - Iteration 27: Signal=0, Confidence=0.0
+2026-04-02 03:35:27,477 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:35:55,529 - __main__ - INFO - Iteration 40: Signal=0, Confidence=0.0
+2026-04-02 03:35:55,529 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:35:57,657 - __main__ - INFO - Iteration 28: Signal=0, Confidence=0.0
+2026-04-02 03:35:57,657 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:36:25,782 - __main__ - INFO - Iteration 41: Signal=0, Confidence=0.0
+2026-04-02 03:36:25,783 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:36:28,005 - __main__ - INFO - Iteration 29: Signal=0, Confidence=0.0
+2026-04-02 03:36:28,006 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:36:55,988 - __main__ - INFO - Iteration 42: Signal=0, Confidence=0.0
+2026-04-02 03:36:55,989 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:36:58,262 - __main__ - INFO - Iteration 30: Signal=0, Confidence=0.0
+2026-04-02 03:36:58,263 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:37:26,169 - __main__ - INFO - Iteration 43: Signal=0, Confidence=0.0
+2026-04-02 03:37:26,169 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:37:28,457 - __main__ - INFO - Iteration 31: Signal=0, Confidence=0.0
+2026-04-02 03:37:28,457 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:37:56,494 - __main__ - INFO - Iteration 44: Signal=0, Confidence=0.0
+2026-04-02 03:37:56,494 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:37:58,719 - __main__ - INFO - Iteration 32: Signal=0, Confidence=0.0
+2026-04-02 03:37:58,719 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:38:26,777 - __main__ - INFO - Iteration 45: Signal=0, Confidence=0.0
+2026-04-02 03:38:26,777 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:38:28,994 - __main__ - INFO - Iteration 33: Signal=0, Confidence=0.0
+2026-04-02 03:38:28,994 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:38:57,029 - __main__ - INFO - Iteration 46: Signal=0, Confidence=0.0
+2026-04-02 03:38:57,029 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:38:59,270 - __main__ - INFO - Iteration 34: Signal=0, Confidence=0.0
+2026-04-02 03:38:59,270 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:39:27,240 - __main__ - INFO - Iteration 47: Signal=0, Confidence=0.0
+2026-04-02 03:39:27,240 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:39:29,478 - __main__ - INFO - Iteration 35: Signal=0, Confidence=0.0
+2026-04-02 03:39:29,478 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:39:57,519 - __main__ - INFO - Iteration 48: Signal=0, Confidence=0.0
+2026-04-02 03:39:57,519 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:39:59,732 - __main__ - INFO - Iteration 36: Signal=0, Confidence=0.0
+2026-04-02 03:39:59,732 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:40:27,860 - __main__ - INFO - Iteration 49: Signal=0, Confidence=0.0
+2026-04-02 03:40:27,860 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:40:30,019 - __main__ - INFO - Iteration 37: Signal=0, Confidence=0.0
+2026-04-02 03:40:30,019 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:40:58,080 - __main__ - INFO - Iteration 50: Signal=0, Confidence=0.0
+2026-04-02 03:40:58,080 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:41:00,289 - __main__ - INFO - Iteration 38: Signal=0, Confidence=0.0
+2026-04-02 03:41:00,289 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:41:28,355 - __main__ - INFO - Iteration 51: Signal=0, Confidence=0.0
+2026-04-02 03:41:28,355 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:41:30,475 - __main__ - INFO - Iteration 39: Signal=0, Confidence=0.0
+2026-04-02 03:41:30,475 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:41:58,562 - __main__ - INFO - Iteration 52: Signal=0, Confidence=0.0
+2026-04-02 03:41:58,562 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:42:00,782 - __main__ - INFO - Iteration 40: Signal=0, Confidence=0.0
+2026-04-02 03:42:00,783 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:42:28,814 - __main__ - INFO - Iteration 53: Signal=0, Confidence=0.0
+2026-04-02 03:42:28,814 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:42:30,977 - __main__ - INFO - Iteration 41: Signal=0, Confidence=0.0
+2026-04-02 03:42:30,977 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:42:59,136 - __main__ - INFO - Iteration 54: Signal=0, Confidence=0.0
+2026-04-02 03:42:59,137 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:43:01,224 - __main__ - INFO - Iteration 42: Signal=0, Confidence=0.0
+2026-04-02 03:43:01,224 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:43:29,316 - __main__ - INFO - Iteration 55: Signal=0, Confidence=0.0
+2026-04-02 03:43:29,317 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:43:31,469 - __main__ - INFO - Iteration 43: Signal=0, Confidence=0.0
+2026-04-02 03:43:31,469 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:43:59,573 - __main__ - INFO - Iteration 56: Signal=0, Confidence=0.0
+2026-04-02 03:43:59,573 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:44:01,759 - __main__ - INFO - Iteration 44: Signal=0, Confidence=0.0
+2026-04-02 03:44:01,759 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:44:29,751 - __main__ - INFO - Iteration 57: Signal=0, Confidence=0.0
+2026-04-02 03:44:29,752 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:44:32,058 - __main__ - INFO - Iteration 45: Signal=0, Confidence=0.0
+2026-04-02 03:44:32,058 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:44:59,990 - __main__ - INFO - Iteration 58: Signal=0, Confidence=0.0
+2026-04-02 03:44:59,990 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:45:02,302 - __main__ - INFO - Iteration 46: Signal=0, Confidence=0.0
+2026-04-02 03:45:02,302 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:45:30,184 - __main__ - INFO - Iteration 59: Signal=0, Confidence=0.0
+2026-04-02 03:45:30,184 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:45:32,576 - __main__ - INFO - Iteration 47: Signal=0, Confidence=0.0
+2026-04-02 03:45:32,576 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:46:00,395 - __main__ - INFO - Iteration 60: Signal=0, Confidence=0.0
+2026-04-02 03:46:00,396 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:46:02,769 - __main__ - INFO - Iteration 48: Signal=0, Confidence=0.0
+2026-04-02 03:46:02,769 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:46:30,666 - __main__ - INFO - Iteration 61: Signal=0, Confidence=0.0
+2026-04-02 03:46:30,667 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:46:33,013 - __main__ - INFO - Iteration 49: Signal=0, Confidence=0.0
+2026-04-02 03:46:33,013 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:47:00,947 - __main__ - INFO - Iteration 62: Signal=0, Confidence=0.0
+2026-04-02 03:47:00,947 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:47:03,249 - __main__ - INFO - Iteration 50: Signal=0, Confidence=0.0
+2026-04-02 03:47:03,250 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:47:31,263 - __main__ - INFO - Iteration 63: Signal=0, Confidence=0.0
+2026-04-02 03:47:31,263 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:47:33,503 - __main__ - INFO - Iteration 51: Signal=0, Confidence=0.0
+2026-04-02 03:47:33,503 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:48:01,487 - __main__ - INFO - Iteration 64: Signal=0, Confidence=0.0
+2026-04-02 03:48:01,487 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:48:03,708 - __main__ - INFO - Iteration 52: Signal=0, Confidence=0.0
+2026-04-02 03:48:03,708 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:48:31,787 - __main__ - INFO - Iteration 65: Signal=0, Confidence=0.0
+2026-04-02 03:48:31,787 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:48:33,936 - __main__ - INFO - Iteration 53: Signal=0, Confidence=0.0
+2026-04-02 03:48:33,936 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:49:02,115 - __main__ - INFO - Iteration 66: Signal=0, Confidence=0.0
+2026-04-02 03:49:02,115 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:49:04,189 - __main__ - INFO - Iteration 54: Signal=0, Confidence=0.0
+2026-04-02 03:49:04,189 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:49:32,422 - __main__ - INFO - Iteration 67: Signal=0, Confidence=0.0
+2026-04-02 03:49:32,422 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:49:34,426 - __main__ - INFO - Iteration 55: Signal=0, Confidence=0.0
+2026-04-02 03:49:34,426 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:50:02,734 - __main__ - INFO - Iteration 68: Signal=0, Confidence=0.0
+2026-04-02 03:50:02,734 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:50:04,680 - __main__ - INFO - Iteration 56: Signal=0, Confidence=0.0
+2026-04-02 03:50:04,680 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:50:32,946 - __main__ - INFO - Iteration 69: Signal=0, Confidence=0.0
+2026-04-02 03:50:32,946 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:50:34,844 - __main__ - INFO - Iteration 57: Signal=0, Confidence=0.0
+2026-04-02 03:50:34,844 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:51:03,143 - __main__ - INFO - Iteration 70: Signal=0, Confidence=0.0
+2026-04-02 03:51:03,143 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:51:05,000 - __main__ - INFO - Iteration 58: Signal=0, Confidence=0.0
+2026-04-02 03:51:05,000 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:51:33,336 - __main__ - INFO - Iteration 71: Signal=0, Confidence=0.0
+2026-04-02 03:51:33,336 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:51:35,160 - __main__ - INFO - Iteration 59: Signal=0, Confidence=0.0
+2026-04-02 03:51:35,160 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:52:03,566 - __main__ - INFO - Iteration 72: Signal=0, Confidence=0.0
+2026-04-02 03:52:03,566 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:52:05,337 - __main__ - INFO - Iteration 60: Signal=0, Confidence=0.0
+2026-04-02 03:52:05,337 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:52:33,789 - __main__ - INFO - Iteration 73: Signal=0, Confidence=0.0
+2026-04-02 03:52:33,789 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:52:35,515 - __main__ - INFO - Iteration 61: Signal=0, Confidence=0.0
+2026-04-02 03:52:35,515 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:53:04,018 - __main__ - INFO - Iteration 74: Signal=0, Confidence=0.0
+2026-04-02 03:53:04,018 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:53:05,688 - __main__ - INFO - Iteration 62: Signal=0, Confidence=0.0
+2026-04-02 03:53:05,688 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:53:34,212 - __main__ - INFO - Iteration 75: Signal=0, Confidence=0.0
+2026-04-02 03:53:34,212 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:53:35,880 - __main__ - INFO - Iteration 63: Signal=0, Confidence=0.0
+2026-04-02 03:53:35,880 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:54:04,423 - __main__ - INFO - Iteration 76: Signal=0, Confidence=0.0
+2026-04-02 03:54:04,423 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:54:06,060 - __main__ - INFO - Iteration 64: Signal=0, Confidence=0.0
+2026-04-02 03:54:06,060 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:54:34,639 - __main__ - INFO - Iteration 77: Signal=0, Confidence=0.0
+2026-04-02 03:54:34,639 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:54:36,274 - __main__ - INFO - Iteration 65: Signal=0, Confidence=0.0
+2026-04-02 03:54:36,274 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:55:04,841 - __main__ - INFO - Iteration 78: Signal=0, Confidence=0.0
+2026-04-02 03:55:04,841 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:55:06,458 - __main__ - INFO - Iteration 66: Signal=0, Confidence=0.0
+2026-04-02 03:55:06,458 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:55:35,063 - __main__ - INFO - Iteration 79: Signal=0, Confidence=0.0
+2026-04-02 03:55:35,063 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:55:36,661 - __main__ - INFO - Iteration 67: Signal=0, Confidence=0.0
+2026-04-02 03:55:36,661 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:56:05,488 - __main__ - INFO - Iteration 80: Signal=0, Confidence=0.0
+2026-04-02 03:56:05,488 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:56:06,936 - __main__ - INFO - Iteration 68: Signal=0, Confidence=0.0
+2026-04-02 03:56:06,936 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:56:35,751 - __main__ - INFO - Iteration 81: Signal=0, Confidence=0.0
+2026-04-02 03:56:35,751 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:56:37,251 - __main__ - INFO - Iteration 69: Signal=0, Confidence=0.0
+2026-04-02 03:56:37,251 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:57:06,072 - __main__ - INFO - Iteration 82: Signal=0, Confidence=0.0
+2026-04-02 03:57:06,072 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:57:07,534 - __main__ - INFO - Iteration 70: Signal=0, Confidence=0.0
+2026-04-02 03:57:07,534 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:57:36,375 - __main__ - INFO - Iteration 83: Signal=0, Confidence=0.0
+2026-04-02 03:57:36,375 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:57:37,874 - __main__ - INFO - Iteration 71: Signal=0, Confidence=0.0
+2026-04-02 03:57:37,875 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:58:06,641 - __main__ - INFO - Iteration 84: Signal=0, Confidence=0.0
+2026-04-02 03:58:06,641 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:58:08,174 - __main__ - INFO - Iteration 72: Signal=0, Confidence=0.0
+2026-04-02 03:58:08,174 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:58:36,988 - __main__ - INFO - Iteration 85: Signal=0, Confidence=0.0
+2026-04-02 03:58:36,989 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:58:38,465 - __main__ - INFO - Iteration 73: Signal=0, Confidence=0.0
+2026-04-02 03:58:38,465 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:59:07,385 - __main__ - INFO - Iteration 86: Signal=0, Confidence=0.0
+2026-04-02 03:59:07,385 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:59:08,683 - __main__ - INFO - Iteration 74: Signal=0, Confidence=0.0
+2026-04-02 03:59:08,683 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:59:37,619 - __main__ - INFO - Iteration 87: Signal=0, Confidence=0.0
+2026-04-02 03:59:37,619 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 03:59:38,900 - __main__ - INFO - Iteration 75: Signal=0, Confidence=0.0
+2026-04-02 03:59:38,900 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:00:07,843 - __main__ - INFO - Iteration 88: Signal=0, Confidence=0.0
+2026-04-02 04:00:07,843 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:00:09,236 - __main__ - INFO - Iteration 76: Signal=0, Confidence=0.0
+2026-04-02 04:00:09,236 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:00:38,173 - __main__ - INFO - Iteration 89: Signal=0, Confidence=0.0
+2026-04-02 04:00:38,173 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:00:39,485 - __main__ - INFO - Iteration 77: Signal=0, Confidence=0.0
+2026-04-02 04:00:39,486 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:01:08,452 - __main__ - INFO - Iteration 90: Signal=0, Confidence=0.0
+2026-04-02 04:01:08,453 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:01:09,781 - __main__ - INFO - Iteration 78: Signal=0, Confidence=0.0
+2026-04-02 04:01:09,781 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:01:38,674 - __main__ - INFO - Iteration 91: Signal=0, Confidence=0.0
+2026-04-02 04:01:38,674 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:01:40,136 - __main__ - INFO - Iteration 79: Signal=0, Confidence=0.0
+2026-04-02 04:01:40,136 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:02:09,004 - __main__ - INFO - Iteration 92: Signal=0, Confidence=0.0
+2026-04-02 04:02:09,004 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:02:10,449 - __main__ - INFO - Iteration 80: Signal=0, Confidence=0.0
+2026-04-02 04:02:10,449 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:02:39,253 - __main__ - INFO - Iteration 93: Signal=0, Confidence=0.0
+2026-04-02 04:02:39,253 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:02:40,776 - __main__ - INFO - Iteration 81: Signal=0, Confidence=0.0
+2026-04-02 04:02:40,776 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:03:09,633 - __main__ - INFO - Iteration 94: Signal=0, Confidence=0.0
+2026-04-02 04:03:09,633 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:03:11,109 - __main__ - INFO - Iteration 82: Signal=0, Confidence=0.0
+2026-04-02 04:03:11,109 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:03:39,861 - __main__ - INFO - Iteration 95: Signal=0, Confidence=0.0
+2026-04-02 04:03:39,861 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:03:41,329 - __main__ - INFO - Iteration 83: Signal=0, Confidence=0.0
+2026-04-02 04:03:41,329 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:04:10,110 - __main__ - INFO - Iteration 96: Signal=0, Confidence=0.0
+2026-04-02 04:04:10,110 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:04:11,787 - __main__ - INFO - Iteration 84: Signal=0, Confidence=0.0
+2026-04-02 04:04:11,787 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:04:40,442 - __main__ - INFO - Iteration 97: Signal=0, Confidence=0.0
+2026-04-02 04:04:40,442 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:04:42,139 - __main__ - INFO - Iteration 85: Signal=0, Confidence=0.0
+2026-04-02 04:04:42,139 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:05:10,929 - __main__ - INFO - Iteration 98: Signal=0, Confidence=0.0
+2026-04-02 04:05:10,929 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:05:12,431 - __main__ - INFO - Iteration 86: Signal=0, Confidence=0.0
+2026-04-02 04:05:12,431 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:05:41,270 - __main__ - INFO - Iteration 99: Signal=0, Confidence=0.0
+2026-04-02 04:05:41,270 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:05:42,811 - __main__ - INFO - Iteration 87: Signal=0, Confidence=0.0
+2026-04-02 04:05:42,811 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:06:11,612 - __main__ - INFO - Iteration 100: Signal=0, Confidence=0.0
+2026-04-02 04:06:11,612 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:06:13,138 - __main__ - INFO - Iteration 88: Signal=0, Confidence=0.0
+2026-04-02 04:06:13,138 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:06:41,939 - __main__ - INFO - Iteration 101: Signal=0, Confidence=0.0
+2026-04-02 04:06:41,940 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:06:43,485 - __main__ - INFO - Iteration 89: Signal=0, Confidence=0.0
+2026-04-02 04:06:43,485 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:07:12,278 - __main__ - INFO - Iteration 102: Signal=0, Confidence=0.0
+2026-04-02 04:07:12,278 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:07:13,750 - __main__ - INFO - Iteration 90: Signal=0, Confidence=0.0
+2026-04-02 04:07:13,750 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:07:42,649 - __main__ - INFO - Iteration 103: Signal=0, Confidence=0.0
+2026-04-02 04:07:42,650 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:07:44,126 - __main__ - INFO - Iteration 91: Signal=0, Confidence=0.0
+2026-04-02 04:07:44,126 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:08:13,080 - __main__ - INFO - Iteration 104: Signal=0, Confidence=0.0
+2026-04-02 04:08:13,080 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:08:14,371 - __main__ - INFO - Iteration 92: Signal=0, Confidence=0.0
+2026-04-02 04:08:14,372 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:08:43,274 - __main__ - INFO - Iteration 105: Signal=0, Confidence=0.0
+2026-04-02 04:08:43,274 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:08:44,672 - __main__ - INFO - Iteration 93: Signal=0, Confidence=0.0
+2026-04-02 04:08:44,672 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:09:13,594 - __main__ - INFO - Iteration 106: Signal=0, Confidence=0.0
+2026-04-02 04:09:13,594 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:09:15,063 - __main__ - INFO - Iteration 94: Signal=0, Confidence=0.0
+2026-04-02 04:09:15,063 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:09:43,876 - __main__ - INFO - Iteration 107: Signal=0, Confidence=0.0
+2026-04-02 04:09:43,876 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:09:45,449 - __main__ - INFO - Iteration 95: Signal=0, Confidence=0.0
+2026-04-02 04:09:45,449 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:10:14,156 - __main__ - INFO - Iteration 108: Signal=0, Confidence=0.0
+2026-04-02 04:10:14,156 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:10:15,782 - __main__ - INFO - Iteration 96: Signal=0, Confidence=0.0
+2026-04-02 04:10:15,782 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:10:44,398 - __main__ - INFO - Iteration 109: Signal=0, Confidence=0.0
+2026-04-02 04:10:44,399 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:10:46,069 - __main__ - INFO - Iteration 97: Signal=0, Confidence=0.0
+2026-04-02 04:10:46,069 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:11:14,661 - __main__ - INFO - Iteration 110: Signal=0, Confidence=0.0
+2026-04-02 04:11:14,662 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:11:16,368 - __main__ - INFO - Iteration 98: Signal=0, Confidence=0.0
+2026-04-02 04:11:16,368 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:11:44,976 - __main__ - INFO - Iteration 111: Signal=0, Confidence=0.0
+2026-04-02 04:11:44,977 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:11:46,731 - __main__ - INFO - Iteration 99: Signal=0, Confidence=0.0
+2026-04-02 04:11:46,731 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:12:15,302 - __main__ - INFO - Iteration 112: Signal=0, Confidence=0.0
+2026-04-02 04:12:15,302 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:12:17,033 - __main__ - INFO - Iteration 100: Signal=0, Confidence=0.0
+2026-04-02 04:12:17,033 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:12:45,619 - __main__ - INFO - Iteration 113: Signal=0, Confidence=0.0
+2026-04-02 04:12:45,619 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:12:47,352 - __main__ - INFO - Iteration 101: Signal=0, Confidence=0.0
+2026-04-02 04:12:47,352 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:13:15,952 - __main__ - INFO - Iteration 114: Signal=0, Confidence=0.0
+2026-04-02 04:13:15,952 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:13:17,666 - __main__ - INFO - Iteration 102: Signal=0, Confidence=0.0
+2026-04-02 04:13:17,666 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:13:46,276 - __main__ - INFO - Iteration 115: Signal=0, Confidence=0.0
+2026-04-02 04:13:46,276 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:13:47,966 - __main__ - INFO - Iteration 103: Signal=0, Confidence=0.0
+2026-04-02 04:13:47,967 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:14:16,604 - __main__ - INFO - Iteration 116: Signal=0, Confidence=0.0
+2026-04-02 04:14:16,605 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:14:18,303 - __main__ - INFO - Iteration 104: Signal=0, Confidence=0.0
+2026-04-02 04:14:18,304 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:14:46,889 - __main__ - INFO - Iteration 117: Signal=0, Confidence=0.0
+2026-04-02 04:14:46,889 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:14:48,597 - __main__ - INFO - Iteration 105: Signal=0, Confidence=0.0
+2026-04-02 04:14:48,597 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:15:17,182 - __main__ - INFO - Iteration 118: Signal=0, Confidence=0.0
+2026-04-02 04:15:17,182 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:15:18,891 - __main__ - INFO - Iteration 106: Signal=0, Confidence=0.0
+2026-04-02 04:15:18,891 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:15:47,480 - __main__ - INFO - Iteration 119: Signal=0, Confidence=0.0
+2026-04-02 04:15:47,480 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:15:49,176 - __main__ - INFO - Iteration 107: Signal=0, Confidence=0.0
+2026-04-02 04:15:49,177 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:16:17,767 - __main__ - INFO - Iteration 120: Signal=0, Confidence=0.0
+2026-04-02 04:16:17,767 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:16:19,469 - __main__ - INFO - Iteration 108: Signal=0, Confidence=0.0
+2026-04-02 04:16:19,469 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:16:47,991 - __main__ - INFO - Iteration 121: Signal=0, Confidence=0.0
+2026-04-02 04:16:47,992 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:16:49,714 - __main__ - INFO - Iteration 109: Signal=0, Confidence=0.0
+2026-04-02 04:16:49,714 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:17:18,355 - __main__ - INFO - Iteration 122: Signal=0, Confidence=0.0
+2026-04-02 04:17:18,355 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:17:20,077 - __main__ - INFO - Iteration 110: Signal=0, Confidence=0.0
+2026-04-02 04:17:20,078 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:17:48,721 - __main__ - INFO - Iteration 123: Signal=0, Confidence=0.0
+2026-04-02 04:17:48,721 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:17:50,446 - __main__ - INFO - Iteration 111: Signal=0, Confidence=0.0
+2026-04-02 04:17:50,446 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:18:18,952 - __main__ - INFO - Iteration 124: Signal=0, Confidence=0.0
+2026-04-02 04:18:18,952 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:18:20,787 - __main__ - INFO - Iteration 112: Signal=0, Confidence=0.0
+2026-04-02 04:18:20,788 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:18:49,386 - __main__ - INFO - Iteration 125: Signal=0, Confidence=0.0
+2026-04-02 04:18:49,386 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:18:51,154 - __main__ - INFO - Iteration 113: Signal=0, Confidence=0.0
+2026-04-02 04:18:51,154 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:19:19,701 - __main__ - INFO - Iteration 126: Signal=0, Confidence=0.0
+2026-04-02 04:19:19,701 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:19:21,452 - __main__ - INFO - Iteration 114: Signal=0, Confidence=0.0
+2026-04-02 04:19:21,452 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:19:50,016 - __main__ - INFO - Iteration 127: Signal=0, Confidence=0.0
+2026-04-02 04:19:50,016 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:19:51,763 - __main__ - INFO - Iteration 115: Signal=0, Confidence=0.0
+2026-04-02 04:19:51,763 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:20:20,308 - __main__ - INFO - Iteration 128: Signal=0, Confidence=0.0
+2026-04-02 04:20:20,309 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:20:22,095 - __main__ - INFO - Iteration 116: Signal=0, Confidence=0.0
+2026-04-02 04:20:22,096 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:20:50,626 - __main__ - INFO - Iteration 129: Signal=0, Confidence=0.0
+2026-04-02 04:20:50,626 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:20:52,454 - __main__ - INFO - Iteration 117: Signal=0, Confidence=0.0
+2026-04-02 04:20:52,454 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:21:20,861 - __main__ - INFO - Iteration 130: Signal=0, Confidence=0.0
+2026-04-02 04:21:20,862 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:21:22,684 - __main__ - INFO - Iteration 118: Signal=0, Confidence=0.0
+2026-04-02 04:21:22,685 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:21:51,143 - __main__ - INFO - Iteration 131: Signal=0, Confidence=0.0
+2026-04-02 04:21:51,143 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:21:53,030 - __main__ - INFO - Iteration 119: Signal=0, Confidence=0.0
+2026-04-02 04:21:53,030 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:22:21,420 - __main__ - INFO - Iteration 132: Signal=0, Confidence=0.0
+2026-04-02 04:22:21,421 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:22:23,343 - __main__ - INFO - Iteration 120: Signal=0, Confidence=0.0
+2026-04-02 04:22:23,343 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:22:51,785 - __main__ - INFO - Iteration 133: Signal=0, Confidence=0.0
+2026-04-02 04:22:51,785 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:22:53,686 - __main__ - INFO - Iteration 121: Signal=0, Confidence=0.0
+2026-04-02 04:22:53,687 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:23:22,107 - __main__ - INFO - Iteration 134: Signal=0, Confidence=0.0
+2026-04-02 04:23:22,107 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:23:23,974 - __main__ - INFO - Iteration 122: Signal=0, Confidence=0.0
+2026-04-02 04:23:23,974 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:23:52,450 - __main__ - INFO - Iteration 135: Signal=0, Confidence=0.0
+2026-04-02 04:23:52,450 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:23:54,314 - __main__ - INFO - Iteration 123: Signal=0, Confidence=0.0
+2026-04-02 04:23:54,314 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:24:22,721 - __main__ - INFO - Iteration 136: Signal=0, Confidence=0.0
+2026-04-02 04:24:22,722 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:24:24,583 - __main__ - INFO - Iteration 124: Signal=0, Confidence=0.0
+2026-04-02 04:24:24,583 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:24:53,109 - __main__ - INFO - Iteration 137: Signal=0, Confidence=0.0
+2026-04-02 04:24:53,109 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:24:54,879 - __main__ - INFO - Iteration 125: Signal=0, Confidence=0.0
+2026-04-02 04:24:54,879 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:25:23,474 - __main__ - INFO - Iteration 138: Signal=0, Confidence=0.0
+2026-04-02 04:25:23,475 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:25:25,172 - __main__ - INFO - Iteration 126: Signal=0, Confidence=0.0
+2026-04-02 04:25:25,172 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:25:53,886 - __main__ - INFO - Iteration 139: Signal=0, Confidence=0.0
+2026-04-02 04:25:53,886 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:25:55,561 - __main__ - INFO - Iteration 127: Signal=0, Confidence=0.0
+2026-04-02 04:25:55,561 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:26:24,204 - __main__ - INFO - Iteration 140: Signal=0, Confidence=0.0
+2026-04-02 04:26:24,204 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:26:25,835 - __main__ - INFO - Iteration 128: Signal=0, Confidence=0.0
+2026-04-02 04:26:25,835 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:26:54,494 - __main__ - INFO - Iteration 141: Signal=0, Confidence=0.0
+2026-04-02 04:26:54,494 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:26:56,114 - __main__ - INFO - Iteration 129: Signal=0, Confidence=0.0
+2026-04-02 04:26:56,114 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:27:24,823 - __main__ - INFO - Iteration 142: Signal=0, Confidence=0.0
+2026-04-02 04:27:24,823 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:27:26,449 - __main__ - INFO - Iteration 130: Signal=0, Confidence=0.0
+2026-04-02 04:27:26,449 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:27:55,099 - __main__ - INFO - Iteration 143: Signal=0, Confidence=0.0
+2026-04-02 04:27:55,099 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:27:56,713 - __main__ - INFO - Iteration 131: Signal=0, Confidence=0.0
+2026-04-02 04:27:56,713 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:28:25,382 - __main__ - INFO - Iteration 144: Signal=0, Confidence=0.0
+2026-04-02 04:28:25,383 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:28:26,997 - __main__ - INFO - Iteration 132: Signal=0, Confidence=0.0
+2026-04-02 04:28:26,997 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:28:55,747 - __main__ - INFO - Iteration 145: Signal=0, Confidence=0.0
+2026-04-02 04:28:55,747 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:28:57,224 - __main__ - INFO - Iteration 133: Signal=0, Confidence=0.0
+2026-04-02 04:28:57,224 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:29:26,078 - __main__ - INFO - Iteration 146: Signal=0, Confidence=0.0
+2026-04-02 04:29:26,078 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:29:27,511 - __main__ - INFO - Iteration 134: Signal=0, Confidence=0.0
+2026-04-02 04:29:27,511 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:29:56,281 - __main__ - INFO - Iteration 147: Signal=0, Confidence=0.0
+2026-04-02 04:29:56,281 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:29:57,851 - __main__ - INFO - Iteration 135: Signal=0, Confidence=0.0
+2026-04-02 04:29:57,851 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:30:26,478 - __main__ - INFO - Iteration 148: Signal=0, Confidence=0.0
+2026-04-02 04:30:26,479 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:30:28,187 - __main__ - INFO - Iteration 136: Signal=0, Confidence=0.0
+2026-04-02 04:30:28,187 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:30:56,711 - __main__ - INFO - Iteration 149: Signal=0, Confidence=0.0
+2026-04-02 04:30:56,712 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:30:58,542 - __main__ - INFO - Iteration 137: Signal=0, Confidence=0.0
+2026-04-02 04:30:58,542 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:31:27,057 - __main__ - INFO - Iteration 150: Signal=0, Confidence=0.0
+2026-04-02 04:31:27,058 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:31:28,885 - __main__ - INFO - Iteration 138: Signal=0, Confidence=0.0
+2026-04-02 04:31:28,886 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:31:57,286 - __main__ - INFO - Iteration 151: Signal=0, Confidence=0.0
+2026-04-02 04:31:57,286 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:31:59,233 - __main__ - INFO - Iteration 139: Signal=0, Confidence=0.0
+2026-04-02 04:31:59,233 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:32:27,592 - __main__ - INFO - Iteration 152: Signal=0, Confidence=0.0
+2026-04-02 04:32:27,592 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:32:29,545 - __main__ - INFO - Iteration 140: Signal=0, Confidence=0.0
+2026-04-02 04:32:29,545 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:32:57,962 - __main__ - INFO - Iteration 153: Signal=0, Confidence=0.0
+2026-04-02 04:32:57,962 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:32:59,814 - __main__ - INFO - Iteration 141: Signal=0, Confidence=0.0
+2026-04-02 04:32:59,814 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:33:28,251 - __main__ - INFO - Iteration 154: Signal=0, Confidence=0.0
+2026-04-02 04:33:28,251 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:33:30,092 - __main__ - INFO - Iteration 142: Signal=0, Confidence=0.0
+2026-04-02 04:33:30,092 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:33:58,546 - __main__ - INFO - Iteration 155: Signal=0, Confidence=0.0
+2026-04-02 04:33:58,546 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:34:00,358 - __main__ - INFO - Iteration 143: Signal=0, Confidence=0.0
+2026-04-02 04:34:00,359 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:34:28,830 - __main__ - INFO - Iteration 156: Signal=0, Confidence=0.0
+2026-04-02 04:34:28,830 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:34:30,661 - __main__ - INFO - Iteration 144: Signal=0, Confidence=0.0
+2026-04-02 04:34:30,661 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:34:59,095 - __main__ - INFO - Iteration 157: Signal=0, Confidence=0.0
+2026-04-02 04:34:59,095 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:35:00,925 - __main__ - INFO - Iteration 145: Signal=0, Confidence=0.0
+2026-04-02 04:35:00,925 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:35:29,350 - __main__ - INFO - Iteration 158: Signal=0, Confidence=0.0
+2026-04-02 04:35:29,350 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:35:31,224 - __main__ - INFO - Iteration 146: Signal=0, Confidence=0.0
+2026-04-02 04:35:31,224 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:35:59,581 - __main__ - INFO - Iteration 159: Signal=0, Confidence=0.0
+2026-04-02 04:35:59,581 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:36:01,466 - __main__ - INFO - Iteration 147: Signal=0, Confidence=0.0
+2026-04-02 04:36:01,466 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:36:29,916 - __main__ - INFO - Iteration 160: Signal=0, Confidence=0.0
+2026-04-02 04:36:29,916 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:36:31,787 - __main__ - INFO - Iteration 148: Signal=0, Confidence=0.0
+2026-04-02 04:36:31,787 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:37:00,243 - __main__ - INFO - Iteration 161: Signal=0, Confidence=0.0
+2026-04-02 04:37:00,243 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:37:02,054 - __main__ - INFO - Iteration 149: Signal=0, Confidence=0.0
+2026-04-02 04:37:02,054 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:37:30,576 - __main__ - INFO - Iteration 162: Signal=0, Confidence=0.0
+2026-04-02 04:37:30,576 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:37:32,293 - __main__ - INFO - Iteration 150: Signal=0, Confidence=0.0
+2026-04-02 04:37:32,293 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:38:00,839 - __main__ - INFO - Iteration 163: Signal=0, Confidence=0.0
+2026-04-02 04:38:00,839 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:38:02,557 - __main__ - INFO - Iteration 151: Signal=0, Confidence=0.0
+2026-04-02 04:38:02,558 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:38:31,122 - __main__ - INFO - Iteration 164: Signal=0, Confidence=0.0
+2026-04-02 04:38:31,122 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:38:32,840 - __main__ - INFO - Iteration 152: Signal=0, Confidence=0.0
+2026-04-02 04:38:32,840 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:39:01,401 - __main__ - INFO - Iteration 165: Signal=0, Confidence=0.0
+2026-04-02 04:39:01,402 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:39:03,136 - __main__ - INFO - Iteration 153: Signal=0, Confidence=0.0
+2026-04-02 04:39:03,136 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:39:31,678 - __main__ - INFO - Iteration 166: Signal=0, Confidence=0.0
+2026-04-02 04:39:31,678 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:39:33,421 - __main__ - INFO - Iteration 154: Signal=0, Confidence=0.0
+2026-04-02 04:39:33,421 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:40:01,942 - __main__ - INFO - Iteration 167: Signal=0, Confidence=0.0
+2026-04-02 04:40:01,942 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:40:03,698 - __main__ - INFO - Iteration 155: Signal=0, Confidence=0.0
+2026-04-02 04:40:03,698 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:40:32,227 - __main__ - INFO - Iteration 168: Signal=0, Confidence=0.0
+2026-04-02 04:40:32,228 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:40:33,984 - __main__ - INFO - Iteration 156: Signal=0, Confidence=0.0
+2026-04-02 04:40:33,984 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:41:02,518 - __main__ - INFO - Iteration 169: Signal=0, Confidence=0.0
+2026-04-02 04:41:02,518 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:41:04,262 - __main__ - INFO - Iteration 157: Signal=0, Confidence=0.0
+2026-04-02 04:41:04,262 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:41:32,804 - __main__ - INFO - Iteration 170: Signal=0, Confidence=0.0
+2026-04-02 04:41:32,804 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:41:34,546 - __main__ - INFO - Iteration 158: Signal=0, Confidence=0.0
+2026-04-02 04:41:34,546 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:42:03,085 - __main__ - INFO - Iteration 171: Signal=0, Confidence=0.0
+2026-04-02 04:42:03,085 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:42:04,822 - __main__ - INFO - Iteration 159: Signal=0, Confidence=0.0
+2026-04-02 04:42:04,822 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:42:33,363 - __main__ - INFO - Iteration 172: Signal=0, Confidence=0.0
+2026-04-02 04:42:33,363 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:42:35,100 - __main__ - INFO - Iteration 160: Signal=0, Confidence=0.0
+2026-04-02 04:42:35,100 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:43:03,637 - __main__ - INFO - Iteration 173: Signal=0, Confidence=0.0
+2026-04-02 04:43:03,637 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:43:05,380 - __main__ - INFO - Iteration 161: Signal=0, Confidence=0.0
+2026-04-02 04:43:05,380 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:43:33,916 - __main__ - INFO - Iteration 174: Signal=0, Confidence=0.0
+2026-04-02 04:43:33,916 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:43:35,658 - __main__ - INFO - Iteration 162: Signal=0, Confidence=0.0
+2026-04-02 04:43:35,658 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:44:04,207 - __main__ - INFO - Iteration 175: Signal=0, Confidence=0.0
+2026-04-02 04:44:04,207 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:44:05,953 - __main__ - INFO - Iteration 163: Signal=0, Confidence=0.0
+2026-04-02 04:44:05,953 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:44:34,486 - __main__ - INFO - Iteration 176: Signal=0, Confidence=0.0
+2026-04-02 04:44:34,486 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:44:36,233 - __main__ - INFO - Iteration 164: Signal=0, Confidence=0.0
+2026-04-02 04:44:36,234 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:45:04,774 - __main__ - INFO - Iteration 177: Signal=0, Confidence=0.0
+2026-04-02 04:45:04,774 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:45:06,513 - __main__ - INFO - Iteration 165: Signal=0, Confidence=0.0
+2026-04-02 04:45:06,513 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:45:35,045 - __main__ - INFO - Iteration 178: Signal=0, Confidence=0.0
+2026-04-02 04:45:35,045 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:45:36,794 - __main__ - INFO - Iteration 166: Signal=0, Confidence=0.0
+2026-04-02 04:45:36,794 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:46:05,333 - __main__ - INFO - Iteration 179: Signal=0, Confidence=0.0
+2026-04-02 04:46:05,333 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:46:07,083 - __main__ - INFO - Iteration 167: Signal=0, Confidence=0.0
+2026-04-02 04:46:07,083 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:46:35,627 - __main__ - INFO - Iteration 180: Signal=0, Confidence=0.0
+2026-04-02 04:46:35,627 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:46:37,375 - __main__ - INFO - Iteration 168: Signal=0, Confidence=0.0
+2026-04-02 04:46:37,376 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:47:05,902 - __main__ - INFO - Iteration 181: Signal=0, Confidence=0.0
+2026-04-02 04:47:05,902 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:47:07,651 - __main__ - INFO - Iteration 169: Signal=0, Confidence=0.0
+2026-04-02 04:47:07,652 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:47:36,228 - __main__ - INFO - Iteration 182: Signal=0, Confidence=0.0
+2026-04-02 04:47:36,228 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:47:37,922 - __main__ - INFO - Iteration 170: Signal=0, Confidence=0.0
+2026-04-02 04:47:37,922 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:48:06,567 - __main__ - INFO - Iteration 183: Signal=0, Confidence=0.0
+2026-04-02 04:48:06,567 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:48:08,263 - __main__ - INFO - Iteration 171: Signal=0, Confidence=0.0
+2026-04-02 04:48:08,263 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:48:36,785 - __main__ - INFO - Iteration 184: Signal=0, Confidence=0.0
+2026-04-02 04:48:36,786 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:48:38,507 - __main__ - INFO - Iteration 172: Signal=0, Confidence=0.0
+2026-04-02 04:48:38,507 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:49:07,053 - __main__ - INFO - Iteration 185: Signal=0, Confidence=0.0
+2026-04-02 04:49:07,053 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:49:08,775 - __main__ - INFO - Iteration 173: Signal=0, Confidence=0.0
+2026-04-02 04:49:08,775 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:49:37,363 - __main__ - INFO - Iteration 186: Signal=0, Confidence=0.0
+2026-04-02 04:49:37,363 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:49:39,061 - __main__ - INFO - Iteration 174: Signal=0, Confidence=0.0
+2026-04-02 04:49:39,061 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:50:07,617 - __main__ - INFO - Iteration 187: Signal=0, Confidence=0.0
+2026-04-02 04:50:07,618 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:50:09,313 - __main__ - INFO - Iteration 175: Signal=0, Confidence=0.0
+2026-04-02 04:50:09,313 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:50:37,940 - __main__ - INFO - Iteration 188: Signal=0, Confidence=0.0
+2026-04-02 04:50:37,940 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:50:39,583 - __main__ - INFO - Iteration 176: Signal=0, Confidence=0.0
+2026-04-02 04:50:39,583 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:51:08,220 - __main__ - INFO - Iteration 189: Signal=0, Confidence=0.0
+2026-04-02 04:51:08,220 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:51:09,862 - __main__ - INFO - Iteration 177: Signal=0, Confidence=0.0
+2026-04-02 04:51:09,862 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:51:38,540 - __main__ - INFO - Iteration 190: Signal=0, Confidence=0.0
+2026-04-02 04:51:38,541 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:51:40,157 - __main__ - INFO - Iteration 178: Signal=0, Confidence=0.0
+2026-04-02 04:51:40,158 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:52:08,789 - __main__ - INFO - Iteration 191: Signal=0, Confidence=0.0
+2026-04-02 04:52:08,789 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:52:10,425 - __main__ - INFO - Iteration 179: Signal=0, Confidence=0.0
+2026-04-02 04:52:10,425 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:52:39,058 - __main__ - INFO - Iteration 192: Signal=0, Confidence=0.0
+2026-04-02 04:52:39,059 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:52:40,727 - __main__ - INFO - Iteration 180: Signal=0, Confidence=0.0
+2026-04-02 04:52:40,727 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:53:09,339 - __main__ - INFO - Iteration 193: Signal=0, Confidence=0.0
+2026-04-02 04:53:09,339 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:53:11,040 - __main__ - INFO - Iteration 181: Signal=0, Confidence=0.0
+2026-04-02 04:53:11,040 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:53:39,624 - __main__ - INFO - Iteration 194: Signal=0, Confidence=0.0
+2026-04-02 04:53:39,624 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:53:41,345 - __main__ - INFO - Iteration 182: Signal=0, Confidence=0.0
+2026-04-02 04:53:41,345 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:54:09,909 - __main__ - INFO - Iteration 195: Signal=0, Confidence=0.0
+2026-04-02 04:54:09,909 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:54:11,673 - __main__ - INFO - Iteration 183: Signal=0, Confidence=0.0
+2026-04-02 04:54:11,673 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:54:40,189 - __main__ - INFO - Iteration 196: Signal=0, Confidence=0.0
+2026-04-02 04:54:40,189 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:54:41,958 - __main__ - INFO - Iteration 184: Signal=0, Confidence=0.0
+2026-04-02 04:54:41,958 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:55:10,479 - __main__ - INFO - Iteration 197: Signal=0, Confidence=0.0
+2026-04-02 04:55:10,479 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:55:12,240 - __main__ - INFO - Iteration 185: Signal=0, Confidence=0.0
+2026-04-02 04:55:12,240 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:55:40,691 - __main__ - INFO - Iteration 198: Signal=0, Confidence=0.0
+2026-04-02 04:55:40,691 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:55:42,592 - __main__ - INFO - Iteration 186: Signal=0, Confidence=0.0
+2026-04-02 04:55:42,592 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:56:10,920 - __main__ - INFO - Iteration 199: Signal=0, Confidence=0.0
+2026-04-02 04:56:10,920 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:56:13,036 - __main__ - INFO - Iteration 187: Signal=0, Confidence=0.0
+2026-04-02 04:56:13,037 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:56:41,248 - __main__ - INFO - Iteration 200: Signal=0, Confidence=0.0
+2026-04-02 04:56:41,249 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:56:43,306 - __main__ - INFO - Iteration 188: Signal=0, Confidence=0.0
+2026-04-02 04:56:43,306 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:57:11,488 - __main__ - INFO - Iteration 201: Signal=0, Confidence=0.0
+2026-04-02 04:57:11,489 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:57:13,627 - __main__ - INFO - Iteration 189: Signal=0, Confidence=0.0
+2026-04-02 04:57:13,628 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:57:41,818 - __main__ - INFO - Iteration 202: Signal=0, Confidence=0.0
+2026-04-02 04:57:41,818 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:57:43,840 - __main__ - INFO - Iteration 190: Signal=0, Confidence=0.0
+2026-04-02 04:57:43,841 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:58:12,094 - __main__ - INFO - Iteration 203: Signal=0, Confidence=0.0
+2026-04-02 04:58:12,094 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:58:14,166 - __main__ - INFO - Iteration 191: Signal=0, Confidence=0.0
+2026-04-02 04:58:14,166 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:58:42,425 - __main__ - INFO - Iteration 204: Signal=0, Confidence=0.0
+2026-04-02 04:58:42,425 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:58:44,449 - __main__ - INFO - Iteration 192: Signal=0, Confidence=0.0
+2026-04-02 04:58:44,449 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:59:12,648 - __main__ - INFO - Iteration 205: Signal=0, Confidence=0.0
+2026-04-02 04:59:12,648 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:59:14,779 - __main__ - INFO - Iteration 193: Signal=0, Confidence=0.0
+2026-04-02 04:59:14,780 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:59:42,873 - __main__ - INFO - Iteration 206: Signal=0, Confidence=0.0
+2026-04-02 04:59:42,873 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 04:59:44,996 - __main__ - INFO - Iteration 194: Signal=0, Confidence=0.0
+2026-04-02 04:59:44,996 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:00:13,168 - __main__ - INFO - Iteration 207: Signal=0, Confidence=0.0
+2026-04-02 05:00:13,168 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:00:15,312 - __main__ - INFO - Iteration 195: Signal=0, Confidence=0.0
+2026-04-02 05:00:15,312 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:00:43,435 - __main__ - INFO - Iteration 208: Signal=0, Confidence=0.0
+2026-04-02 05:00:43,435 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:00:45,677 - __main__ - INFO - Iteration 196: Signal=0, Confidence=0.0
+2026-04-02 05:00:45,677 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:01:13,728 - __main__ - INFO - Iteration 209: Signal=0, Confidence=0.0
+2026-04-02 05:01:13,728 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:01:15,932 - __main__ - INFO - Iteration 197: Signal=0, Confidence=0.0
+2026-04-02 05:01:15,932 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:01:43,937 - __main__ - INFO - Iteration 210: Signal=0, Confidence=0.0
+2026-04-02 05:01:43,937 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:01:46,162 - __main__ - INFO - Iteration 198: Signal=0, Confidence=0.0
+2026-04-02 05:01:46,163 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:02:14,145 - __main__ - INFO - Iteration 211: Signal=0, Confidence=0.0
+2026-04-02 05:02:14,146 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:02:16,469 - __main__ - INFO - Iteration 199: Signal=0, Confidence=0.0
+2026-04-02 05:02:16,469 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:02:44,384 - __main__ - INFO - Iteration 212: Signal=0, Confidence=0.0
+2026-04-02 05:02:44,384 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:02:46,696 - __main__ - INFO - Iteration 200: Signal=0, Confidence=0.0
+2026-04-02 05:02:46,696 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:03:14,746 - __main__ - INFO - Iteration 213: Signal=0, Confidence=0.0
+2026-04-02 05:03:14,747 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:03:16,935 - __main__ - INFO - Iteration 201: Signal=0, Confidence=0.0
+2026-04-02 05:03:16,936 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:03:44,960 - __main__ - INFO - Iteration 214: Signal=0, Confidence=0.0
+2026-04-02 05:03:44,960 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:03:47,148 - __main__ - INFO - Iteration 202: Signal=0, Confidence=0.0
+2026-04-02 05:03:47,149 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:04:15,229 - __main__ - INFO - Iteration 215: Signal=0, Confidence=0.0
+2026-04-02 05:04:15,229 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:04:17,420 - __main__ - INFO - Iteration 203: Signal=0, Confidence=0.0
+2026-04-02 05:04:17,420 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:04:45,432 - __main__ - INFO - Iteration 216: Signal=0, Confidence=0.0
+2026-04-02 05:04:45,432 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:04:47,671 - __main__ - INFO - Iteration 204: Signal=0, Confidence=0.0
+2026-04-02 05:04:47,671 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:05:15,701 - __main__ - INFO - Iteration 217: Signal=0, Confidence=0.0
+2026-04-02 05:05:15,701 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:05:17,944 - __main__ - INFO - Iteration 205: Signal=0, Confidence=0.0
+2026-04-02 05:05:17,944 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:05:45,966 - __main__ - INFO - Iteration 218: Signal=0, Confidence=0.0
+2026-04-02 05:05:45,967 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:05:48,212 - __main__ - INFO - Iteration 206: Signal=0, Confidence=0.0
+2026-04-02 05:05:48,212 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:06:16,213 - __main__ - INFO - Iteration 219: Signal=0, Confidence=0.0
+2026-04-02 05:06:16,213 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:06:18,637 - __main__ - INFO - Iteration 207: Signal=0, Confidence=0.0
+2026-04-02 05:06:18,638 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:06:46,488 - __main__ - INFO - Iteration 220: Signal=0, Confidence=0.0
+2026-04-02 05:06:46,488 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:06:48,931 - __main__ - INFO - Iteration 208: Signal=0, Confidence=0.0
+2026-04-02 05:06:48,931 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:07:16,750 - __main__ - INFO - Iteration 221: Signal=0, Confidence=0.0
+2026-04-02 05:07:16,750 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:07:19,195 - __main__ - INFO - Iteration 209: Signal=0, Confidence=0.0
+2026-04-02 05:07:19,196 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:11:45,593 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 05:11:45,593 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:12:15,765 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 05:12:15,765 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:12:45,924 - __main__ - INFO - Iteration 3: Signal=0, Confidence=0.0
+2026-04-02 05:12:45,924 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:13:16,082 - __main__ - INFO - Iteration 4: Signal=0, Confidence=0.0
+2026-04-02 05:13:16,082 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:14:05,188 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 05:14:05,188 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:14:35,360 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 05:14:35,361 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:15:05,531 - __main__ - INFO - Iteration 3: Signal=0, Confidence=0.0
+2026-04-02 05:15:05,531 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:15:35,691 - __main__ - INFO - Iteration 4: Signal=0, Confidence=0.0
+2026-04-02 05:15:35,691 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:16:05,854 - __main__ - INFO - Iteration 5: Signal=0, Confidence=0.0
+2026-04-02 05:16:05,854 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:16:36,017 - __main__ - INFO - Iteration 6: Signal=0, Confidence=0.0
+2026-04-02 05:16:36,017 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:17:16,556 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 05:17:16,557 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:17:46,716 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 05:17:46,716 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:18:30,845 - __main__ - INFO - Iteration 1: Signal=0, Confidence=0.0
+2026-04-02 05:18:30,845 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:19:01,013 - __main__ - INFO - Iteration 2: Signal=0, Confidence=0.0
+2026-04-02 05:19:01,014 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:19:31,178 - __main__ - INFO - Iteration 3: Signal=0, Confidence=0.0
+2026-04-02 05:19:31,178 - __main__ - INFO - No signal this iteration (signal=0, confidence=0.0)
+2026-04-02 05:20:13,068 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:20:13,630 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 151, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:21:13,817 - __main__ - INFO - Iteration 2: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:21:14,317 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 151, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:22:15,643 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:22:16,179 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 152, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:23:05,669 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:23:06,187 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 152, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:24:01,187 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:24:01,726 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 152, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:24:55,956 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:24:56,474 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 154, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:25:48,778 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:25:49,299 - __main__ - ERROR - Error in signal generation: Object of type float32 is not JSON serializable
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 157, in run
+    json.dump(signal_data, f)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 433, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 407, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 440, in _iterencode
+    o = _default(o)
+  File "C:\Users\Ahmed\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type float32 is not JSON serializable
+
+2026-04-02 05:27:09,038 - __main__ - ERROR - Error in signal generation: name 'signal' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 127, in run
+    logger.info(f"Iteration {iteration}: Signal={signal}, Confidence={confidence}")
+                                                 ^^^^^^
+NameError: name 'signal' is not defined. Did you forget to import 'signal'?
+
+2026-04-02 05:27:56,698 - __main__ - ERROR - Error in signal generation: name 'signal' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 127, in run
+    logger.info(f"Iteration {iteration}: Signal={signal}, Confidence={confidence}")
+                                                 ^^^^^^
+NameError: name 'signal' is not defined. Did you forget to import 'signal'?
+
+2026-04-02 05:28:56,867 - __main__ - ERROR - Error in signal generation: name 'signal' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Ahmed\Desktop\gold_trading_system\scripts\07_trading_logic.py", line 127, in run
+    logger.info(f"Iteration {iteration}: Signal={signal}, Confidence={confidence}")
+                                                 ^^^^^^
+NameError: name 'signal' is not defined. Did you forget to import 'signal'?
+
+2026-04-02 05:29:36,753 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:29:37,313 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T05:29:37.293219', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': nan, 'tp': nan, 'atr': nan}
+2026-04-02 05:30:07,483 - __main__ - INFO - Iteration 2: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:30:08,026 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T05:30:08.002496', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': nan, 'tp': nan, 'atr': nan}
+2026-04-02 05:30:38,189 - __main__ - INFO - Iteration 3: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:30:38,725 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T05:30:38.698603', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': nan, 'tp': nan, 'atr': nan}
+2026-04-02 05:31:35,908 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:31:36,444 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T05:31:36.420770', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 05:32:06,623 - __main__ - INFO - Iteration 2: Signal=1, Confidence=0.715674102306366
+2026-04-02 05:32:07,148 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T05:32:07.123923', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:06:58,561 - __main__ - INFO - Iteration 1: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:06:59,378 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:06:59.373692', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:07:29,727 - __main__ - INFO - Iteration 2: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:07:30,334 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:07:30.312935', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:08:00,568 - __main__ - INFO - Iteration 3: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:08:01,373 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:08:01.353079', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:08:31,645 - __main__ - INFO - Iteration 4: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:08:32,298 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:08:32.294615', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:09:02,705 - __main__ - INFO - Iteration 5: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:09:03,335 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:09:03.313194', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:09:33,656 - __main__ - INFO - Iteration 6: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:09:34,315 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:09:34.292778', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:10:04,573 - __main__ - INFO - Iteration 7: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:10:05,199 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:10:05.178309', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:10:35,449 - __main__ - INFO - Iteration 8: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:10:36,003 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:10:35.982658', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:11:06,302 - __main__ - INFO - Iteration 9: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:11:06,923 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:11:06.919995', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:11:37,218 - __main__ - INFO - Iteration 10: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:11:37,883 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:11:37.860804', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:12:08,121 - __main__ - INFO - Iteration 11: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:12:08,697 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:12:08.675450', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:12:38,948 - __main__ - INFO - Iteration 12: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:12:39,494 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:12:39.472228', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:13:09,741 - __main__ - INFO - Iteration 13: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:13:10,313 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:13:10.290600', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:13:40,570 - __main__ - INFO - Iteration 14: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:13:41,121 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:13:41.100839', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:14:11,601 - __main__ - INFO - Iteration 15: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:14:12,274 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:14:12.251302', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:14:42,528 - __main__ - INFO - Iteration 16: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:14:43,051 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:14:43.048215', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:15:13,480 - __main__ - INFO - Iteration 17: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:15:14,074 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:15:14.070461', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:15:44,521 - __main__ - INFO - Iteration 18: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:15:45,134 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:15:45.130715', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:16:15,360 - __main__ - INFO - Iteration 19: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:16:15,940 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:16:15.918793', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:16:46,280 - __main__ - INFO - Iteration 20: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:16:46,932 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:16:46.911199', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:17:17,196 - __main__ - INFO - Iteration 21: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:17:17,744 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:17:17.722530', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:17:47,989 - __main__ - INFO - Iteration 22: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:17:48,589 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:17:48.569143', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:18:18,914 - __main__ - INFO - Iteration 23: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:18:19,454 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:18:19.434919', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:18:49,635 - __main__ - INFO - Iteration 24: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:18:50,204 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:18:50.201751', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:19:20,395 - __main__ - INFO - Iteration 25: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:19:21,005 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:19:20.984739', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:19:51,290 - __main__ - INFO - Iteration 26: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:19:51,953 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:19:51.950802', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:20:22,281 - __main__ - INFO - Iteration 27: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:20:22,820 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:20:22.797196', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:20:53,141 - __main__ - INFO - Iteration 28: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:20:53,658 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:20:53.637259', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:21:23,948 - __main__ - INFO - Iteration 29: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:21:24,731 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:21:24.711075', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:21:54,915 - __main__ - INFO - Iteration 30: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:21:55,457 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:21:55.436523', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:22:25,651 - __main__ - INFO - Iteration 31: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:22:26,187 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:22:26.166629', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:22:56,494 - __main__ - INFO - Iteration 32: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:22:57,082 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:22:57.061460', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:23:27,282 - __main__ - INFO - Iteration 33: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:23:27,810 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:23:27.789930', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:23:58,161 - __main__ - INFO - Iteration 34: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:23:58,730 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:23:58.708550', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:24:28,976 - __main__ - INFO - Iteration 35: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:24:29,756 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:24:29.752849', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:24:59,966 - __main__ - INFO - Iteration 36: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:25:00,565 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:25:00.545309', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:25:30,912 - __main__ - INFO - Iteration 37: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:25:31,460 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:25:31.438326', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:26:01,626 - __main__ - INFO - Iteration 38: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:26:02,103 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:26:02.099442', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:26:32,269 - __main__ - INFO - Iteration 39: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:26:32,758 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:26:32.752659', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:27:02,925 - __main__ - INFO - Iteration 40: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:27:03,400 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:27:03.398229', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:27:33,566 - __main__ - INFO - Iteration 41: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:27:34,082 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:27:34.080037', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:28:04,266 - __main__ - INFO - Iteration 42: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:28:04,843 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:28:04.841162', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:28:35,015 - __main__ - INFO - Iteration 43: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:28:35,550 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:28:35.547587', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:29:05,712 - __main__ - INFO - Iteration 44: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:29:06,220 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:29:06.200292', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:29:36,387 - __main__ - INFO - Iteration 45: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:29:36,918 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:29:36.898247', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:30:07,084 - __main__ - INFO - Iteration 46: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:30:07,594 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:30:07.575433', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:30:37,773 - __main__ - INFO - Iteration 47: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:30:38,290 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:30:38.268533', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:31:08,460 - __main__ - INFO - Iteration 48: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:31:08,993 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:31:08.991571', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:31:39,158 - __main__ - INFO - Iteration 49: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:31:39,675 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:31:39.655168', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:32:09,828 - __main__ - INFO - Iteration 50: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:32:10,340 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:32:10.320032', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:32:40,520 - __main__ - INFO - Iteration 51: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:32:41,028 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:32:41.008951', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:33:11,183 - __main__ - INFO - Iteration 52: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:33:11,684 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:33:11.665313', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:33:41,843 - __main__ - INFO - Iteration 53: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:33:42,356 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:33:42.334540', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:34:12,520 - __main__ - INFO - Iteration 54: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:34:13,027 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:34:13.008868', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:34:43,205 - __main__ - INFO - Iteration 55: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:34:43,728 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:34:43.724945', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:35:13,917 - __main__ - INFO - Iteration 56: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:35:14,417 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:35:14.415474', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:35:44,584 - __main__ - INFO - Iteration 57: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:35:45,100 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:35:45.079639', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:36:15,272 - __main__ - INFO - Iteration 58: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:36:15,771 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:36:15.766396', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:36:45,930 - __main__ - INFO - Iteration 59: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:36:46,407 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:36:46.404046', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:37:16,572 - __main__ - INFO - Iteration 60: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:37:17,057 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:37:17.055522', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:37:47,230 - __main__ - INFO - Iteration 61: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:37:47,733 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:37:47.712187', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:38:17,904 - __main__ - INFO - Iteration 62: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:38:18,409 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:38:18.388093', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:38:48,584 - __main__ - INFO - Iteration 63: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:38:49,149 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:38:49.129931', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:39:19,325 - __main__ - INFO - Iteration 64: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:39:19,842 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:39:19.820497', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:39:50,019 - __main__ - INFO - Iteration 65: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:39:50,539 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:39:50.519459', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:40:20,737 - __main__ - INFO - Iteration 66: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:40:21,239 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:40:21.236102', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:40:51,422 - __main__ - INFO - Iteration 67: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:40:51,930 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:40:51.908671', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:41:22,109 - __main__ - INFO - Iteration 68: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:41:22,734 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:41:22.731398', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:41:52,918 - __main__ - INFO - Iteration 69: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:41:53,488 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:41:53.454542', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:42:23,659 - __main__ - INFO - Iteration 70: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:42:24,182 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:42:24.155303', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:42:54,357 - __main__ - INFO - Iteration 71: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:42:54,849 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:42:54.842544', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:43:25,024 - __main__ - INFO - Iteration 72: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:43:25,518 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:43:25.509735', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:43:55,696 - __main__ - INFO - Iteration 73: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:43:56,182 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:43:56.175516', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:44:26,356 - __main__ - INFO - Iteration 74: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:44:26,901 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:44:26.872728', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:44:57,081 - __main__ - INFO - Iteration 75: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:44:57,598 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:44:57.593441', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:45:27,777 - __main__ - INFO - Iteration 76: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:45:28,288 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:45:28.263446', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:45:58,461 - __main__ - INFO - Iteration 77: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:45:58,951 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:45:58.940443', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:46:29,129 - __main__ - INFO - Iteration 78: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:46:29,649 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:46:29.602464', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:46:59,829 - __main__ - INFO - Iteration 79: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:47:00,320 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:47:00.310360', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:47:30,503 - __main__ - INFO - Iteration 80: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:47:31,089 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:47:31.062432', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:48:01,263 - __main__ - INFO - Iteration 81: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:48:01,803 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:48:01.773310', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:48:31,986 - __main__ - INFO - Iteration 82: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:48:32,630 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:48:32.600039', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:49:02,805 - __main__ - INFO - Iteration 83: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:49:03,335 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:49:03.305487', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:49:33,508 - __main__ - INFO - Iteration 84: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:49:34,011 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:49:33.999580', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:50:04,176 - __main__ - INFO - Iteration 85: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:50:04,792 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:50:04.787401', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:50:34,978 - __main__ - INFO - Iteration 86: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:50:35,569 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:50:35.474426', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:51:05,734 - __main__ - INFO - Iteration 87: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:51:06,232 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:51:06.223462', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:51:36,400 - __main__ - INFO - Iteration 88: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:51:36,907 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:51:36.883275', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:52:07,079 - __main__ - INFO - Iteration 89: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:52:07,578 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:52:07.553673', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:52:37,754 - __main__ - INFO - Iteration 90: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:52:38,310 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:52:38.240185', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:53:08,489 - __main__ - INFO - Iteration 91: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:53:09,022 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:53:08.978185', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:53:39,194 - __main__ - INFO - Iteration 92: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:53:39,675 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:53:39.666547', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:54:09,855 - __main__ - INFO - Iteration 93: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:54:10,383 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:54:10.359827', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:54:40,561 - __main__ - INFO - Iteration 94: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:54:41,057 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:54:41.047647', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}
+2026-04-02 12:55:11,236 - __main__ - INFO - Iteration 95: Signal=1, Confidence=0.715674102306366
+2026-04-02 12:55:11,724 - __main__ - INFO - Signal written to C:/Users/Ahmed/Desktop/gold_trading_system/mt5_ea/signal.txt: {'timestamp': '2026-04-02T12:55:11.717968', 'signal': 'buy', 'confidence': 0.715674102306366, 'sl': 32.0035400390625, 'tp': 53.3392333984375, 'atr': 21.335693359375}

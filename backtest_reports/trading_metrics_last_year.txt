@@ -1,0 +1,23 @@
+============================================================
+ENSEMBLE MODEL TRADING METRICS (2025-04-01 to 2026-04-01)
+============================================================
+
+Period: 2025-08-22 19:40:00 to 2026-04-01 18:50:00
+Total Trades: 24830
+  Wins: 12101
+  Losses: 12729
+Win Rate: 48.74%
+Total Return: -20447.01%
+Average Profit per Trade: $-82.35
+Average Pips per Trade: 3349.13
+Sharpe Ratio: -2.3888
+Max Drawdown: 331.30%
+Final Equity: $-2034701.06
+Trades per Week: 476.19
+
+============================================================
+Model: XGBoost (ensemble component)
+Features: 20 (with news sentiment)
+Confidence Threshold: 0.85
+Note: Test set only (last 20% of data, out-of-sample)
+============================================================

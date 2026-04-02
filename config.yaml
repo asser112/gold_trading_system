@@ -1,0 +1,63 @@
+backtest:
+  commission: 0
+  initial_balance: 10000
+  slippage: 0.0002
+  spread: 0.0030
+data:
+  alphavantage_key: JB6JPP6Q4DBMCY2T
+  db_path: C:\Users\Ahmed\Desktop\gold_trading_system\data\gold_trading.db
+  dukascopy_url: https://data.dukascopy.com
+  end_date: present
+  forex_factory_url: https://www.forexfactory.com/calendar
+  gnews_api_key: d06ae4ee70d305add2f24cc03cc98338
+  news_api_key: YOUR_NEWSAPI_KEY
+  start_date: "2023-01-01"
+  tick_data_folder: C:\Users\Ahmed\Desktop\gold_trading_system\data\raw\ticks\
+  tick_symbol: XAUUSD
+logging:
+  file: C:\Users\Ahmed\Desktop\gold_trading_system\logs\system.log
+  level: INFO
+models:
+  ensemble:
+    confidence_threshold: 0.60
+    min_hold_bars: 180
+    news_filter: false
+    trend_filter: false
+    volatility_filter: false
+  rl:
+    batch_size: 64
+    episodes: 10
+    learning_rate: 0.0003
+    n_epochs: 10
+    n_steps: 2048
+    steps_per_episode: 2048
+    window: 20
+  transformer:
+    batch_size: 64
+    d_model: 128
+    dim_feedforward: 256
+    dropout: 0.2
+    epochs: 50
+    lr: 0.0001
+    nhead: 8
+    num_layers: 4
+    patience: 5
+    seq_len: 60
+  xgboost:
+    early_stopping_rounds: 10
+    n_trials: 50
+telegram:
+  api_hash: YOUR_API_HASH
+  api_id: YOUR_API_ID
+  chat_id: "@your_channel"
+  enabled: false
+trading:
+  atr_multiplier_sl: 1.5
+  atr_multiplier_tp: 2.5
+  lot_size: 0.03
+  magic_number: 123456
+  max_spread: 30
+  poll_interval_seconds: 30
+  risk_percent: 0
+  signal_file: C:\Users\Ahmed\Desktop\gold_trading_system\mt5_ea\signal.txt
+  symbol: XAUUSD
