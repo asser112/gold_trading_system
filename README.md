@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gold Trading System
 
 Fully automated trading system for XAUUSD using market data, news sentiment, and ensemble of ML models.
