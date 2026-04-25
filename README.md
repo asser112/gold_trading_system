@@ -309,6 +309,54 @@ gold_trading_system/
 
 ---
 
+## 12. SaaS Backend (Signal Subscription Service)
+
+The `backend/` folder contains a subscription web portal that lets users pay with crypto and receive signals in their MT5 EA.
+
+### Setup
+
+```bat
+cd backend
+pip install -r requirements.txt
+copy .env.example .env
+:: Edit .env with your NOWPayments keys and secrets
+```
+
+### Running the backend
+
+```bat
+:: From project root
+uvicorn backend.main:app --host 0.0.0.0 --port 8000
+```
+
+### Connect the signal generator
+
+In `config.yaml`, set:
+
+```yaml
+backend:
+  url: "https://your-domain.com"
+  internal_signal_secret: "same value as INTERNAL_SIGNAL_SECRET in .env"
+```
+
+### EA configuration for subscribers
+
+In MT5 EA inputs:
+- `SignalUrl` = `https://your-domain.com/api/signal`
+- `ApiKey` = the key shown in the user's dashboard
+- Leave `SignalFileName` blank
+
+**Important:** In MT5, go to **Tools > Options > Expert Advisors** and add your domain to the allowed WebRequest URLs list. Otherwise MT5 will block the HTTP call.
+
+### NOWPayments setup
+
+1. Create a free account at [nowpayments.io](https://nowpayments.io)
+2. Get your API key from the dashboard
+3. Set your IPN (webhook) URL to `https://your-domain.com/webhooks/nowpayments`
+4. Copy the IPN secret to `NOWPAYMENTS_IPN_SECRET` in `.env`
+
+---
+
 ## Signal File Format
 
 The signal file (`mt5_ea/signal.txt`) is JSON:

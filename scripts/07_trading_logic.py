@@ -14,6 +14,8 @@ import json
 import logging
 import time
 import yaml
+import urllib.request
+import urllib.error
 from pathlib import Path
 from datetime import datetime
 
@@ -59,8 +61,34 @@ else:
         logger.warning("mt5_terminal_id not set in config.yaml — signal will only write to mt5_ea/signal.txt")
 
 
+_backend_url = _config.get("backend", {}).get("url", "")
+_internal_secret = _config.get("backend", {}).get("internal_signal_secret", "")
+
+
+def _push_signal_to_backend(data: dict) -> None:
+    """POST signal to the backend API so subscribers' EAs can fetch it."""
+    if not _backend_url or not _internal_secret:
+        return
+    try:
+        body = json.dumps(data).encode()
+        req = urllib.request.Request(
+            f"{_backend_url}/internal/signal",
+            data=body,
+            headers={
+                "Content-Type": "application/json",
+                "x-internal-secret": _internal_secret,
+            },
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            if resp.status != 200:
+                logger.warning(f"Backend signal push returned HTTP {resp.status}")
+    except urllib.error.URLError as e:
+        logger.warning(f"Backend signal push failed: {e}")
+
+
 def write_signal(signal, confidence=0.0, sl=None, tp=None, reason=""):
-    """Write a signal to the JSON file for the MT5 EA."""
+    """Write signal to local file and push to backend API."""
     data = {
         "signal": signal.lower(),
         "confidence": round(confidence, 4),
@@ -75,6 +103,7 @@ def write_signal(signal, confidence=0.0, sl=None, tp=None, reason=""):
         if MT5_SIGNAL_FILE is not None:
             MT5_SIGNAL_FILE.write_text(content, encoding="utf-8")
         logger.info(f"Signal: {signal.upper()} (conf={confidence:.2f}) -> {SIGNAL_FILE}")
+        _push_signal_to_backend(data)
         return True
     except Exception as e:
         logger.error(f"Failed to write signal: {e}")

@@ -31,8 +31,10 @@ input group "=== Trading ==="
 input int      MagicNumber       = 123456;     // EA Magic Number
 input ulong    Deviation         = 5;          // Order deviation in points
 
-input group "=== Signal File ==="
-input string   SignalFileName   = "signal.txt";   // Signal file name (reads from MQL5/Files)
+input group "=== Signal API ==="
+input string   SignalUrl        = "https://your-domain.com/api/signal";  // Backend signal URL
+input string   ApiKey           = "";                                     // Your API key from dashboard
+input string   SignalFileName   = "";   // (Legacy) Local file fallback — leave blank when using API
 
 //+------------------------------------------------------------------+
 //| Global Variables                                                 |
@@ -81,7 +83,12 @@ int OnInit()
    }
    
    Print("EA initialized. Symbol: ", g_symbol);
-   Print("Signal file: ", (SignalFileName == "" ? "DISABLED (using indicators)" : SignalFileName));
+   if(SignalUrl != "" && ApiKey != "")
+      Print("Signal source: API (", SignalUrl, ")");
+   else if(SignalFileName != "")
+      Print("Signal source: local file (", SignalFileName, ")");
+   else
+      Print("Signal source: built-in indicators");
    
    return(INIT_SUCCEEDED);
 }
@@ -295,40 +302,74 @@ bool CheckSellSignal()
 }
 
 //+------------------------------------------------------------------+
-//| Read signal from file                                             |
+//| Fetch signal from backend API (primary)                          |
+//+------------------------------------------------------------------+
+string FetchSignalFromAPI()
+{
+   if(SignalUrl == "" || ApiKey == "")
+      return "";
+
+   datetime now = TimeCurrent();
+   if(now - g_lastSignalRead < 10)
+      return "";
+   g_lastSignalRead = now;
+
+   string url = SignalUrl + "?api_key=" + ApiKey;
+   string headers = "Content-Type: application/json\r\n";
+   char   post[], result[];
+   string resultHeaders;
+
+   int httpCode = WebRequest("GET", url, headers, 5000, post, result, resultHeaders);
+   if(httpCode != 200)
+   {
+      Print("[SIGNAL] API returned HTTP ", httpCode, ". Check ApiKey and subscription.");
+      return "";
+   }
+
+   string json = CharArrayToString(result, 0, WHOLE_ARRAY, CP_UTF8);
+   Print("[SIGNAL] API response (", StringLen(json), " chars): ", json);
+   return json;
+}
+
+//+------------------------------------------------------------------+
+//| Read signal from local file (legacy fallback)                    |
 //+------------------------------------------------------------------+
 string ReadSignalFile()
 {
    if(SignalFileName == "")
       return "";
-   
+
    datetime now = TimeCurrent();
    if(now - g_lastSignalRead < 10)
       return "";
-   
    g_lastSignalRead = now;
-   
+
    int handle = FileOpen(SignalFileName, FILE_READ | FILE_TXT | FILE_ANSI);
    if(handle == INVALID_HANDLE)
    {
       Print("[SIGNAL] Cannot open file: ", SignalFileName, " err=", GetLastError());
       return "";
    }
-   
+
    string content = "";
    while(!FileIsEnding(handle))
-   {
-      string line = FileReadString(handle);
-      content += line;
-   }
+      content += FileReadString(handle);
    FileClose(handle);
-   
-   Print("[SIGNAL] Read ", StringLen(content), " chars: ", content);
-   
+
    if(StringLen(content) == 0)
       return "";
-   
    return content;
+}
+
+//+------------------------------------------------------------------+
+//| Get signal JSON from API (preferred) or file (fallback)          |
+//+------------------------------------------------------------------+
+string GetSignalJson()
+{
+   string json = FetchSignalFromAPI();
+   if(json != "")
+      return json;
+   return ReadSignalFile();
 }
 
 //+------------------------------------------------------------------+
@@ -461,10 +502,11 @@ void ExecuteTradingLogic()
    }
    
    int signal = 0;
-   
-   if(SignalFileName != "")
+
+   // Try API first, then local file, then built-in indicators
+   if(SignalUrl != "" || SignalFileName != "")
    {
-      string json = ReadSignalFile();
+      string json = GetSignalJson();
       if(json != "")
       {
          signal = ParseSignal(json);
@@ -472,7 +514,7 @@ void ExecuteTradingLogic()
       }
       else
       {
-         Print("[SIGNAL] ReadSignalFile returned empty");
+         Print("[SIGNAL] No signal from API/file — falling back to indicators");
       }
    }
    else

@@ -1,3 +1,6 @@
+backend:
+  url: ""
+  internal_signal_secret: ""
 backtest:
   commission: 0
   initial_balance: 10000
