@@ -13,8 +13,9 @@ struct SignalData
 
 bool ReadSignal(SignalData &signal)
 {
-   string path = "C:\\Users\\Ahmed\\Desktop\\gold_trading_system\\mt5_ea\\signal.txt";
-   int file = FileOpen(path, FILE_READ|FILE_TXT);
+   // MQL5 FileOpen reads from the terminal's MQL5\Files folder by default.
+   // The Python signal generator writes signal.txt there automatically.
+   int file = FileOpen("signal.txt", FILE_READ|FILE_TXT);
    if(file == INVALID_HANDLE)
       return false;
    string content = FileReadString(file);

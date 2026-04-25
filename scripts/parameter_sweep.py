@@ -39,7 +39,7 @@ for conf in CONFIDENCE_THRESHOLDS:
         
         # Run backtest
         result = subprocess.run(
-            ['python', 'scripts/backtest_ensemble.py'],
+            [sys.executable, 'scripts/backtest_ensemble.py'],
             capture_output=True,
             text=True
         )

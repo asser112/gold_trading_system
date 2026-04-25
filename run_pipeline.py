@@ -25,11 +25,15 @@ os.makedirs('models/ensemble', exist_ok=True)
 os.makedirs('models/scalers', exist_ok=True)
 os.makedirs('backtest_reports', exist_ok=True)
 
+_log_file = config['logging']['file']
+if not os.path.isabs(_log_file):
+    _log_file = os.path.join(SCRIPT_DIR, _log_file)
+
 logging.basicConfig(
     level=getattr(logging, config['logging']['level']),
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(config['logging']['file']),
+        logging.FileHandler(_log_file),
         logging.StreamHandler()
     ]
 )

@@ -1,19 +1,31 @@
+import os
+import sys
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import yaml
 import sqlite3
+from pathlib import Path
 from datetime import datetime, timedelta
 
 st.set_page_config(layout="wide")
 st.title("Gold Trading System Dashboard")
 
+# Resolve all paths relative to the project root (one level up from dashboard/)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+os.chdir(PROJECT_ROOT)
+
 # Load config
-with open('config.yaml', 'r') as f:
+with open(PROJECT_ROOT / 'config.yaml', 'r') as f:
     config = yaml.safe_load(f)
 
+def _resolve(path_str: str) -> Path:
+    """Return absolute path, resolving relative paths against the project root."""
+    p = Path(path_str)
+    return p if p.is_absolute() else PROJECT_ROOT / p
+
 # Connect to DB
-conn = sqlite3.connect(config['data']['db_path'])
+conn = sqlite3.connect(_resolve(config['data']['db_path']))
 
 # Sidebar
 st.sidebar.header("Parameters")
@@ -44,7 +56,7 @@ except Exception as e:
 
 # Latest signal
 st.header("Latest Signal")
-signal_file = config['trading']['signal_file']
+signal_file = _resolve(config['trading']['signal_file'])
 try:
     with open(signal_file, 'r') as f:
         content = f.read()

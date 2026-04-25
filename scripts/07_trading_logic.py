@@ -13,6 +13,7 @@ import os
 import json
 import logging
 import time
+import yaml
 from pathlib import Path
 from datetime import datetime
 
@@ -20,7 +21,10 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-log_dir = SCRIPT_DIR.parent / "logs"
+with open(PROJECT_ROOT / "config.yaml", "r") as _f:
+    _config = yaml.safe_load(_f)
+
+log_dir = PROJECT_ROOT / "logs"
 log_dir.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
@@ -33,12 +37,26 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-SIGNAL_FILE = SCRIPT_DIR.parent / "mt5_ea" / "signal.txt"
+SIGNAL_FILE = PROJECT_ROOT / "mt5_ea" / "signal.txt"
 SIGNAL_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-MT5_FILES = Path(os.environ.get("APPDATA", "")) / "MetaQuotes" / "Terminal" / "D0E8209F77C8CF37AD8BF550E51FF075" / "MQL5" / "Files"
-MT5_FILES.mkdir(parents=True, exist_ok=True)
-MT5_SIGNAL_FILE = MT5_FILES / "signal.txt"
+# Mirror signal into the MT5 terminal Files folder so the EA can read it directly.
+# Set trading.mt5_terminal_id in config.yaml to your terminal's data folder ID.
+# Find it at: Help > About in MT5, or check %APPDATA%\MetaQuotes\Terminal\
+_terminal_id = _config.get("trading", {}).get("mt5_terminal_id", "")
+_appdata = os.environ.get("APPDATA", "")
+MT5_SIGNAL_FILE: Path | None = None
+if _appdata and _terminal_id and _terminal_id != "YOUR_TERMINAL_ID":
+    MT5_FILES = Path(_appdata) / "MetaQuotes" / "Terminal" / _terminal_id / "MQL5" / "Files"
+    try:
+        MT5_FILES.mkdir(parents=True, exist_ok=True)
+        MT5_SIGNAL_FILE = MT5_FILES / "signal.txt"
+    except OSError:
+        logger.warning("Could not create MT5 Files directory. Check mt5_terminal_id in config.yaml.")
+        MT5_SIGNAL_FILE = None
+else:
+    if _terminal_id == "YOUR_TERMINAL_ID":
+        logger.warning("mt5_terminal_id not set in config.yaml — signal will only write to mt5_ea/signal.txt")
 
 
 def write_signal(signal, confidence=0.0, sl=None, tp=None, reason=""):
@@ -54,7 +72,8 @@ def write_signal(signal, confidence=0.0, sl=None, tp=None, reason=""):
     content = json.dumps(data, indent=2)
     try:
         SIGNAL_FILE.write_text(content, encoding="utf-8")
-        MT5_SIGNAL_FILE.write_text(content, encoding="utf-8")
+        if MT5_SIGNAL_FILE is not None:
+            MT5_SIGNAL_FILE.write_text(content, encoding="utf-8")
         logger.info(f"Signal: {signal.upper()} (conf={confidence:.2f}) -> {SIGNAL_FILE}")
         return True
     except Exception as e:

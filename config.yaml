@@ -5,17 +5,17 @@ backtest:
   spread: 0.0030
 data:
   alphavantage_key: JB6JPP6Q4DBMCY2T
-  db_path: C:\Users\Ahmed\Desktop\gold_trading_system\data\gold_trading.db
+  db_path: data/gold_trading.db
   dukascopy_url: https://data.dukascopy.com
   end_date: present
   forex_factory_url: https://www.forexfactory.com/calendar
   gnews_api_key: d06ae4ee70d305add2f24cc03cc98338
   news_api_key: YOUR_NEWSAPI_KEY
   start_date: "2023-01-01"
-  tick_data_folder: C:\Users\Ahmed\Desktop\gold_trading_system\data\raw\ticks\
+  tick_data_folder: data/raw/ticks/
   tick_symbol: XAUUSD
 logging:
-  file: C:\Users\Ahmed\Desktop\gold_trading_system\logs\system.log
+  file: logs/system.log
   level: INFO
 models:
   ensemble:
@@ -57,7 +57,8 @@ trading:
   lot_size: 0.03
   magic_number: 123456
   max_spread: 30
+  mt5_terminal_id: YOUR_TERMINAL_ID
   poll_interval_seconds: 30
   risk_percent: 0
-  signal_file: C:\Users\Ahmed\Desktop\gold_trading_system\mt5_ea\signal.txt
+  signal_file: mt5_ea/signal.txt
   symbol: XAUUSD
