@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Payment Pending — GoldSignal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card text-center">
+      <div class="card-header py-3">
+        <h5 class="mb-0"><i class="bi bi-hourglass-split me-2 text-gold"></i>Send Payment</h5>
+      </div>
+      <div class="card-body p-4">
+        <p class="text-secondary mb-2">Send exactly</p>
+        <h2 class="text-gold mb-1">{{ payment.pay_amount }} {{ payment.pay_currency|upper }}</h2>
+        <p class="text-secondary mb-4">(≈ ${{ payment.price_usd|int }} USD)</p>
+
+        <p class="text-secondary mb-1">To this address:</p>
+        <div class="api-key-box mb-3" id="payAddr">{{ payment.pay_address }}</div>
+        <button class="btn btn-outline-light btn-sm mb-4" onclick="copyAddr()">
+          <i class="bi bi-clipboard me-1"></i>Copy Address
+        </button>
+
+        <div class="alert alert-warning text-start py-2">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          Send the <strong>exact amount</strong> in <strong>{{ coin_label }}</strong> only.
+          Your subscription activates automatically once the payment is confirmed on-chain
+          (usually within 10–30 minutes).
+        </div>
+
+        <a href="/dashboard" class="btn btn-gold w-100 mt-2">Go to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function copyAddr() {
+  navigator.clipboard.writeText(document.getElementById('payAddr').innerText);
+  event.target.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
+  setTimeout(() => { event.target.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy Address'; }, 2000);
+}
+</script>
+{% endblock %}

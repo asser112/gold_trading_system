@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Subscribe — GoldSignal{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header py-3">
+        <h5 class="mb-0"><i class="bi bi-currency-bitcoin me-2 text-gold"></i>Subscribe</h5>
+      </div>
+      <div class="card-body p-4">
+        <div class="text-center mb-4">
+          <div class="price-tag">${{ price|int }}</div>
+          <p class="text-secondary">for {{ 30 }}-day access</p>
+        </div>
+        <form method="post" action="/pay/create">
+          <label class="form-label">Select cryptocurrency</label>
+          <div class="d-flex flex-column gap-2 mb-4">
+            {% for coin_id, coin_label in coins.items() %}
+            <div class="form-check card p-3" style="cursor:pointer;">
+              <input class="form-check-input" type="radio" name="coin" id="{{ coin_id }}" value="{{ coin_id }}"
+                     {% if loop.first %}checked{% endif %}/>
+              <label class="form-check-label ms-2 w-100" for="{{ coin_id }}" style="cursor:pointer;">
+                {{ coin_label }}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-gold w-100 btn-lg">Generate Payment Address</button>
+        </form>
+        <p class="text-center text-secondary mt-3 mb-0" style="font-size:.85rem;">
+          Powered by NOWPayments &bull; Payment confirmed automatically
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

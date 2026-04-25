@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — GoldSignal{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0"><i class="bi bi-speedometer2 me-2 text-gold"></i>Dashboard</h4>
+  <span class="text-secondary">{{ user.email }}</span>
+</div>
+
+<div class="row g-4">
+
+  <!-- Subscription status -->
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-calendar-check me-2"></i>Subscription</div>
+      <div class="card-body">
+        {% if subscription %}
+          <span class="badge badge-active fs-6 px-3 py-2 mb-3">Active</span>
+          <p class="mb-1 text-secondary">Expires</p>
+          <p class="fw-bold">{{ subscription.expires_at.strftime('%B %d, %Y') }}</p>
+          <a href="/pay" class="btn btn-outline-light btn-sm mt-2">Renew / Extend</a>
+        {% else %}
+          <span class="badge badge-expired fs-6 px-3 py-2 mb-3">Inactive</span>
+          <p class="text-secondary mb-3">You don't have an active subscription.</p>
+          <a href="/pay" class="btn btn-gold">Subscribe Now — ${{ config.SUBSCRIPTION_PRICE_USD|int }}/mo</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key -->
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-key me-2"></i>Your API Key</div>
+      <div class="card-body">
+        <p class="text-secondary mb-2">Enter this key in your MT5 EA settings.</p>
+        <div class="api-key-box mb-3" id="apiKey">{{ user.api_key }}</div>
+        <button class="btn btn-outline-light btn-sm" onclick="copyKey()">
+          <i class="bi bi-clipboard me-1"></i>Copy
+        </button>
+        {% if not subscription %}
+          <p class="text-secondary mt-3 mb-0" style="font-size:.85rem;">
+            <i class="bi bi-info-circle me-1"></i>Requires an active subscription to return signals.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup instructions -->
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><i class="bi bi-terminal me-2"></i>MT5 EA Setup</div>
+      <div class="card-body">
+        <ol class="mb-0">
+          <li class="mb-2">Download <strong>gold_trading_ea.mq5</strong> from the release package.</li>
+          <li class="mb-2">Copy it to your MT5 <code>MQL5\Experts\</code> folder and compile (F7).</li>
+          <li class="mb-2">Open an <strong>XAUUSD chart</strong> on M5 timeframe.</li>
+          <li class="mb-2">Drag the EA onto the chart. In <em>Inputs</em>, set:<br>
+            <code>ApiKey = {{ user.api_key }}</code><br>
+            <code>SignalUrl = {{ config.BASE_URL }}/api/signal</code>
+          </li>
+          <li class="mb-2">Check <strong>Allow live trading</strong> and <strong>Allow WebRequests</strong>.</li>
+          <li>Enable <strong>Auto Trading</strong> in the MT5 toolbar.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment history -->
+  {% if payments %}
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><i class="bi bi-clock-history me-2"></i>Payment History</div>
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless mb-0">
+          <thead style="border-bottom:1px solid #30363d;">
+            <tr>
+              <th>Date</th><th>Amount</th><th>Currency</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in payments %}
+            <tr>
+              <td>{{ p.created_at.strftime('%Y-%m-%d') }}</td>
+              <td>{{ p.pay_amount }} {{ p.pay_currency|upper }}</td>
+              <td>${{ p.price_usd|int }}</td>
+              <td>
+                {% if p.status in ['finished','confirmed'] %}
+                  <span class="badge badge-active">Confirmed</span>
+                {% elif p.status == 'waiting' %}
+                  <span class="badge bg-warning text-dark">Waiting</span>
+                {% else %}
+                  <span class="badge badge-expired">{{ p.status|title }}</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function copyKey() {
+  navigator.clipboard.writeText(document.getElementById('apiKey').innerText);
+  event.target.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
+  setTimeout(() => { event.target.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy'; }, 2000);
+}
+</script>
+{% endblock %}
