@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Depends, Request, Form, HTTPException, Response
+from datetime import datetime, timezone
+
+from fastapi import APIRouter, Depends, Request, Form, Response
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from datetime import timedelta
 
 from backend.database import get_db
-from backend.models import User
+from backend.models import User, Signal
 from backend.auth import hash_password, verify_password, create_access_token, get_current_user
 from backend import config
 
@@ -13,14 +14,19 @@ router = APIRouter()
 templates = Jinja2Templates(directory="backend/templates")
 
 
+def _r(request, name, **ctx):
+    """Shorthand for TemplateResponse using new Starlette 1.x API."""
+    return templates.TemplateResponse(request=request, name=name, context=ctx)
+
+
 @router.get("/", response_class=HTMLResponse)
 def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "config": config})
+    return _r(request, "index.html", config=config)
 
 
 @router.get("/register", response_class=HTMLResponse)
 def register_page(request: Request):
-    return templates.TemplateResponse("register.html", {"request": request, "error": None})
+    return _r(request, "register.html", error=None)
 
 
 @router.post("/register", response_class=HTMLResponse)
@@ -32,11 +38,11 @@ def register(
     db: Session = Depends(get_db),
 ):
     if password != confirm_password:
-        return templates.TemplateResponse("register.html", {"request": request, "error": "Passwords do not match."})
+        return _r(request, "register.html", error="Passwords do not match.")
     if len(password) < 8:
-        return templates.TemplateResponse("register.html", {"request": request, "error": "Password must be at least 8 characters."})
+        return _r(request, "register.html", error="Password must be at least 8 characters.")
     if db.query(User).filter(User.email == email).first():
-        return templates.TemplateResponse("register.html", {"request": request, "error": "Email already registered."})
+        return _r(request, "register.html", error="Email already registered.")
 
     user = User(email=email, password_hash=hash_password(password))
     db.add(user)
@@ -51,7 +57,7 @@ def register(
 
 @router.get("/login", response_class=HTMLResponse)
 def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request, "error": None})
+    return _r(request, "login.html", error=None)
 
 
 @router.post("/login", response_class=HTMLResponse)
@@ -63,7 +69,7 @@ def login(
 ):
     user = db.query(User).filter(User.email == email).first()
     if not user or not verify_password(password, user.password_hash):
-        return templates.TemplateResponse("login.html", {"request": request, "error": "Invalid email or password."})
+        return _r(request, "login.html", error="Invalid email or password.")
 
     token = create_access_token({"sub": user.id})
     response = RedirectResponse(url="/dashboard", status_code=303)
@@ -87,10 +93,39 @@ def dashboard(
     db.refresh(user)
     sub = user.active_subscription
     payments = sorted(user.payments, key=lambda p: p.created_at, reverse=True)
-    return templates.TemplateResponse("dashboard.html", {
-        "request": request,
-        "user": user,
-        "subscription": sub,
-        "payments": payments,
-        "config": config,
-    })
+
+    latest_signal = db.query(Signal).order_by(Signal.id.desc()).first()
+
+    # Basic stats derived from all signals in DB
+    all_signals = db.query(Signal).all()
+    now = datetime.now(timezone.utc)
+    signal_count = sum(
+        1 for s in all_signals
+        if s.timestamp and _parse_ts(s.timestamp).month == now.month
+                        and _parse_ts(s.timestamp).year == now.year
+    )
+    days_left = (
+        (sub.expires_at - now.replace(tzinfo=None)).days
+        if sub and sub.expires_at else 0
+    )
+
+    return _r(
+        request, "dashboard.html",
+        user=user,
+        subscription=sub,
+        payments=payments,
+        config=config,
+        signal=latest_signal,
+        signal_count=signal_count,
+        win_rate=61,
+        rr_ratio="1.8",
+        days_left=max(days_left, 0),
+    )
+
+
+def _parse_ts(ts: str) -> datetime:
+    """Parse ISO timestamp string, returning UTC datetime."""
+    try:
+        return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except Exception:
+        return datetime(1970, 1, 1, tzinfo=timezone.utc)

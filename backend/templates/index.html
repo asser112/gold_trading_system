@@ -2,90 +2,107 @@
 {% block title %}GoldSignal — Automated XAUUSD Trading Signals{% endblock %}
 {% block content %}
 
-<!-- Hero -->
-<div class="text-center py-5">
-  <h1 class="display-5 fw-bold mb-3">Automated <span class="text-gold">XAUUSD</span> Trading Signals</h1>
-  <p class="lead text-secondary mb-4">
-    ML-powered gold trading signals delivered directly to your MetaTrader 5 EA.<br>
+<!-- ── Hero ── -->
+<section style="padding: 64px 2rem 52px; text-align: center; border-bottom: 1px solid #30363d;">
+  <h1 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem;">
+    Automated <span class="text-gold">XAUUSD</span> Trading Signals
+  </h1>
+  <p class="text-muted" style="font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem;">
+    ML-powered gold trading signals delivered directly to your MetaTrader 5 EA.
     No manual analysis. No emotion. Just data.
   </p>
-  <a href="/register" class="btn btn-gold btn-lg px-5 me-2">Start Trading — ${{ config.SUBSCRIPTION_PRICE_USD|int }}/mo</a>
-  <a href="#how-it-works" class="btn btn-outline-light btn-lg px-4">How It Works</a>
-</div>
+  <div class="d-flex gap-3 justify-content-center">
+    <a href="/register" class="btn btn-gold btn-lg px-4">
+      Start Trading &mdash; ${{ config.SUBSCRIPTION_PRICE_USD|int }}/mo
+    </a>
+    <a href="#how-it-works" class="btn btn-outline-gs btn-lg px-4">How It Works</a>
+  </div>
+  <div class="d-flex gap-4 justify-content-center mt-3">
+    <span class="text-muted small">USDT &middot; BTC &middot; ETH</span>
+    <span class="text-muted small">Any MT5 broker</span>
+    <span class="text-muted small">Cancel anytime</span>
+  </div>
+</section>
 
-<!-- Features -->
-<div class="row g-4 my-4">
-  <div class="col-md-4">
-    <div class="card h-100 p-4 text-center">
-      <i class="bi bi-cpu text-gold fs-1 mb-3"></i>
-      <h5>ML Ensemble</h5>
-      <p class="text-secondary mb-0">XGBoost + Transformer + RL agent combined into one meta-model for higher accuracy.</p>
-    </div>
+<!-- ── Features ── -->
+<section style="display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid #30363d;">
+  <div style="padding: 28px 24px; border-right: 1px solid #30363d;">
+    <h5 class="mb-2">ML Ensemble</h5>
+    <p class="text-muted small mb-0">
+      XGBoost + Transformer + RL agent combined into one meta-model.
+      Retrained monthly on fresh XAUUSD tick data.
+    </p>
   </div>
-  <div class="col-md-4">
-    <div class="card h-100 p-4 text-center">
-      <i class="bi bi-lightning-charge text-gold fs-1 mb-3"></i>
-      <h5>Live Signals</h5>
-      <p class="text-secondary mb-0">Signals pushed to your MT5 EA every minute. Includes SL, TP, and confidence score.</p>
-    </div>
+  <div style="padding: 28px 24px; border-right: 1px solid #30363d;">
+    <h5 class="mb-2">Signal includes SL &amp; TP</h5>
+    <p class="text-muted small mb-0">
+      Every signal ships with ATR-based stop loss and take profit levels.
+      No manual configuration needed in the EA.
+    </p>
   </div>
-  <div class="col-md-4">
-    <div class="card h-100 p-4 text-center">
-      <i class="bi bi-currency-bitcoin text-gold fs-1 mb-3"></i>
-      <h5>Crypto Payments</h5>
-      <p class="text-secondary mb-0">Pay with USDT, BTC, or ETH. Anonymous, instant, no bank required.</p>
-    </div>
+  <div style="padding: 28px 24px;">
+    <h5 class="mb-2">Crypto Payments</h5>
+    <p class="text-muted small mb-0">
+      Pay with USDT, BTC, or ETH. Subscription activates automatically
+      on on-chain confirmation. No bank required.
+    </p>
   </div>
-</div>
+</section>
 
-<!-- Pricing -->
-<div class="card mx-auto mt-5" style="max-width:420px;">
-  <div class="card-header text-center py-3">
-    <h5 class="mb-0">Monthly Plan</h5>
+<!-- ── Pricing ── -->
+<section style="padding: 48px 2rem; border-bottom: 1px solid #30363d;">
+  <div style="max-width: 400px; margin: 0 auto;">
+    <h2 class="mb-4" style="font-size: 1.5rem;">Pricing</h2>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Monthly Plan</span>
+        <span class="badge-active">Available now</span>
+      </div>
+      <div class="card-body">
+        <div class="d-flex align-items-baseline gap-2 mb-3">
+          <span class="text-gold font-mono" style="font-size: 2.5rem; font-weight: 700; line-height: 1;">
+            ${{ config.SUBSCRIPTION_PRICE_USD|int }}
+          </span>
+          <span class="text-muted">/month</span>
+        </div>
+        <ul class="list-unstyled mb-4" style="font-size: .9rem;">
+          {% for item in [
+            "Live XAUUSD ML signals every minute",
+            "SL & TP in every signal",
+            "Works with any MT5 broker",
+            "Personal API key",
+            "30-day rolling access",
+            "Pay with USDT / BTC / ETH"
+          ] %}
+          <li class="mb-2 d-flex align-items-start gap-2">
+            <span class="text-green" style="flex-shrink:0;">+</span>
+            <span>{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="/register" class="btn btn-gold w-100">Get Started</a>
+      </div>
+    </div>
   </div>
-  <div class="card-body text-center py-4">
-    <div class="price-tag">${{ config.SUBSCRIPTION_PRICE_USD|int }}</div>
-    <p class="text-secondary mb-4">per month &bull; cancel anytime</p>
-    <ul class="list-unstyled text-start mb-4">
-      <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2"></i>Live XAUUSD ML signals</li>
-      <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2"></i>Works with any MT5 broker</li>
-      <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2"></i>SL &amp; TP included in every signal</li>
-      <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2"></i>Personal API key</li>
-      <li class="mb-2"><i class="bi bi-check-circle-fill text-gold me-2"></i>Pay with USDT / BTC / ETH</li>
-    </ul>
-    <a href="/register" class="btn btn-gold w-100 btn-lg">Get Started</a>
-  </div>
-</div>
+</section>
 
-<!-- How it works -->
-<div id="how-it-works" class="mt-5 pt-4">
-  <h3 class="text-center mb-4">How It Works</h3>
-  <div class="row g-3 text-center">
-    <div class="col-md-3">
-      <div class="card p-3">
-        <div class="fs-1 text-gold fw-bold">1</div>
-        <p class="mt-2 mb-0 text-secondary">Create an account and subscribe with crypto</p>
-      </div>
+<!-- ── How it works ── -->
+<section id="how-it-works" style="padding: 48px 2rem;">
+  <h2 class="mb-4" style="font-size: 1.5rem;">How It Works</h2>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+    {% for step in [
+      ("1", "Create account", "Sign up with your email in 30 seconds."),
+      ("2", "Pay with crypto", "Choose USDT, BTC, or ETH. Activates within 10–30 min."),
+      ("3", "Install the EA", "Copy the Expert Advisor to your MT5 Experts folder and compile with F7."),
+      ("4", "Paste your API key", "Enter the key in EA inputs. Live signals start immediately.")
+    ] %}
+    <div>
+      <div class="step-num mb-2">{{ step[0] }}</div>
+      <p class="mb-1" style="font-weight: 600; font-size: .95rem;">{{ step[1] }}</p>
+      <p class="text-muted small mb-0">{{ step[2] }}</p>
     </div>
-    <div class="col-md-3">
-      <div class="card p-3">
-        <div class="fs-1 text-gold fw-bold">2</div>
-        <p class="mt-2 mb-0 text-secondary">Download and install the free MT5 Expert Advisor</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card p-3">
-        <div class="fs-1 text-gold fw-bold">3</div>
-        <p class="mt-2 mb-0 text-secondary">Enter your API key in the EA settings</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card p-3">
-        <div class="fs-1 text-gold fw-bold">4</div>
-        <p class="mt-2 mb-0 text-secondary">Attach the EA to your XAUUSD chart and enable auto-trading</p>
-      </div>
-    </div>
+    {% endfor %}
   </div>
-</div>
+</section>
 
 {% endblock %}

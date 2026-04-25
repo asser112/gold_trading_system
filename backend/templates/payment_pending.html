@@ -1,42 +1,98 @@
 {% extends "base.html" %}
 {% block title %}Payment Pending — GoldSignal{% endblock %}
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <div class="card text-center">
-      <div class="card-header py-3">
-        <h5 class="mb-0"><i class="bi bi-hourglass-split me-2 text-gold"></i>Send Payment</h5>
-      </div>
-      <div class="card-body p-4">
-        <p class="text-secondary mb-2">Send exactly</p>
-        <h2 class="text-gold mb-1">{{ payment.pay_amount }} {{ payment.pay_currency|upper }}</h2>
-        <p class="text-secondary mb-4">(≈ ${{ payment.price_usd|int }} USD)</p>
 
-        <p class="text-secondary mb-1">To this address:</p>
-        <div class="api-key-box mb-3" id="payAddr">{{ payment.pay_address }}</div>
-        <button class="btn btn-outline-light btn-sm mb-4" onclick="copyAddr()">
+<div style="padding: 48px 1rem; display: flex; justify-content: center;">
+  <div style="width: 100%; max-width: 460px;">
+
+    <div class="mb-4">
+      <h2 style="font-size: 1.4rem; margin-bottom: .4rem;">Payment Pending</h2>
+      <p class="text-muted small mb-0">
+        Send the exact amount to the address below to activate your subscription.
+      </p>
+    </div>
+
+    <div class="alert-dark-warning d-flex gap-2 align-items-start mb-4">
+      <i class="bi bi-exclamation-triangle mt-1 flex-shrink-0" style="color:#e0a050;"></i>
+      <div style="font-size:.87rem;">
+        Send the <strong>exact amount</strong> in
+        <strong>{{ coin_label }}</strong> only.
+        Your subscription activates automatically once the payment is confirmed on-chain.
+      </div>
+    </div>
+
+    <!-- Payment details card -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <span class="card-title">Payment Details</span>
+        <span class="badge-waiting">Waiting</span>
+      </div>
+      <div class="card-body">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="mb-4">
+          <div>
+            <div class="text-muted small mb-1">Amount to send</div>
+            <div class="font-mono" style="font-size:1.2rem; font-weight:700; color:#f0c040;">
+              {{ payment.pay_amount }} {{ payment.pay_currency|upper }}
+            </div>
+          </div>
+          <div>
+            <div class="text-muted small mb-1">USD equivalent</div>
+            <div class="font-mono" style="font-weight:600;">&approx; ${{ payment.price_usd|int }}</div>
+          </div>
+        </div>
+
+        <hr/>
+
+        <div class="mb-3">
+          <div class="text-muted small mb-2">
+            Send <strong>{{ payment.pay_currency|upper }}</strong> to this address:
+          </div>
+          <div class="mono-box" id="payAddr">{{ payment.pay_address }}</div>
+        </div>
+
+        <button class="btn btn-outline-gs btn-sm" onclick="copyAddr()">
           <i class="bi bi-clipboard me-1"></i>Copy Address
         </button>
 
-        <div class="alert alert-warning text-start py-2">
-          <i class="bi bi-exclamation-triangle me-2"></i>
-          Send the <strong>exact amount</strong> in <strong>{{ coin_label }}</strong> only.
-          Your subscription activates automatically once the payment is confirmed on-chain
-          (usually within 10–30 minutes).
-        </div>
-
-        <a href="/dashboard" class="btn btn-gold w-100 mt-2">Go to Dashboard</a>
       </div>
     </div>
+
+    <!-- What happens next -->
+    <div class="mb-4">
+      <p style="font-size:.85rem; font-weight:600; margin-bottom:.75rem;">What happens next</p>
+      {% for step in [
+        "Send the exact amount to the address above.",
+        "NOWPayments detects your transaction on-chain.",
+        "Your subscription activates within 10–30 minutes.",
+        "You will be redirected to your dashboard automatically."
+      ] %}
+      <div class="d-flex gap-2 mb-2">
+        <span class="font-mono text-gold" style="flex-shrink:0; font-weight:700;">{{ loop.index }}.</span>
+        <span class="text-muted small">{{ step }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <a href="/dashboard" class="btn btn-outline-gs w-100">
+      <i class="bi bi-speedometer2 me-2"></i>Go to Dashboard
+    </a>
+
   </div>
 </div>
+
 {% endblock %}
+
 {% block scripts %}
 <script>
 function copyAddr() {
-  navigator.clipboard.writeText(document.getElementById('payAddr').innerText);
-  event.target.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
-  setTimeout(() => { event.target.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy Address'; }, 2000);
+  navigator.clipboard.writeText(document.getElementById('payAddr').innerText.trim()).then(() => {
+    const btn = event.currentTarget;
+    btn.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy Address';
+    }, 2000);
+  });
 }
 </script>
 {% endblock %}

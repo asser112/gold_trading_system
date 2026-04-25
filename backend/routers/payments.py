@@ -22,14 +22,13 @@ NOWPAYMENTS_HEADERS = {
 }
 
 
+def _r(request, name, **ctx):
+    return templates.TemplateResponse(request=request, name=name, context=ctx)
+
+
 @router.get("/pay", response_class=HTMLResponse)
 def pay_page(request: Request, user: User = Depends(get_current_user)):
-    return templates.TemplateResponse("pay.html", {
-        "request": request,
-        "user": user,
-        "coins": config.COIN_LABELS,
-        "price": config.SUBSCRIPTION_PRICE_USD,
-    })
+    return _r(request, "pay.html", user=user, coins=config.COIN_LABELS, price=config.SUBSCRIPTION_PRICE_USD)
 
 
 @router.post("/pay/create")
@@ -77,11 +76,7 @@ async def create_payment(
     db.commit()
     db.refresh(payment)
 
-    return templates.TemplateResponse("payment_pending.html", {
-        "request": request,
-        "payment": payment,
-        "coin_label": config.COIN_LABELS.get(coin, coin),
-    })
+    return _r(request, "payment_pending.html", payment=payment, coin_label=config.COIN_LABELS.get(coin, coin))
 
 
 @router.post("/webhooks/nowpayments")

@@ -1,37 +1,115 @@
 {% extends "base.html" %}
 {% block title %}Subscribe — GoldSignal{% endblock %}
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-5">
-    <div class="card">
-      <div class="card-header py-3">
-        <h5 class="mb-0"><i class="bi bi-currency-bitcoin me-2 text-gold"></i>Subscribe</h5>
-      </div>
-      <div class="card-body p-4">
-        <div class="text-center mb-4">
-          <div class="price-tag">${{ price|int }}</div>
-          <p class="text-secondary">for {{ 30 }}-day access</p>
+
+<div style="padding: 48px 1rem; display: flex; justify-content: center;">
+  <div style="width: 100%; max-width: 440px;">
+
+    <div class="mb-4">
+      <h2 style="font-size: 1.4rem; margin-bottom: .4rem;">Subscribe</h2>
+      <p class="text-muted small mb-0">
+        30-day access. Activates automatically on payment confirmation.
+      </p>
+    </div>
+
+    <!-- Plan summary stats -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.5rem;">
+      <div class="card">
+        <div class="card-body stat-block">
+          <div class="stat-value text-gold">${{ price|int }}</div>
+          <div class="stat-label">Monthly price</div>
         </div>
-        <form method="post" action="/pay/create">
-          <label class="form-label">Select cryptocurrency</label>
-          <div class="d-flex flex-column gap-2 mb-4">
-            {% for coin_id, coin_label in coins.items() %}
-            <div class="form-check card p-3" style="cursor:pointer;">
-              <input class="form-check-input" type="radio" name="coin" id="{{ coin_id }}" value="{{ coin_id }}"
-                     {% if loop.first %}checked{% endif %}/>
-              <label class="form-check-label ms-2 w-100" for="{{ coin_id }}" style="cursor:pointer;">
-                {{ coin_label }}
-              </label>
-            </div>
-            {% endfor %}
-          </div>
-          <button type="submit" class="btn btn-gold w-100 btn-lg">Generate Payment Address</button>
-        </form>
-        <p class="text-center text-secondary mt-3 mb-0" style="font-size:.85rem;">
-          Powered by NOWPayments &bull; Payment confirmed automatically
-        </p>
+      </div>
+      <div class="card">
+        <div class="card-body stat-block">
+          <div class="stat-value">30</div>
+          <div class="stat-label">Days of access</div>
+        </div>
       </div>
     </div>
+
+    <hr class="mb-4"/>
+
+    <!-- Coin selector -->
+    <form method="post" action="/pay/create">
+      <p class="mb-2" style="font-weight:600; font-size:.9rem;">Select cryptocurrency</p>
+
+      {% for coin_id, coin_label in coins.items() %}
+      <div class="coin-option mb-2 {% if loop.first %}selected{% endif %}">
+        <input
+          class="coin-radio"
+          type="radio"
+          name="coin"
+          id="{{ coin_id }}"
+          value="{{ coin_id }}"
+          {% if loop.first %}checked{% endif %}
+        />
+        <label for="{{ coin_id }}" style="cursor:pointer; display:flex; align-items:center; gap:.75rem; margin:0;">
+          <div class="coin-dot" style="
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            border: 2px solid #30363d;
+            background: transparent;
+            flex-shrink: 0;
+            transition: border-color .15s, background .15s;
+          "></div>
+          <div>
+            <div style="font-size:.9rem; font-weight:600;">{{ coin_label }}</div>
+            {% if loop.first %}
+            <div class="text-muted" style="font-size:.78rem;">Stable &mdash; recommended</div>
+            {% else %}
+            <div class="text-muted" style="font-size:.78rem;">Market rate applies</div>
+            {% endif %}
+          </div>
+        </label>
+      </div>
+      {% endfor %}
+
+      <div class="alert-dark-info mt-4 mb-4" style="font-size:.85rem;">
+        <i class="bi bi-info-circle me-2"></i>
+        <strong>How payment works:</strong> Click below to generate a wallet address.
+        Send the exact amount shown. Your subscription activates automatically
+        within 10&ndash;30 minutes of on-chain confirmation.
+      </div>
+
+      <button type="submit" class="btn btn-gold w-100 btn-lg">
+        Generate Payment Address
+      </button>
+    </form>
+
+    <p class="text-center text-muted small mt-3 mb-0">
+      Powered by NOWPayments &bull; Fully automated
+    </p>
+
   </div>
 </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Sync the visual radio dot with selection state
+document.querySelectorAll('.coin-option').forEach(function(opt) {
+  const dot = opt.querySelector('.coin-dot');
+  const radio = opt.querySelector('input[type=radio]');
+
+  function updateDot(selected) {
+    dot.style.borderColor = selected ? '#f0c040' : '#30363d';
+    dot.style.background  = selected ? '#f0c040' : 'transparent';
+  }
+
+  updateDot(opt.classList.contains('selected'));
+
+  opt.addEventListener('click', function() {
+    document.querySelectorAll('.coin-option').forEach(function(o) {
+      o.classList.remove('selected');
+      o.querySelector('.coin-dot').style.borderColor = '#30363d';
+      o.querySelector('.coin-dot').style.background  = 'transparent';
+    });
+    opt.classList.add('selected');
+    radio.checked = true;
+    updateDot(true);
+  });
+});
+</script>
 {% endblock %}

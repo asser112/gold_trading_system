@@ -2,115 +2,288 @@
 {% block title %}Dashboard — GoldSignal{% endblock %}
 {% block content %}
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h4 class="mb-0"><i class="bi bi-speedometer2 me-2 text-gold"></i>Dashboard</h4>
-  <span class="text-secondary">{{ user.email }}</span>
-</div>
+<div style="padding: 1.75rem 2rem;">
 
-<div class="row g-4">
-
-  <!-- Subscription status -->
-  <div class="col-md-6">
-    <div class="card h-100">
-      <div class="card-header"><i class="bi bi-calendar-check me-2"></i>Subscription</div>
-      <div class="card-body">
-        {% if subscription %}
-          <span class="badge badge-active fs-6 px-3 py-2 mb-3">Active</span>
-          <p class="mb-1 text-secondary">Expires</p>
-          <p class="fw-bold">{{ subscription.expires_at.strftime('%B %d, %Y') }}</p>
-          <a href="/pay" class="btn btn-outline-light btn-sm mt-2">Renew / Extend</a>
-        {% else %}
-          <span class="badge badge-expired fs-6 px-3 py-2 mb-3">Inactive</span>
-          <p class="text-secondary mb-3">You don't have an active subscription.</p>
-          <a href="/pay" class="btn btn-gold">Subscribe Now — ${{ config.SUBSCRIPTION_PRICE_USD|int }}/mo</a>
-        {% endif %}
-      </div>
-    </div>
+  <!-- ── Page header ── -->
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <h2 style="font-size: 1.3rem; margin: 0;">Dashboard</h2>
+    <span class="text-muted small">{{ user.email }}</span>
   </div>
 
-  <!-- API Key -->
-  <div class="col-md-6">
-    <div class="card h-100">
-      <div class="card-header"><i class="bi bi-key me-2"></i>Your API Key</div>
-      <div class="card-body">
-        <p class="text-secondary mb-2">Enter this key in your MT5 EA settings.</p>
-        <div class="api-key-box mb-3" id="apiKey">{{ user.api_key }}</div>
-        <button class="btn btn-outline-light btn-sm" onclick="copyKey()">
-          <i class="bi bi-clipboard me-1"></i>Copy
-        </button>
-        {% if not subscription %}
-          <p class="text-secondary mt-3 mb-0" style="font-size:.85rem;">
-            <i class="bi bi-info-circle me-1"></i>Requires an active subscription to return signals.
-          </p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-
-  <!-- Setup instructions -->
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header"><i class="bi bi-terminal me-2"></i>MT5 EA Setup</div>
-      <div class="card-body">
-        <ol class="mb-0">
-          <li class="mb-2">Download <strong>gold_trading_ea.mq5</strong> from the release package.</li>
-          <li class="mb-2">Copy it to your MT5 <code>MQL5\Experts\</code> folder and compile (F7).</li>
-          <li class="mb-2">Open an <strong>XAUUSD chart</strong> on M5 timeframe.</li>
-          <li class="mb-2">Drag the EA onto the chart. In <em>Inputs</em>, set:<br>
-            <code>ApiKey = {{ user.api_key }}</code><br>
-            <code>SignalUrl = {{ config.BASE_URL }}/api/signal</code>
-          </li>
-          <li class="mb-2">Check <strong>Allow live trading</strong> and <strong>Allow WebRequests</strong>.</li>
-          <li>Enable <strong>Auto Trading</strong> in the MT5 toolbar.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <!-- Payment history -->
-  {% if payments %}
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header"><i class="bi bi-clock-history me-2"></i>Payment History</div>
-      <div class="table-responsive">
-        <table class="table table-dark table-borderless mb-0">
-          <thead style="border-bottom:1px solid #30363d;">
-            <tr>
-              <th>Date</th><th>Amount</th><th>Currency</th><th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for p in payments %}
-            <tr>
-              <td>{{ p.created_at.strftime('%Y-%m-%d') }}</td>
-              <td>{{ p.pay_amount }} {{ p.pay_currency|upper }}</td>
-              <td>${{ p.price_usd|int }}</td>
-              <td>
-                {% if p.status in ['finished','confirmed'] %}
-                  <span class="badge badge-active">Confirmed</span>
-                {% elif p.status == 'waiting' %}
-                  <span class="badge bg-warning text-dark">Waiting</span>
-                {% else %}
-                  <span class="badge badge-expired">{{ p.status|title }}</span>
-                {% endif %}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+  <!-- ── No-subscription warning ── -->
+  {% if not subscription %}
+  <div class="alert-dark-warning d-flex align-items-start gap-2 mb-4">
+    <i class="bi bi-exclamation-triangle mt-1 flex-shrink-0" style="color:#e0a050;"></i>
+    <div>
+      <strong>No active subscription.</strong>
+      Your API key will not return signals until you subscribe.
+      <a href="/pay" class="text-gold ms-1">Subscribe now &rarr;</a>
     </div>
   </div>
   {% endif %}
 
-</div>
+  <!-- ── Live signal hero ── -->
+  {% if subscription and signal %}
+  <div class="card mb-4">
+    <div class="card-header">
+      <span class="card-title">Current Signal &mdash; XAUUSD</span>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted small font-mono" id="signal-age">Updated just now</span>
+        <span class="badge-active">Live</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div style="display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: start;">
+
+        <!-- Direction + metadata -->
+        <div>
+          <div class="text-muted small mb-1">Direction</div>
+          <div class="signal-direction
+            {% if signal.signal == 'buy' %}signal-buy
+            {% elif signal.signal == 'sell' %}signal-sell
+            {% else %}signal-hold{% endif %}
+            mb-3">
+            {{ signal.signal | upper }}
+          </div>
+
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="text-muted small">Confidence</span>
+            <span class="small font-mono" style="font-weight:600;">{{ (signal.confidence * 100) | int }}%</span>
+          </div>
+          <div class="confidence-bar mb-3">
+            <div class="confidence-bar-fill
+              {% if signal.signal == 'sell' %}" style="background:#f85149;{% endif %}
+              width: {{ (signal.confidence * 100) | int }}%;"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;" class="mb-3">
+            <div>
+              <div class="text-muted small mb-1">Stop Loss</div>
+              <div class="font-mono text-red" style="font-weight:600;">
+                {% if signal.sl %}{{ "%.2f" | format(signal.sl) }}{% else %}&mdash;{% endif %}
+              </div>
+            </div>
+            <div>
+              <div class="text-muted small mb-1">Take Profit</div>
+              <div class="font-mono text-green" style="font-weight:600;">
+                {% if signal.tp %}{{ "%.2f" | format(signal.tp) }}{% else %}&mdash;{% endif %}
+              </div>
+            </div>
+          </div>
+
+          {% if signal.reason %}
+          <div class="text-muted small mb-1">Reason</div>
+          <div class="small">{{ signal.reason }}</div>
+          {% endif %}
+
+          <div class="text-muted small font-mono mt-3">{{ signal.timestamp }}</div>
+        </div>
+
+        <!-- Stats side panel -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; align-content: start;">
+          <div class="card">
+            <div class="card-body stat-block">
+              <div class="stat-value text-gold">{{ signal_count }}</div>
+              <div class="stat-label">Signals This Month</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body stat-block">
+              <div class="stat-value text-green">{{ win_rate }}%</div>
+              <div class="stat-label">Historical Win Rate</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body stat-block">
+              <div class="stat-value">{{ rr_ratio }}</div>
+              <div class="stat-label">Avg Risk / Reward</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body stat-block">
+              <div class="stat-value">{{ days_left }}</div>
+              <div class="stat-label">Days Remaining</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <!-- Stat strip when no live signal (no sub or no signal yet) -->
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin-bottom: 1.5rem;">
+    {% for v, l, t in [
+      (signal_count, "Signals This Month", ""),
+      (win_rate ~ "%", "Historical Win Rate", "text-green"),
+      (rr_ratio, "Avg Risk / Reward", ""),
+      (days_left ~ " days", "Subscription Left", "")
+    ] %}
+    <div class="card">
+      <div class="card-body stat-block">
+        <div class="stat-value {{ t }}">{{ v }}</div>
+        <div class="stat-label">{{ l }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- ── Bottom two-column grid ── -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+    <!-- Left column -->
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+      <!-- Subscription card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Subscription</span>
+          {% if subscription %}
+            <span class="badge-active">Active</span>
+          {% else %}
+            <span class="badge-inactive">Inactive</span>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          {% if subscription %}
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted small">Renews / Expires</span>
+              <span class="font-mono small" style="font-weight:600;">
+                {{ subscription.expires_at.strftime('%b %d, %Y') }}
+              </span>
+            </div>
+            <hr class="my-2"/>
+            <a href="/pay" class="btn btn-outline-gs btn-sm w-100">Renew / Extend</a>
+          {% else %}
+            <p class="text-muted small mb-3">You don't have an active subscription.</p>
+            <a href="/pay" class="btn btn-gold w-100">Subscribe Now &mdash; ${{ config.SUBSCRIPTION_PRICE_USD|int }}/mo</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- API key card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Your API Key</span>
+          <button class="btn-ghost" onclick="copyKey()">
+            <i class="bi bi-clipboard me-1"></i>Copy
+          </button>
+        </div>
+        <div class="card-body">
+          <p class="text-muted small mb-2">
+            Enter this key in your MT5 EA settings to activate signal reception.
+          </p>
+          <div class="mono-box" id="apiKey">{{ user.api_key }}</div>
+          {% if not subscription %}
+          <p class="text-muted small mt-2 mb-0">
+            <i class="bi bi-info-circle me-1"></i>
+            Requires an active subscription to return signals.
+          </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- EA setup — collapsible -->
+      <div class="card">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#ea-setup"
+             style="cursor:pointer; user-select:none;">
+          <span class="card-title">MT5 EA Setup Instructions</span>
+          <i class="bi bi-chevron-down" style="font-size:.75rem; color:#8b949e;"></i>
+        </div>
+        <div class="collapse" id="ea-setup">
+          <div class="card-body" style="font-size:.87rem;">
+            <ol class="mb-0" style="padding-left: 1.2rem; line-height: 1.8;">
+              <li>Download <code>gold_trading_ea.mq5</code> and copy to your MT5
+                  <code>MQL5\Experts\</code> folder. Press <strong>F7</strong> to compile.</li>
+              <li>Open an <strong>XAUUSD</strong> chart on M5 timeframe.</li>
+              <li>Drag the EA onto the chart. In the <em>Inputs</em> tab set:
+                <div class="mono-box mt-2 mb-1">ApiKey&nbsp;&nbsp;&nbsp;= {{ user.api_key }}</div>
+                <div class="mono-box">SignalUrl = {{ config.BASE_URL }}/api/signal</div>
+              </li>
+              <li>Check <strong>Allow live trading</strong> and <strong>Allow WebRequests</strong>.</li>
+              <li>Enable <strong>Auto Trading</strong> in the MT5 toolbar.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right column — payment history -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Payment History</span>
+        </div>
+        {% if payments %}
+        <div style="overflow-x:auto;">
+          <table class="gs-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>USD</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in payments %}
+              <tr>
+                <td class="font-mono small">{{ p.created_at.strftime('%Y-%m-%d') }}</td>
+                <td class="font-mono small">{{ p.pay_amount }} {{ p.pay_currency|upper }}</td>
+                <td class="font-mono small">${{ p.price_usd|int }}</td>
+                <td>
+                  {% if p.status in ['finished', 'confirmed'] %}
+                    <span class="badge-active">Confirmed</span>
+                  {% elif p.status == 'waiting' %}
+                    <span class="badge-waiting">Waiting</span>
+                  {% else %}
+                    <span class="badge-inactive">{{ p.status|title }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+        <div class="card-body">
+          <p class="text-muted small mb-0">No payments yet.</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+
+</div><!-- end padding -->
 {% endblock %}
+
 {% block scripts %}
 <script>
 function copyKey() {
-  navigator.clipboard.writeText(document.getElementById('apiKey').innerText);
-  event.target.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
-  setTimeout(() => { event.target.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy'; }, 2000);
+  const text = document.getElementById('apiKey').innerText.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.currentTarget;
+    btn.innerHTML = '<i class="bi bi-check-lg me-1"></i>Copied!';
+    setTimeout(() => { btn.innerHTML = '<i class="bi bi-clipboard me-1"></i>Copy'; }, 2000);
+  });
 }
+
+// Show how long ago signal was updated
+(function() {
+  const el = document.getElementById('signal-age');
+  if (!el) return;
+  const ts = "{{ signal.timestamp if signal else '' }}";
+  if (!ts) return;
+  function fmt() {
+    const diff = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+    if (diff < 60)  el.textContent = 'Updated ' + diff + 's ago';
+    else            el.textContent = 'Updated ' + Math.floor(diff/60) + 'm ago';
+  }
+  fmt();
+  setInterval(fmt, 10000);
+})();
 </script>
 {% endblock %}
