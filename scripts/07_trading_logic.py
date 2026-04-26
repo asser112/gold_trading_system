@@ -145,7 +145,8 @@ def get_xgboost_signal(rates):
         # ADX approximation using ATR ratio
         adx = min(100.0, atr / closes[-1] * 10000) if closes[-1] != 0 else 25.0
 
-        now = datetime.utcnow()
+        from datetime import timezone
+        now = datetime.now(timezone.utc)
         hour        = now.hour
         day_of_week = now.weekday()
         session_Asian  = 1 if 0  <= hour < 8  else 0

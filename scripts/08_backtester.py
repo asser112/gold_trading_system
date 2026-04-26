@@ -66,66 +66,35 @@ class XGBoostStrategy(Strategy):
 
 
 def main():
-    logger.info("Starting XGBoost backtest...")
-    
+    logger.info("=" * 60)
+    logger.info("XGBOOST BACKTESTER — STARTUP")
+    logger.info("=" * 60)
+
     db_path = 'data/gold_trading.db'
     features_path = 'data/processed/features_target_m5.parquet'
-    
-    if not os.path.exists(db_path):
-        logger.error(f"Database not found: {db_path}")
-        return
-    
-    if not os.path.exists(features_path):
-        logger.error(f"Features file not found: {features_path}")
-        return
-    
-    conn = sqlite3.connect(db_path)
-    
-    end_date = pd.Timestamp.now()
-    start_date = end_date - timedelta(days=365)
-    
-    logger.info(f"Backtest period: {start_date.date()} to {end_date.date()}")
-    
-    ohlc_df = pd.read_sql(
-        f"SELECT * FROM ohlc_m5 WHERE timestamp >= '{start_date}' ORDER BY timestamp",
-        conn,
-        index_col='timestamp',
-        parse_dates=['timestamp']
-    )
-    conn.close()
-    
-    # Remove duplicates - keep first occurrence
-    ohlc_df = ohlc_df[~ohlc_df.index.duplicated(keep='first')]
-    ohlc_df = ohlc_df.dropna()
-    ohlc_df.columns = [c.capitalize() for c in ohlc_df.columns]
-    
-    logger.info(f"Loaded {len(ohlc_df)} bars (after deduplication)")
-    
-    precomputed = pd.read_parquet(features_path)
-    precomputed = precomputed.reset_index()
-    precomputed['timestamp'] = pd.to_datetime(precomputed['timestamp'])
-    # Remove duplicates from features too
-    precomputed = precomputed[~precomputed['timestamp'].duplicated(keep='first')]
-    precomputed = precomputed.set_index('timestamp')
-    
-    # Filter precomputed to backtest period
-    precomputed = precomputed[precomputed.index >= start_date]
-    precomputed = precomputed[precomputed.index <= end_date]
-    
-    common_idx = ohlc_df.index.intersection(precomputed.index)
-    logger.info(f"Matched {len(common_idx)} bars with precomputed features")
-    
-    if len(common_idx) == 0:
-        logger.error("No matching data between OHLC and features")
-        return
-    
-    df = ohlc_df.loc[common_idx].copy()
-    
-    for col in precomputed.columns:
-        if col not in ['target']:
-            df[col] = precomputed.loc[common_idx, col].values
-    
-    _model = joblib.load('models/xgboost/xgboost_best.pkl')
+    model_path = 'models/xgboost/xgboost_best.pkl'
+
+    # ── File checks ──────────────────────────────────────────────
+    for label, path in [("Database", db_path), ("Features", features_path), ("Model", model_path)]:
+        exists = os.path.exists(path)
+        size_mb = os.path.getsize(path) / 1_048_576 if exists else 0
+        logger.info(f"  {label:10s}: {'OK' if exists else 'MISSING':7s}  {path}  ({size_mb:.2f} MB)")
+        if not exists:
+            logger.error(f"{label} not found — aborting.")
+            return
+
+    # ── Load and inspect model ────────────────────────────────────
+    _model = joblib.load(model_path)
+    model_type = type(_model).__name__
+    n_features = len(_model.feature_names_in_) if hasattr(_model, 'feature_names_in_') else '?'
+    n_estimators = getattr(_model, 'n_estimators', '?')
+    logger.info(f"\nModel loaded:")
+    logger.info(f"  Type        : {model_type}")
+    logger.info(f"  Estimators  : {n_estimators}")
+    logger.info(f"  Features    : {n_features}")
+    if hasattr(_model, 'feature_names_in_'):
+        logger.info(f"  Feature list: {list(_model.feature_names_in_)}")
+
     if hasattr(_model, 'feature_names_in_'):
         feature_cols = list(_model.feature_names_in_)
     else:
@@ -133,6 +102,62 @@ def main():
                        'bb_width', 'adx', 'order_block', 'fvg_distance', 'liquidity_zone',
                        'sweep', 'sentiment_score', 'hour', 'day_of_week',
                        'session_Asian', 'session_London', 'session_NY']
+
+    # ── Config summary ────────────────────────────────────────────
+    threshold   = config['models']['ensemble']['confidence_threshold']
+    min_hold    = config['models']['ensemble']['min_hold_bars']
+    commission  = config['backtest']['commission']
+    spread      = config['backtest']['spread']
+    init_bal    = config['backtest']['initial_balance']
+    lot_size    = config['trading']['lot_size']
+    logger.info(f"\nBacktest config:")
+    logger.info(f"  Initial balance      : ${init_bal:,.2f}")
+    logger.info(f"  Lot size             : {lot_size}")
+    logger.info(f"  Confidence threshold : {threshold}")
+    logger.info(f"  Min hold bars        : {min_hold}")
+    logger.info(f"  Commission           : {commission}")
+    logger.info(f"  Spread               : {spread}")
+
+    # ── Load OHLC data ────────────────────────────────────────────
+    conn = sqlite3.connect(db_path)
+    end_date   = pd.Timestamp.now()
+    start_date = end_date - timedelta(days=365)
+    logger.info(f"\nData period: {start_date.date()} → {end_date.date()} (last 12 months)")
+
+    ohlc_df = pd.read_sql(
+        f"SELECT * FROM ohlc_m5 WHERE timestamp >= '{start_date}' ORDER BY timestamp",
+        conn,
+        index_col='timestamp',
+        parse_dates=['timestamp']
+    )
+    conn.close()
+
+    ohlc_df = ohlc_df[~ohlc_df.index.duplicated(keep='first')]
+    ohlc_df = ohlc_df.dropna()
+    ohlc_df.columns = [c.capitalize() for c in ohlc_df.columns]
+    logger.info(f"OHLC bars loaded     : {len(ohlc_df):,}  ({len(ohlc_df)/288:.0f} trading days approx)")
+
+    # ── Load features ─────────────────────────────────────────────
+    precomputed = pd.read_parquet(features_path)
+    precomputed = precomputed.reset_index()
+    precomputed['timestamp'] = pd.to_datetime(precomputed['timestamp'])
+    precomputed = precomputed[~precomputed['timestamp'].duplicated(keep='first')]
+    precomputed = precomputed.set_index('timestamp')
+    precomputed = precomputed[precomputed.index >= start_date]
+    precomputed = precomputed[precomputed.index <= end_date]
+    logger.info(f"Feature rows loaded  : {len(precomputed):,}")
+
+    common_idx = ohlc_df.index.intersection(precomputed.index)
+    logger.info(f"Matched bars         : {len(common_idx):,}")
+
+    if len(common_idx) == 0:
+        logger.error("No matching data between OHLC and features — aborting.")
+        return
+
+    df = ohlc_df.loc[common_idx].copy()
+    for col in precomputed.columns:
+        if col not in ['target']:
+            df[col] = precomputed.loc[common_idx, col].values
     
     ohlc_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
     
@@ -213,12 +238,14 @@ def main():
         
         logger.info("Results saved to backtest_reports/last_year_results.txt")
     else:
-        logger.warning("No trades generated during backtest")
+        logger.warning("No trades generated — check confidence threshold or data range.")
         os.makedirs('backtest_reports', exist_ok=True)
         with open('backtest_reports/last_year_results.txt', 'w') as f:
             f.write("No trades generated during backtest period.\n")
-    
-    logger.info("Backtest completed.")
+
+    logger.info("\n" + "=" * 60)
+    logger.info("BACKTEST COMPLETE")
+    logger.info("=" * 60)
 
 
 if __name__ == '__main__':
