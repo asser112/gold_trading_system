@@ -1,0 +1,7 @@
+--- Cycle 1 ---
+2026-04-26 22:29:54,689 - __main__ - INFO - XGBoost signal: sell | conf=0.89 | SL=4715.02 | TP=4698.8
+2026-04-26 22:29:54,691 - __main__ - INFO - Signal: SELL (conf=0.89) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-26 22:30:54,692 - __main__ - INFO -
+--- Cycle 2 ---
+2026-04-26 22:30:54,710 - __main__ - INFO - XGBoost signal: sell | conf=0.89 | SL=4715.02 | TP=4698.8
+2026-04-26 22:30:54,711 - __main__ - INFO - Signal: SELL (conf=0.89) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
