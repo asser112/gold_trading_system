@@ -110,26 +110,95 @@ def write_signal(signal, confidence=0.0, sl=None, tp=None, reason=""):
         return False
 
 
-def get_model_prediction():
-    """Get prediction from the trained model."""
+def get_xgboost_signal(rates):
+    """Generate signal using the trained XGBoost model and live MT5 data."""
     try:
-        from src.trading_bot import TradingBot
-        bot = TradingBot()
-        bot.initialize(mode="backtest")
-        logger.info("Loading trained model...")
-        try:
-            bot.load_model()
-            logger.info("Model loaded successfully")
-        except Exception as e:
-            logger.warning(f"No trained model found: {e}")
-            bot.model = None
-        return bot
-    except ModuleNotFoundError:
-        logger.info("ML model not available — using technical indicator fallback.")
-        return None
+        import joblib
+        import numpy as np
+
+        model_path = PROJECT_ROOT / "models" / "xgboost" / "xgboost_best.pkl"
+        if not model_path.exists():
+            return None, None, None, None
+
+        model = joblib.load(model_path)
+        closes = rates['close']
+        highs  = rates['high']
+        lows   = rates['low']
+
+        # Compute features that match training
+        ema20 = calculate_ema(closes, 20)
+        ema50 = calculate_ema(closes, 50)
+        rsi   = calculate_rsi(closes, 14)
+        atr   = calculate_atr(rates, 14)
+
+        # Bollinger Bands (20-period)
+        window = closes[-20:]
+        bb_middle = float(np.mean(window))
+        bb_std    = float(np.std(window))
+        bb_upper  = bb_middle + 2 * bb_std
+        bb_lower  = bb_middle - 2 * bb_std
+        bb_width  = (bb_upper - bb_lower) / bb_middle if bb_middle != 0 else 0
+
+        # VWAP approximation (last 20 bars)
+        vwap = float(np.mean((rates['high'][-20:] + rates['low'][-20:] + rates['close'][-20:]) / 3))
+
+        # ADX approximation using ATR ratio
+        adx = min(100.0, atr / closes[-1] * 10000) if closes[-1] != 0 else 25.0
+
+        now = datetime.utcnow()
+        hour        = now.hour
+        day_of_week = now.weekday()
+        session_Asian  = 1 if 0  <= hour < 8  else 0
+        session_London = 1 if 8  <= hour < 16 else 0
+        session_NY     = 1 if 13 <= hour < 22 else 0
+
+        # Build feature vector using model's own feature order
+        feature_map = {
+            'rsi': rsi, 'ema20': ema20, 'ema50': ema50, 'vwap': vwap,
+            'bb_upper': bb_upper, 'bb_middle': bb_middle, 'bb_lower': bb_lower,
+            'bb_width': bb_width, 'adx': adx,
+            'order_block': 0.0, 'fvg_distance': 0.0,
+            'liquidity_zone': 0.0, 'sweep': 0.0, 'sentiment_score': 0.0,
+            'hour': hour, 'day_of_week': day_of_week,
+            'session_Asian': session_Asian, 'session_London': session_London,
+            'session_NY': session_NY,
+            # some model versions include atr
+            'atr': atr,
+        }
+
+        if hasattr(model, 'feature_names_in_'):
+            feature_vector = np.array([[feature_map.get(f, 0.0) for f in model.feature_names_in_]], dtype=np.float32)
+        else:
+            feature_vector = np.array([[feature_map[f] for f in [
+                'rsi','ema20','ema50','vwap','bb_upper','bb_middle','bb_lower',
+                'bb_width','adx','order_block','fvg_distance','liquidity_zone',
+                'sweep','sentiment_score','hour','day_of_week',
+                'session_Asian','session_London','session_NY',
+            ]]], dtype=np.float32)
+
+        probs          = model.predict_proba(feature_vector)[0]
+        predicted_class = int(np.argmax(probs))
+        confidence      = float(probs[predicted_class])
+        threshold       = _config.get("models", {}).get("ensemble", {}).get("confidence_threshold", 0.80)
+
+        if confidence < threshold:
+            return "hold", confidence, None, None
+
+        current_price = float(closes[-1])
+        if predicted_class == 2:      # buy
+            sl = round(current_price - atr * 2, 2)
+            tp = round(current_price + atr * 3, 2)
+            return "buy", confidence, sl, tp
+        elif predicted_class == 0:    # sell
+            sl = round(current_price + atr * 2, 2)
+            tp = round(current_price - atr * 3, 2)
+            return "sell", confidence, sl, tp
+        else:
+            return "hold", confidence, None, None
+
     except Exception as e:
-        logger.warning(f"Trading bot init failed: {e}")
-        return None
+        logger.warning(f"XGBoost prediction error: {e}")
+        return None, None, None, None
 
 
 def get_technical_signal():
@@ -227,10 +296,8 @@ def main():
     print(f"Timeframe: M5")
     print("Press Ctrl+C to stop\n")
 
-    bot = get_model_prediction()
     interval = 60
     iteration = 0
-    last_signal = ""
 
     try:
         while True:
@@ -242,27 +309,29 @@ def main():
             sl = tp = None
             reason = ""
 
-            if bot and bot.model is not None:
-                try:
-                    df = bot.data_loader.get_sample_data(100)
-                    df = bot.feature_engineer.create_features(df)
-                    signals = bot.model.predict(df)
-                    pred = signals[-1]
-                    if pred == 1:
-                        signal = "buy"
-                        confidence = 0.75
-                        reason = "ML model buy signal"
-                    elif pred == -1:
-                        signal = "sell"
-                        confidence = 0.75
-                        reason = "ML model sell signal"
+            # Try XGBoost first using live MT5 rates
+            try:
+                import MetaTrader5 as mt5
+                if mt5.initialize():
+                    symbol = _config.get("trading", {}).get("symbol", "XAUUSD")
+                    rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_M5, 0, 100)
+                    mt5.shutdown()
+                    if rates is not None and len(rates) >= 50:
+                        xgb_signal, xgb_conf, xgb_sl, xgb_tp = get_xgboost_signal(rates)
+                        if xgb_signal is not None:
+                            signal, confidence, sl, tp = xgb_signal, xgb_conf, xgb_sl, xgb_tp
+                            reason = f"XGBoost ({signal}, conf={confidence:.2f})"
+                            logger.info(f"XGBoost signal: {signal} | conf={confidence:.2f} | SL={sl} | TP={tp}")
+                        else:
+                            signal, confidence, sl, tp = get_technical_signal()
+                            reason = f"Technical fallback ({signal})"
                     else:
-                        reason = "ML model no clear signal"
-                except Exception as e:
-                    logger.error(f"ML prediction error: {e}")
+                        signal, confidence, sl, tp = get_technical_signal()
+                        reason = "Technical fallback (no MT5 data)"
+                else:
                     signal, confidence, sl, tp = get_technical_signal()
-                    reason = f"Technical fallback ({signal})"
-            else:
+                    reason = "Technical fallback (MT5 init failed)"
+            except ImportError:
                 signal, confidence, sl, tp = get_technical_signal()
                 reason = f"Technical indicator ({signal})"
 
@@ -272,8 +341,6 @@ def main():
     except KeyboardInterrupt:
         logger.info("\nShutting down...")
         write_signal("hold", 0.0, reason="Signal generator stopped")
-        if bot:
-            bot.shutdown()
         logger.info("Done")
 
 
