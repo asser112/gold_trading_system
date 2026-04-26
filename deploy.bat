@@ -14,7 +14,7 @@ set "SRC=%~dp0"
 :: Find it: open MT5 > Help > About, or browse:
 ::   %APPDATA%\MetaQuotes\Terminal\   <- look for a long hex folder
 :: ---------------------------------------------------------------
-set "MT5_TERMINAL_ID=YOUR_TERMINAL_ID"
+set "MT5_TERMINAL_ID=D0E8209F77C8CF37AD8BF550E51FF075"
 
 if "%MT5_TERMINAL_ID%"=="YOUR_TERMINAL_ID" (
     echo [ERROR] MT5_TERMINAL_ID is not configured.
