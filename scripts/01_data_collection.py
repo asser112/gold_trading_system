@@ -224,7 +224,7 @@ def resample_ohlc(df, interval='5min'):
         '1d': {'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last'},
     }
     
-    rule = interval.lower().replace('min', 'T').replace('h', 'H').replace('d', 'D')
+    rule = interval.lower().replace('min', 'min').replace('h', 'h').replace('d', 'd')
     
     agg_rules = {}
     for col in ['open', 'high', 'low', 'close']:
