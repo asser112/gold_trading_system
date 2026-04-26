@@ -31,10 +31,14 @@ logger = logging.getLogger(__name__)
 class XGBoostStrategy(Strategy):
     def init(self):
         self.xgb_model = joblib.load('models/xgboost/xgboost_best.pkl')
-        self.feature_cols = ['rsi', 'atr', 'ema20', 'ema50', 'vwap', 'bb_upper', 'bb_middle', 'bb_lower',
-                            'bb_width', 'adx', 'order_block', 'fvg_distance', 'liquidity_zone',
-                            'sweep', 'sentiment_score', 'hour', 'day_of_week',
-                            'session_Asian', 'session_London', 'session_NY']
+        # Use the feature list the model was actually trained on
+        if hasattr(self.xgb_model, 'feature_names_in_'):
+            self.feature_cols = list(self.xgb_model.feature_names_in_)
+        else:
+            self.feature_cols = ['rsi', 'ema20', 'ema50', 'vwap', 'bb_upper', 'bb_middle', 'bb_lower',
+                                'bb_width', 'adx', 'order_block', 'fvg_distance', 'liquidity_zone',
+                                'sweep', 'sentiment_score', 'hour', 'day_of_week',
+                                'session_Asian', 'session_London', 'session_NY']
         self.oz_size = max(1, int(config['trading']['lot_size'] * 100))
         self.threshold = config['models']['ensemble']['confidence_threshold']
         self.min_hold_bars = config['models']['ensemble']['min_hold_bars']
@@ -121,10 +125,14 @@ def main():
         if col not in ['target']:
             df[col] = precomputed.loc[common_idx, col].values
     
-    feature_cols = ['rsi', 'atr', 'ema20', 'ema50', 'vwap', 'bb_upper', 'bb_middle', 'bb_lower',
-                   'bb_width', 'adx', 'order_block', 'fvg_distance', 'liquidity_zone',
-                   'sweep', 'sentiment_score', 'hour', 'day_of_week',
-                   'session_Asian', 'session_London', 'session_NY']
+    _model = joblib.load('models/xgboost/xgboost_best.pkl')
+    if hasattr(_model, 'feature_names_in_'):
+        feature_cols = list(_model.feature_names_in_)
+    else:
+        feature_cols = ['rsi', 'ema20', 'ema50', 'vwap', 'bb_upper', 'bb_middle', 'bb_lower',
+                       'bb_width', 'adx', 'order_block', 'fvg_distance', 'liquidity_zone',
+                       'sweep', 'sentiment_score', 'hour', 'day_of_week',
+                       'session_Asian', 'session_London', 'session_NY']
     
     ohlc_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
     

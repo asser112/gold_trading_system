@@ -309,7 +309,198 @@ gold_trading_system/
 
 ---
 
-## 12. SaaS Backend (Signal Subscription Service)
+## 12. Windows VPS Deployment & Domain Setup
+
+This section covers running the full system on a Windows VPS and exposing the web portal on your own domain with HTTPS.
+
+### Overview
+
+```
+Internet
+   │
+   ▼
+[Your Domain]  →  DNS A record  →  VPS public IP
+                                        │
+                                   [Caddy :443]   ← handles HTTPS automatically
+                                        │
+                                   [Uvicorn :8000]  ← FastAPI backend
+                                        │
+                                   [MT5 + EA]  ← reads signals via localhost API
+                                   [Signal Generator]  ← posts signals to backend
+```
+
+---
+
+### Step 1 — Set up the VPS
+
+On your Windows VPS (RDP in):
+
+```bat
+:: 1. Install Python 3.12 from https://python.org (check "Add to PATH")
+
+:: 2. Install Git from https://git-scm.com
+
+:: 3. Clone the repo
+git clone https://github.com/your-repo/gold_trading_system.git
+cd gold_trading_system
+
+:: 4. Install ML pipeline dependencies
+pip install -r requirements.txt
+
+:: 5. Install backend dependencies
+pip install -r backend\requirements.txt
+```
+
+---
+
+### Step 2 — Configure the backend
+
+```bat
+copy backend\.env.example backend\.env
+notepad backend\.env
+```
+
+Fill in every value in `.env`:
+
+```env
+SECRET_KEY=<generate with: python -c "import secrets; print(secrets.token_hex(32))">
+NOWPAYMENTS_API_KEY=<from nowpayments.io dashboard>
+NOWPAYMENTS_IPN_SECRET=<from nowpayments.io dashboard>
+INTERNAL_SIGNAL_SECRET=<any long random string>
+BASE_URL=https://yourdomain.com
+SUBSCRIPTION_PRICE_USD=50
+```
+
+Then in `config.yaml`:
+
+```yaml
+backend:
+  url: "https://yourdomain.com"
+  internal_signal_secret: "<same value as INTERNAL_SIGNAL_SECRET above>"
+```
+
+---
+
+### Step 3 — Point your domain to the VPS
+
+In your domain registrar's DNS settings, add an **A record**:
+
+| Type | Name | Value |
+|------|------|-------|
+| A | @ | `<VPS public IP>` |
+| A | www | `<VPS public IP>` |
+
+DNS changes can take 5–30 minutes to propagate.
+
+---
+
+### Step 4 — Install Caddy (reverse proxy + automatic HTTPS)
+
+Caddy automatically obtains and renews a free Let's Encrypt SSL certificate.
+
+1. Download the Windows binary from [caddyserver.com/download](https://caddyserver.com/download)
+2. Place `caddy.exe` in `C:\caddy\`
+3. Create `C:\caddy\Caddyfile`:
+
+```
+yourdomain.com {
+    reverse_proxy localhost:8000
+}
+```
+
+4. Open **Windows Firewall** and allow inbound TCP on ports **80** and **443**.
+
+5. Run Caddy (keep terminal open, or install as a service — see below):
+
+```bat
+C:\caddy\caddy.exe run --config C:\caddy\Caddyfile
+```
+
+---
+
+### Step 5 — Start the backend
+
+```bat
+:: From the project root
+uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+> Use `127.0.0.1` (not `0.0.0.0`) since Caddy is the only thing that should reach it externally.
+
+Your site is now live at `https://yourdomain.com`.
+
+---
+
+### Step 6 — Start the signal generator
+
+```bat
+start_signal_generator.bat
+```
+
+Or run directly:
+
+```bat
+python scripts\07_trading_logic.py
+```
+
+This posts signals to the backend every time the ML pipeline runs.
+
+---
+
+### Step 7 — Auto-start everything on boot
+
+Run **once** as Administrator to register all services in Windows Startup:
+
+```bat
+setup_autostart.bat
+```
+
+This adds the signal generator to the Windows Startup folder.
+
+For the backend and Caddy, install them as Windows services using NSSM (Non-Sucking Service Manager):
+
+```bat
+:: Download NSSM from https://nssm.cc
+nssm install GoldSignalBackend "python" "-m uvicorn backend.main:app --host 127.0.0.1 --port 8000"
+nssm set GoldSignalBackend AppDirectory "C:\path\to\gold_trading_system"
+nssm start GoldSignalBackend
+
+nssm install Caddy "C:\caddy\caddy.exe" "run --config C:\caddy\Caddyfile"
+nssm start Caddy
+```
+
+After this, everything restarts automatically if the VPS reboots.
+
+---
+
+### Step 8 — NOWPayments webhook
+
+In your [NOWPayments dashboard](https://nowpayments.io):
+
+1. Go to **Settings > IPN (Instant Payment Notifications)**
+2. Set the IPN URL to: `https://yourdomain.com/webhooks/nowpayments`
+3. Copy the IPN secret key into `NOWPAYMENTS_IPN_SECRET` in `.env`
+
+This webhook is how the backend knows a payment was confirmed and activates the subscription.
+
+---
+
+### Verify everything is working
+
+```bat
+:: Check backend is running
+curl http://localhost:8000/
+
+:: Check domain resolves
+curl https://yourdomain.com/
+
+:: Check signal endpoint
+curl "https://yourdomain.com/api/signal?api_key=test"
+```
+
+---
+
+## 13. SaaS Backend (Signal Subscription Service)
 
 The `backend/` folder contains a subscription web portal that lets users pay with crypto and receive signals in their MT5 EA.
 

@@ -124,8 +124,11 @@ def get_model_prediction():
             logger.warning(f"No trained model found: {e}")
             bot.model = None
         return bot
+    except ModuleNotFoundError:
+        logger.info("ML model not available — using technical indicator fallback.")
+        return None
     except Exception as e:
-        logger.error(f"Failed to initialize trading bot: {e}")
+        logger.warning(f"Trading bot init failed: {e}")
         return None
 
 
