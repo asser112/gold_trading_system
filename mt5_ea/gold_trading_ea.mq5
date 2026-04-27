@@ -164,25 +164,34 @@ bool CanTrade()
    UpdateDailyStats();
    
    double dailyLossPercent = (dailyLoss / peakBalance) * 100;
+   double marginLevel      = AccountInfoDouble(ACCOUNT_MARGIN_LEVEL);
+   int    openPositions    = PositionsCount();
+   double balance          = AccountInfoDouble(ACCOUNT_BALANCE);
+   double equity           = AccountInfoDouble(ACCOUNT_EQUITY);
+
+   Print("[CHECK] Balance=", DoubleToString(balance,2),
+         " Equity=", DoubleToString(equity,2),
+         " DailyLoss%=", DoubleToString(dailyLossPercent,2),
+         " Positions=", openPositions,
+         " MarginLevel%=", DoubleToString(marginLevel,1));
+
    if(dailyLossPercent >= MaxDailyLoss)
    {
-      Print("Daily loss limit reached: ", dailyLossPercent, "%");
+      Print("[BLOCK] Daily loss limit reached: ", DoubleToString(dailyLossPercent,2), "% >= ", MaxDailyLoss, "%");
       return false;
    }
-   
-   if(PositionsCount() >= MaxPositions)
+   if(openPositions >= MaxPositions)
    {
-      Print("Max positions reached");
+      Print("[BLOCK] Max positions reached: ", openPositions, " >= ", MaxPositions);
       return false;
    }
-   
-   double marginLevel = AccountInfoDouble(ACCOUNT_MARGIN_LEVEL);
    if(marginLevel > 0 && marginLevel < 150)
    {
-      Print("Low margin level");
+      Print("[BLOCK] Low margin level: ", DoubleToString(marginLevel,1), "% < 150%");
       return false;
    }
    
+   Print("[CHECK] CanTrade = true");
    return true;
 }
 
@@ -486,74 +495,81 @@ void ExecuteTradingLogic()
    
    double atr = GetATR(1);
    if(atr == EMPTY_VALUE || atr <= 0)
+   {
+      Print("[BLOCK] ATR invalid: ", atr);
       return;
-   
-   double ask = SymbolInfoDouble(g_symbol, SYMBOL_ASK);
-   double bid = SymbolInfoDouble(g_symbol, SYMBOL_BID);
+   }
+
+   double ask   = SymbolInfoDouble(g_symbol, SYMBOL_ASK);
+   double bid   = SymbolInfoDouble(g_symbol, SYMBOL_BID);
    double point = SymbolInfoDouble(g_symbol, SYMBOL_POINT);
-   int digits = (int)SymbolInfoInteger(g_symbol, SYMBOL_DIGITS);
-   
+   int    digits = (int)SymbolInfoInteger(g_symbol, SYMBOL_DIGITS);
+   double minLot = SymbolInfoDouble(g_symbol, SYMBOL_VOLUME_MIN);
+
    double slDistance = atr * SL_ATR_Mult / point;
    double tpDistance = atr * TP_ATR_Mult / point;
-   
    if(tpDistance < slDistance * (MinRRRatio / 100.0))
-   {
       tpDistance = slDistance * (MinRRRatio / 100.0);
-   }
-   
+
+   double lot = CalculateLotSize(slDistance);
+
+   Print("[INFO] ATR=", DoubleToString(atr,5),
+         " Ask=", DoubleToString(ask,digits),
+         " Bid=", DoubleToString(bid,digits),
+         " SLdist=", DoubleToString(slDistance,1),
+         " TPdist=", DoubleToString(tpDistance,1),
+         " Lot=", DoubleToString(lot,2),
+         " MinLot=", DoubleToString(minLot,2));
+
    int signal = 0;
 
-   // Try API first, then local file, then built-in indicators
    if(SignalUrl != "" || SignalFileName != "")
    {
       string json = GetSignalJson();
       if(json != "")
       {
          signal = ParseSignal(json);
-         Print("[SIGNAL] Final result: ", signal);
+         Print("[SIGNAL] Final result: ", signal, " (1=buy, -1=sell, 0=hold)");
       }
       else
-      {
          Print("[SIGNAL] No signal from API/file — falling back to indicators");
-      }
    }
    else
-   {
-      Print("[SIGNAL] SignalFileName is empty, using indicators");
-   }
-   
+      Print("[SIGNAL] No URL or file configured — using built-in indicators");
+
    if(signal == 0)
    {
-      if(CheckBuySignal())
-         signal = 1;
-      else if(CheckSellSignal())
-         signal = -1;
+      if(CheckBuySignal())       { signal = 1;  Print("[INDICATOR] Buy signal from EMA"); }
+      else if(CheckSellSignal()) { signal = -1; Print("[INDICATOR] Sell signal from EMA"); }
+      else                         Print("[INDICATOR] No indicator signal — holding");
    }
-   
+
    if(signal == 1)
    {
       double sl = NormalizeDouble(ask - atr * SL_ATR_Mult, digits);
       double tp = NormalizeDouble(ask + tpDistance * point, digits);
-      double lot = CalculateLotSize(slDistance);
-      
-      if(lot >= SymbolInfoDouble(g_symbol, SYMBOL_VOLUME_MIN))
+      if(lot >= minLot)
       {
          trade.Buy(lot, g_symbol, ask, sl, tp, "EA_Buy");
-         Print("BUY: Lot=", lot, " Price=", ask, " SL=", sl, " TP=", tp);
+         Print("[TRADE] BUY Lot=", lot, " Price=", ask, " SL=", sl, " TP=", tp);
       }
+      else
+         Print("[BLOCK] Lot too small to buy: ", lot, " < minLot=", minLot);
    }
    else if(signal == -1)
    {
       double sl = NormalizeDouble(bid + atr * SL_ATR_Mult, digits);
       double tp = NormalizeDouble(bid - tpDistance * point, digits);
-      double lot = CalculateLotSize(slDistance);
-      
-      if(lot >= SymbolInfoDouble(g_symbol, SYMBOL_VOLUME_MIN))
+      if(lot >= minLot)
       {
          trade.Sell(lot, g_symbol, bid, sl, tp, "EA_Sell");
-         Print("SELL: Lot=", lot, " Price=", bid, " SL=", sl, " TP=", tp);
+         Print("[TRADE] SELL Lot=", lot, " Price=", bid, " SL=", sl, " TP=", tp);
       }
+      else
+         Print("[BLOCK] Lot too small to sell: ", lot, " < minLot=", minLot);
    }
+   else
+      Print("[INFO] Signal=0 (hold) — no trade opened");
 }
 
 //+------------------------------------------------------------------+
