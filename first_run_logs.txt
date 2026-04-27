@@ -1,7 +1,47 @@
---- Cycle 1 ---
-2026-04-26 22:29:54,689 - __main__ - INFO - XGBoost signal: sell | conf=0.89 | SL=4715.02 | TP=4698.8
-2026-04-26 22:29:54,691 - __main__ - INFO - Signal: SELL (conf=0.89) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
-2026-04-26 22:30:54,692 - __main__ - INFO -
---- Cycle 2 ---
-2026-04-26 22:30:54,710 - __main__ - INFO - XGBoost signal: sell | conf=0.89 | SL=4715.02 | TP=4698.8
-2026-04-26 22:30:54,711 - __main__ - INFO - Signal: SELL (conf=0.89) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+--- Cycle 606 ---
+2026-04-27 08:35:06,184 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4724.05 | TP=4705.39
+2026-04-27 08:35:06,185 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:36:06,185 - __main__ - INFO -
+--- Cycle 607 ---
+2026-04-27 08:36:06,201 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4723.05 | TP=4703.69
+2026-04-27 08:36:06,204 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:37:06,204 - __main__ - INFO -
+--- Cycle 608 ---
+2026-04-27 08:37:06,222 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4722.04 | TP=4702.43
+2026-04-27 08:37:06,224 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:38:06,224 - __main__ - INFO -
+--- Cycle 609 ---
+2026-04-27 08:38:06,240 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4721.74 | TP=4702.09
+2026-04-27 08:38:06,241 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:39:06,252 - __main__ - INFO -
+--- Cycle 610 ---
+2026-04-27 08:39:06,267 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4722.57 | TP=4702.92
+2026-04-27 08:39:06,269 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:40:06,269 - __main__ - INFO -
+--- Cycle 611 ---
+2026-04-27 08:40:06,283 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4723.29 | TP=4705.38
+2026-04-27 08:40:06,284 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:41:06,284 - __main__ - INFO -
+--- Cycle 612 ---
+2026-04-27 08:41:06,298 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4722.0 | TP=4703.65
+2026-04-27 08:41:06,299 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:42:06,299 - __main__ - INFO -
+--- Cycle 613 ---
+2026-04-27 08:42:06,316 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4722.7 | TP=4704.31
+2026-04-27 08:42:06,318 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:43:06,320 - __main__ - INFO -
+--- Cycle 614 ---
+2026-04-27 08:43:06,335 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4723.25 | TP=4704.71
+2026-04-27 08:43:06,337 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:44:06,337 - __main__ - INFO -
+--- Cycle 615 ---
+2026-04-27 08:44:06,353 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4723.35 | TP=4704.8
+2026-04-27 08:44:06,356 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:45:06,356 - __main__ - INFO -
+--- Cycle 616 ---
+2026-04-27 08:45:06,373 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4721.79 | TP=4704.64
+2026-04-27 08:45:06,376 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
+2026-04-27 08:46:06,376 - __main__ - INFO -
+--- Cycle 617 ---
+2026-04-27 08:46:06,395 - __main__ - INFO - XGBoost signal: sell | conf=0.88 | SL=4722.27 | TP=4704.92
+2026-04-27 08:46:06,397 - __main__ - INFO - Signal: SELL (conf=0.88) -> C:\Users\Administrator\Desktop\develop\gold_trading_system\mt5_ea\signal.txt
