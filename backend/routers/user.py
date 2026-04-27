@@ -117,8 +117,8 @@ def dashboard(
         config=config,
         signal=latest_signal,
         signal_count=signal_count,
-        win_rate=61,
-        rr_ratio="1.8",
+        win_rate=53,
+        rr_ratio="1.5",
         days_left=max(days_left, 0),
     )
 
