@@ -32,8 +32,8 @@ input int      MagicNumber       = 123456;     // EA Magic Number
 input ulong    Deviation         = 5;          // Order deviation in points
 
 input group "=== Signal API ==="
-input string   SignalUrl        = "https://your-domain.com/api/signal";  // Backend signal URL
-input string   ApiKey           = "";                                     // Your API key from dashboard
+input string   SignalUrl        = "https://gold.yepwoo.com/api/signal";  // Backend signal URL
+input string   ApiKey           = "admin-test-key-00000000";              // Your API key from dashboard
 input string   SignalFileName   = "";   // (Legacy) Local file fallback — leave blank when using API
 
 //+------------------------------------------------------------------+
