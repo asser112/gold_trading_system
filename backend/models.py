@@ -30,7 +30,9 @@ class User(Base):
     def active_subscription(self):
         now = datetime.now(timezone.utc)
         return next(
-            (s for s in self.subscriptions if s.status == "active" and s.expires_at > now),
+            (s for s in self.subscriptions
+             if s.status == "active"
+             and s.expires_at.replace(tzinfo=timezone.utc) > now),
             None,
         )
 
