@@ -53,3 +53,9 @@ Reinstall LightGBM in that environment:
 pip uninstall lightgbm -y
 pip install "lightgbm>=4.0.0"
 Summary: Install VC++ Redistributable x64, and prefer Python 3.12 for training on Windows; 3.14 is the likely long-term compatibility issue here.
+
+
+
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" |
+  Where-Object { $_.DisplayName -like "*Visual C++*Redistributable*" } |
+  Select-Object DisplayName, DisplayVersion
