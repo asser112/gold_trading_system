@@ -68,8 +68,12 @@ class LightGBMStrategy(Strategy):
         if not in_session:
             return
 
-        X = np.array([[float(row[col]) for col in self.feature_cols]], dtype=np.float32)
-        probs = self.lgbm_model.predict_proba(X)[0]
+        # Align with training: DataFrame with same column names and order as feature_cols.
+        X_df = pd.DataFrame(
+            [[float(row[col]) for col in self.feature_cols]],
+            columns=self.feature_cols,
+        )
+        probs = self.lgbm_model.predict_proba(X_df)[0]
         predicted_class = int(np.argmax(probs))
         confidence = float(probs[predicted_class])
 

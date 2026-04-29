@@ -171,12 +171,14 @@ def main():
             n_jobs=-1,
             **best_params
         )
-        final_model.fit(X_full, y_full)
+        # Fit with named columns so sklearn/LightGBM predict matches features_lgbm order.
+        X_full_df = pd.DataFrame(X_full, columns=feature_cols)
+        final_model.fit(X_full_df, y_full)
 
         # Store feature names so predict can use them later
         final_model._feature_cols = feature_cols
 
-        preds = final_model.predict(X_test)
+        preds = final_model.predict(pd.DataFrame(X_test, columns=feature_cols))
         test_f1  = f1_score(y_test, preds, average='weighted')
         test_acc = accuracy_score(y_test, preds)
 
