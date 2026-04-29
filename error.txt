@@ -1,61 +1,7 @@
- pip install "lightgbm>=4.0.0"
-Collecting lightgbm>=4.0.0
-  Downloading lightgbm-4.6.0-py3-none-win_amd64.whl.metadata (17 kB)
-Requirement already satisfied: numpy>=1.17.0 in C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from lightgbm>=4.0.0) (2.4.4)
-Requirement already satisfied: scipy in C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages (from lightgbm>=4.0.0) (1.17.1)
-Downloading lightgbm-4.6.0-py3-none-win_amd64.whl (1.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 25.2 MB/s  0:00:00
-Installing collected packages: lightgbm
-Successfully installed lightgbm-4.6.0
-
-Administrator@gold-trading MINGW64 ~/Desktop/develop/gold_trading_system (main)
-$ python scripts/10_train_lightgbm.py
-Traceback (most recent call last):
-  File "C:\Users\Administrator\Desktop\develop\gold_trading_system\scripts\10_train_lightgbm.py", line 13, in <module>
-    import lightgbm as lgb
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\lightgbm\__init__.py", line 11, in <module>
-    from .basic import Booster, Dataset, Sequence, register_logger
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\lightgbm\basic.py", line 9, in <module>
-    from .libpath import _LIB  # isort: skip
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\lightgbm\libpath.py", line 49, in <module>
-    _LIB = ctypes.cdll.LoadLibrary(_find_lib_path()[0])
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\ctypes\__init__.py", line 554, in LoadLibrary
-    return self._dlltype(name)
-           ~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\ctypes\__init__.py", line 433, in __init__
-    self._handle = self._load_library(name, mode, handle, winmode)
-                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\ctypes\__init__.py", line 451, in _load_library
-    return _LoadLibrary(self._name, winmode)
-FileNotFoundError: Could not find module 'C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\lightgbm\bin\lib_lightgbm.dll' (or one of its dependencies). Try using the full path with constructor syntax.
-
-
-
-1. Missing Visual C++ runtime (try first)
-Install Microsoft Visual C++ Redistributable for Visual Studio 2015–2022 (x64) from Microsoft, reboot if prompted, then:
-
-python -c "import lightgbm; print(lightgbm.__version__)"
-2. Python 3.14 is too new for many wheels
-Your log shows pythoncore-3.14-64. LightGBM’s Windows wheels are built for specific Python ABIs; 3.14 is often unsupported or flaky before libraries catch up.
-
-Recommended fix: install Python 3.12.x (64-bit) from python.org, create a venv for this project, reinstall deps:
-
-py -3.12 -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python scripts\10_train_lightgbm.py
-This matches what the README targets and avoids the same class of issues you hit with PyTorch on 3.14.
-
-3. If it still fails after VC++ + Python 3.12
-Reinstall LightGBM in that environment:
-
-pip uninstall lightgbm -y
-pip install "lightgbm>=4.0.0"
-Summary: Install VC++ Redistributable x64, and prefer Python 3.12 for training on Windows; 3.14 is the likely long-term compatibility issue here.
-
-
-
-Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" |
-  Where-Object { $_.DisplayName -like "*Visual C++*Redistributable*" } |
+$paths = @(
+  'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+  'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+)
+Get-ItemProperty $paths -ErrorAction SilentlyContinue |
+  Where-Object { $_.DisplayName -like '*Visual C++*' } |
   Select-Object DisplayName, DisplayVersion
