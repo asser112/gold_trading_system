@@ -1,6 +1,6 @@
 backend:
-  url: ""
-  internal_signal_secret: ""
+  url: "https://gold.yepwoo.com"
+  internal_signal_secret: "CHANGE_ME_another_random_secret"
 model:
   active: "xgboost"
 lightgbm:
