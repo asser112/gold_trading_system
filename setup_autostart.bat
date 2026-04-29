@@ -8,11 +8,11 @@ echo so it runs automatically when you log in.
 echo.
 
 set "PROJECT_DIR=%~dp0"
-set "TARGET=%PROJECT_DIR%start_signal_generator.bat"
+set "TARGET=%PROJECT_DIR%start_xgboost_signal.bat"
 set "STARTUP=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 
 if not exist "%TARGET%" (
-    echo ERROR: start_signal_generator.bat not found at:
+    echo ERROR: start_xgboost_signal.bat not found at:
     echo %TARGET%
     pause
     exit /b 1

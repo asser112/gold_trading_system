@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
 from backend.database import get_db
-from backend.models import User, Signal
+from backend.models import User, Signal, Bot
 from backend.auth import hash_password, verify_password, create_access_token, get_current_user
 from backend import config
 
@@ -94,7 +94,17 @@ def dashboard(
     sub = user.active_subscription
     payments = sorted(user.payments, key=lambda p: p.created_at, reverse=True)
 
-    latest_signal = db.query(Signal).order_by(Signal.id.desc()).first()
+    bots = db.query(Bot).filter(Bot.is_active == True).order_by(Bot.slug.asc()).all()  # noqa: E712
+    default_bot = db.query(Bot).filter(Bot.slug == "xgboost-v1").first()
+    if default_bot:
+        latest_signal = (
+            db.query(Signal)
+            .filter(Signal.bot_id == default_bot.id)
+            .order_by(Signal.id.desc())
+            .first()
+        )
+    else:
+        latest_signal = db.query(Signal).order_by(Signal.id.desc()).first()
 
     # Basic stats derived from all signals in DB
     all_signals = db.query(Signal).all()
@@ -116,6 +126,7 @@ def dashboard(
         payments=payments,
         config=config,
         signal=latest_signal,
+        bots=bots,
         signal_count=signal_count,
         win_rate=53,
         rr_ratio="1.5",

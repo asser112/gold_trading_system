@@ -1,27 +1,31 @@
 """
 Create an admin/test user with a known API key and active subscription.
+Also seeds default bots in the multi-bot registry.
+
 Run from project root:
     python backend/create_admin.py
 """
 import sys
 import os
-import uuid
 from datetime import datetime, timezone, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from backend.database import engine, Base, SessionLocal
-from backend.models import User, Subscription
+from backend.models import User, Subscription, Bot
 from backend.auth import hash_password
+from backend.bot_defaults import seed_default_bots
 
 EMAIL    = "admin@goldsignal.local"
 PASSWORD = "admin1234"
 API_KEY  = "admin-test-key-00000000"   # fixed key — easy to paste into EA
 
+
 def main():
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
+    seed_default_bots(db)
 
     existing = db.query(User).filter(User.email == EMAIL).first()
     if existing:
@@ -68,7 +72,10 @@ def main():
     print(f"API key : {API_KEY}")
     print(f"Sub     : active for 365 days")
     print("=" * 50)
-    print("Use this API key in MT5 EA inputs or for testing the /api/signal endpoint.")
+    print("Use this API key in MT5 EA inputs or for testing:")
+    print("  GET /api/signal (legacy, xgboost-v1 stream)")
+    print("  GET /api/signal/xgboost-v1")
+    print("  GET /api/signal/lgbm-session-v1")
 
 if __name__ == "__main__":
     main()

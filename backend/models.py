@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import String, Float, DateTime, ForeignKey, Text, Boolean
+from sqlalchemy import String, Float, DateTime, ForeignKey, Text, Boolean, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from backend.database import Base
 
@@ -70,10 +70,25 @@ class Payment(Base):
     user: Mapped["User"] = relationship(back_populates="payments")
 
 
+class Bot(Base):
+    """Registered trading bot / model version (multi-bot registry)."""
+    __tablename__ = "bots"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    slug: Mapped[str] = mapped_column(String, unique=True, nullable=False, index=True)
+    name: Mapped[str] = mapped_column(String, nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+    signals: Mapped[list["Signal"]] = relationship(back_populates="bot")
+
+
 class Signal(Base):
     __tablename__ = "signals"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    bot_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("bots.id"), nullable=True, index=True)
     signal: Mapped[str] = mapped_column(String, nullable=False)
     confidence: Mapped[float] = mapped_column(Float, nullable=False)
     sl: Mapped[float] = mapped_column(Float, nullable=True)
@@ -81,3 +96,5 @@ class Signal(Base):
     reason: Mapped[str] = mapped_column(Text, nullable=True)
     timestamp: Mapped[str] = mapped_column(String, nullable=False)
     received_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+    bot: Mapped["Bot | None"] = relationship(back_populates="signals")

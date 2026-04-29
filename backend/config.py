@@ -1,7 +1,11 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# Support running a second instance with a different .env file.
+# Set ENV_FILE env var before starting uvicorn, e.g.:
+#   set ENV_FILE=backend/.env.lgbm && python -m uvicorn backend.main:app --port 8001
+_env_file = os.environ.get("ENV_FILE")
+load_dotenv(dotenv_path=_env_file)  # dotenv_path=None falls back to auto-discovery (.env)
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./backend/trading_saas.db")
 SECRET_KEY = os.getenv("SECRET_KEY", "change-this-secret-key-in-production")

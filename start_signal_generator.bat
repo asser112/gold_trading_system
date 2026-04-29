@@ -1,4 +1,4 @@
 @echo off
-title Gold Trading Signal Generator
+REM Deprecated alias — use start_xgboost_signal.bat
 cd /d "%~dp0"
-python scripts\07_trading_logic.py
+call start_xgboost_signal.bat

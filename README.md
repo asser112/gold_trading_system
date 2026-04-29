@@ -1,272 +1,466 @@
 # Gold Trading System
 
-Fully automated XAUUSD trading system using an ensemble of ML models (XGBoost, Transformer, RL agent) combined with news sentiment. Generates live signals consumed by a MetaTrader 5 Expert Advisor.
+Automated XAUUSD trading system with **multiple ML bots** (e.g. **XGBoost**, **LightGBM + Session Filter**) registered in one backend. Each bot has its own **slug** (`xgboost-v1`, `lgbm-session-v1`, …), signal stream, and EA URL on **one domain**. Run several signal generators + MT5 accounts in parallel on the same VPS.
 
 ---
 
 ## Table of Contents
 
-1. [Requirements](#1-requirements)
-2. [Installation](#2-installation)
-3. [Configuration](#3-configuration)
-4. [Adding Your MT5 Account](#4-adding-your-mt5-account)
-5. [Finding Your MT5 Terminal ID](#5-finding-your-mt5-terminal-id)
-6. [Deploying the EA](#6-deploying-the-ea)
-7. [Running the Pipeline](#7-running-the-pipeline)
-8. [Running Live Trading](#8-running-live-trading)
-9. [Dashboard](#9-dashboard)
-10. [Auto-Start on Boot](#10-auto-start-on-boot)
+1. [System Overview](#1-system-overview)
+2. [Requirements](#2-requirements)
+3. [Installation](#3-installation)
+4. [Training the Models](#4-training-the-models)
+   - [XGBoost Pipeline](#41-xgboost-pipeline)
+   - [LightGBM Pipeline](#42-lightgbm-pipeline)
+5. [Server Configuration](#5-server-configuration)
+   - [DNS](#51-dns)
+   - [Caddy — Reverse Proxy & HTTPS](#52-caddy--reverse-proxy--https)
+   - [Backend .env](#53-backend-env)
+   - [Start the Backend](#54-start-the-backend)
+   - [Multi-Bot API](#55-multi-bot-api)
+   - [Auto-Start with NSSM](#56-auto-start-with-nssm)
+   - [NOWPayments Webhooks](#57-nowpayments-webhooks)
+6. [MT5 Account Setup](#6-mt5-account-setup)
+   - [Finding the Terminal ID](#61-finding-the-terminal-id)
+   - [Deploying the EA](#62-deploying-the-ea)
+7. [Running Both Signal Generators](#7-running-both-signal-generators)
+8. [Switching the Active Model](#8-switching-the-active-model)
+9. [Backtesting](#9-backtesting)
+10. [Monitoring Dashboard](#10-monitoring-dashboard)
 11. [Project Structure](#11-project-structure)
+12. [Signal File Format](#12-signal-file-format)
+13. [Environment Variable Reference](#13-environment-variable-reference)
 
 ---
 
-## 1. Requirements
+## 1. System Overview
+
+```
+Internet
+   │
+   └── gold.yepwoo.com ─── Caddy :443 ─── Uvicorn :8000 (single FastAPI backend)
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   POST /internal/signal/xgboost-v1    POST /internal/signal/lgbm-session-v1
+        │                     │                     │
+   Signal gen A            Signal gen B         (more bots…)
+   BOT_SLUG=xgboost-v1     BOT_SLUG=lgbm-session-v1
+        │                     │
+   MT5 #1                  MT5 #2
+   GET …/api/signal/xgboost-v1    GET …/api/signal/lgbm-session-v1
+```
+
+Default bots are seeded on backend startup (`xgboost-v1`, `lgbm-session-v1`). Add new versions by inserting rows in the `bots` table (or extend [`backend/bot_defaults.py`](backend/bot_defaults.py)) and run a signal generator with `BOT_SLUG=new-slug`.
+
+---
+
+## 2. Requirements
 
 | Requirement | Version |
 |---|---|
 | Windows | 10 / 11 / Server 2019+ |
 | Python | 3.12 |
 | MetaTrader 5 | Build 4200+ |
-| Broker account | Any MT5-compatible broker (Exness, IC Markets, Pepperstone, etc.) |
+| Broker account | Any MT5-compatible broker |
 
-> **VPS recommendation:** 4 vCPU / 6 GB RAM / 150 GB SSD Windows Server. ForexVPS Edge plan or equivalent.
+> **VPS recommendation:** 4 vCPU / 8 GB RAM / 150 GB SSD Windows Server.
+> Each extra signal generator + MT5 instance adds CPU/RAM; one backend process serves all bots.
 
 ---
 
-## 2. Installation
+## 3. Installation
+
+Run these commands once on your VPS (RDP in first):
 
 ```bat
-:: 1. Clone the repository
+:: 1. Install Python 3.12 from https://python.org
+::    Check "Add Python to PATH" during installation.
+
+:: 2. Install Git from https://git-scm.com
+
+:: 3. Clone the repository
 git clone https://github.com/your-repo/gold_trading_system.git
 cd gold_trading_system
 
-:: 2. Install Python dependencies
+:: 4. Install all dependencies (both pipeline and backend)
 pip install -r requirements.txt
+pip install -r backend\requirements.txt
+```
+
+Create the required directories if they do not exist:
+
+```bat
+mkdir backend\static
+mkdir models\xgboost
+mkdir models\lightgbm
+mkdir models\scalers
+mkdir data\processed
+mkdir data\raw
+mkdir backtest_reports
+mkdir logs
 ```
 
 ---
 
-## 3. Configuration
+## 4. Training the Models
 
-All settings live in **`config.yaml`** in the project root. Open it and update the following:
+Both pipelines start with the same data collection step. Run it once:
 
-### API Keys
-
-```yaml
-data:
-  alphavantage_key: YOUR_ALPHAVANTAGE_KEY   # https://www.alphavantage.co/support/#api-key
-  gnews_api_key: YOUR_GNEWS_KEY             # https://gnews.io
-  news_api_key: YOUR_NEWSAPI_KEY            # https://newsapi.org
+```bat
+python scripts\01_data_collection.py
 ```
 
-### Trading Parameters
-
-```yaml
-trading:
-  symbol: XAUUSD          # or XAUUSDr depending on your broker
-  lot_size: 0.03          # fixed lot size (used when risk_percent is 0)
-  risk_percent: 0         # set > 0 to use % risk per trade instead of fixed lot
-  max_spread: 30          # in points — EA skips entry if spread is wider
-  magic_number: 123456    # unique ID for this EA's trades
-  mt5_terminal_id: YOUR_TERMINAL_ID   # see Section 5 below
-```
-
-### Telegram Alerts (optional)
-
-```yaml
-telegram:
-  enabled: true
-  api_id: YOUR_API_ID
-  api_hash: YOUR_API_HASH
-  chat_id: "@your_channel"
-```
-
-Leave `enabled: false` to disable.
+This downloads historical XAUUSD OHLCV data and stores it in `data/gold_trading.db`.
 
 ---
 
-## 4. Adding Your MT5 Account
+### 4.1 XGBoost Pipeline
 
-### Step 1 — Install MetaTrader 5
+```bat
+:: Step 1 — Feature engineering (creates data/processed/features_target_m5.parquet)
+python scripts\02_feature_engineering.py
 
-Download MT5 from your broker's website (not the generic MetaQuotes version, as brokers may have custom builds).
+:: Step 2 — Train XGBoost model (creates models/xgboost/xgboost_best.pkl)
+python scripts\03_train_xgboost.py
 
-### Step 2 — Log in to your trading account
-
-1. Open MetaTrader 5
-2. Go to **File > Open an Account** (or press Ctrl+N)
-3. Search for your broker by name
-4. Select **"Connect to an existing account"**
-5. Enter your **Login**, **Password**, and select the correct **server**
-6. Click **Finish**
-
-Your account balance should appear in the bottom toolbar once connected.
-
-### Step 3 — Verify the symbol name
-
-The default symbol in `config.yaml` is `XAUUSD`. Some brokers use:
-- `XAUUSDr` (Exness raw spread)
-- `XAUUSD.` (with a dot suffix)
-- `GOLD`
-
-Check your broker's **Market Watch** (Ctrl+M) and update `trading.symbol` in `config.yaml` to match exactly.
+:: Step 3 — Backtest (creates backtest_reports/last_year_results.txt)
+python scripts\08_backtester.py
+```
 
 ---
 
-## 5. Finding Your MT5 Terminal ID
+### 4.2 LightGBM Pipeline
 
-The terminal ID is a long hex string that identifies your MT5 installation's data folder. It is needed to mirror signals directly into MT5's file sandbox.
+The LightGBM pipeline is fully independent. It uses its own feature engineering script that adds session flags (`is_london`, `is_ny`, `is_overlap`) and H1 trend features (`h1_ema20`, `h1_ema50`, `h1_trend`). Training is restricted to London + NY session bars only.
 
-### Method 1 — Browse the folder
+```bat
+:: Step 1 — LightGBM feature engineering (creates data/processed/features_lgbm_m5.parquet)
+python scripts\02b_feature_engineering_lgbm.py
 
-Open **File Explorer** and navigate to:
+:: Step 2 — Train LightGBM model (creates models/lightgbm/lgbm_best.pkl)
+python scripts\10_train_lightgbm.py
+
+:: Step 3 — Backtest (creates backtest_reports/lgbm_last_year_results.txt)
+python scripts\11_backtest_lightgbm.py
+```
+
+Review both backtest reports and compare:
+
+```bat
+type backtest_reports\last_year_results.txt
+type backtest_reports\lgbm_last_year_results.txt
+```
+
+---
+
+## 5. Server Configuration
+
+### 5.1 DNS
+
+Add one **A record** for your public hostname (subdomain) pointing to the VPS IP, e.g.:
+
+| Type | Host | Value |
+|------|------|-------|
+| A | `gold` | `<VPS public IP>` |
+
+DNS propagation takes 5–30 minutes.
+
+---
+
+### 5.2 Caddy — Reverse Proxy & HTTPS
+
+Caddy handles HTTPS automatically using free Let's Encrypt certificates.
+
+1. Download `caddy_windows_amd64.exe` from [caddyserver.com/download](https://caddyserver.com/download)
+2. Place it in `C:\caddy\` and rename to `caddy.exe`
+3. Open **Windows Firewall** → allow inbound TCP on ports **80** and **443**
+4. Create `C:\caddy\Caddyfile`:
+
+```
+gold.yepwoo.com {
+    reverse_proxy localhost:8000
+}
+```
+
+5. Validate and run:
+
+```bat
+C:\caddy\caddy.exe validate --config C:\caddy\Caddyfile
+C:\caddy\caddy.exe run --config C:\caddy\Caddyfile
+```
+
+---
+
+### 5.3 Backend .env
+
+Single `.env` for the whole service:
+
+```bat
+copy backend\.env.example backend\.env
+notepad backend\.env
+```
+
+```env
+DATABASE_URL=sqlite:///./backend/trading_saas.db
+SECRET_KEY=<generate: python -c "import secrets; print(secrets.token_hex(32))">
+NOWPAYMENTS_API_KEY=<from nowpayments.io>
+NOWPAYMENTS_IPN_SECRET=<from nowpayments.io>
+INTERNAL_SIGNAL_SECRET=<generate another random string>
+BASE_URL=https://gold.yepwoo.com
+SUBSCRIPTION_PRICE_USD=50.0
+SUBSCRIPTION_DAYS=30
+```
+
+In `config.yaml`, match the same URL and secret for the signal generator:
+
+```yaml
+backend:
+  url: "https://gold.yepwoo.com"
+  internal_signal_secret: "<same value as INTERNAL_SIGNAL_SECRET above>"
+```
+
+Optional: `ENV_FILE` can point at an alternate env file (see [`backend/config.py`](backend/config.py)).
+
+---
+
+### 5.4 Start the Backend
+
+```bat
+cd C:\path\to\gold_trading_system
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+Verify:
+
+```bat
+curl http://localhost:8000/
+curl https://gold.yepwoo.com/
+```
+
+Create the admin/test user (once):
+
+```bat
+python backend\create_admin.py
+```
+
+On startup, the app creates tables, migrates old SQLite schemas if needed, and seeds default bots (`xgboost-v1`, `lgbm-session-v1`).
+
+---
+
+### 5.5 Multi-Bot API
+
+| Endpoint | Purpose |
+|----------|---------|
+| `GET /api/bots` | List active bots (slug, name, description) |
+| `GET /api/signal?api_key=…` | **Legacy:** latest signal for the `xgboost-v1` stream (falls back to global latest if that bot is missing) |
+| `GET /api/signal/{slug}?api_key=…` | Latest signal for a specific bot, e.g. `xgboost-v1`, `lgbm-session-v1` |
+| `POST /internal/signal` | **Legacy:** ingest signal (defaults to `xgboost-v1` when bot row exists) |
+| `POST /internal/signal/{slug}` | Ingest signal for that bot (used by `07_trading_logic.py` with `BOT_SLUG`) |
+
+Signal generators POST to `/internal/signal/{BOT_SLUG}` using `x-internal-secret: INTERNAL_SIGNAL_SECRET`.
+
+---
+
+### 5.6 Auto-Start with NSSM
+
+```bat
+nssm install GoldBackend "python" "-m uvicorn backend.main:app --host 127.0.0.1 --port 8000"
+nssm set GoldBackend AppDirectory "C:\path\to\gold_trading_system"
+nssm start GoldBackend
+
+nssm install Caddy "C:\caddy\caddy.exe" "run --config C:\caddy\Caddyfile"
+nssm start Caddy
+```
+
+---
+
+### 5.7 NOWPayments Webhooks
+
+In [NOWPayments](https://nowpayments.io) → **Settings > IPN**, set IPN URL to:
+
+`https://gold.yepwoo.com/webhooks/nowpayments`
+
+Copy the IPN secret into `NOWPAYMENTS_IPN_SECRET` in `backend/.env`.
+
+---
+
+## 6. MT5 Account Setup
+
+You need **two MT5 accounts** — one for XGBoost, one for LightGBM. They can be on the same broker or different ones. Both can be demo accounts while testing.
+
+### 6.1 Finding the Terminal ID
+
+The terminal ID tells the signal generator where to write the signal file inside MT5's sandbox. Each MT5 installation has a unique ID.
+
+**Method — Open the data folder from inside MT5:**
+
+1. Open MT5
+2. Go to **File > Open Data Folder**
+3. The folder that opens will have a path like:
+   `C:\Users\...\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075\`
+4. Copy the last segment — that is your terminal ID
+
+If you have two MT5 accounts open simultaneously (on the same VPS), each will have a different terminal ID. Browse:
+
 ```
 %APPDATA%\MetaQuotes\Terminal\
 ```
-You will see one or more folders with hex names like `D0E8209F77C8CF37AD8BF550E51FF075`. If you have one MT5 installation, there will be exactly one. Copy that folder name.
 
-### Method 2 — From inside MT5
-
-1. In MT5 go to **File > Open Data Folder**
-2. The folder that opens is your terminal data folder
-3. Copy the last segment of the path (the hex ID)
-
-### Method 3 — From MetaEditor
-
-1. Press **F4** in MT5 to open MetaEditor
-2. Go to **Tools > Options > Compiler**
-3. The path shown includes the terminal ID
-
-### Set the ID
-
-Once you have it, set it in two places:
-
-**`config.yaml`:**
-```yaml
-trading:
-  mt5_terminal_id: D0E8209F77C8CF37AD8BF550E51FF075   # replace with yours
-```
-
-**`deploy.bat`** (line 14):
-```bat
-set "MT5_TERMINAL_ID=D0E8209F77C8CF37AD8BF550E51FF075"
-```
+You will see one folder per MT5 installation.
 
 ---
 
-## 6. Deploying the EA
+### 6.2 Deploying the EA
 
-After setting the terminal ID, run the deployment script:
+Run the deploy script once per MT5 account. It copies the EA and signal files into the correct MT5 folders.
+
+**XGBoost MT5 account:**
 
 ```bat
+:: In deploy.bat, set MT5_TERMINAL_ID to the XGBoost terminal ID
+notepad deploy.bat
 deploy.bat
 ```
 
-This will:
-1. Copy `gold_trading_ea.mq5` to MT5's Experts folder
-2. Copy `signal_reader.mqh` to MT5's Include folder
-3. Place an initial `signal.txt` in MT5's Files folder
+**LightGBM MT5 account:**
 
-### Compile the EA in MetaEditor
+Edit `deploy.bat` again, update `MT5_TERMINAL_ID` to the LightGBM terminal ID, then run it again.
 
-1. In MT5 press **F4** to open MetaEditor
-2. In the Navigator panel open **Experts > gold_trading_ea**
-3. Press **F7** to compile — you should see `0 errors, 0 warnings`
+**Compile and attach the EA** (do this for both MT5 accounts):
 
-### Attach the EA to a chart
+1. In MT5, press **F4** to open MetaEditor
+2. Open **Experts > gold_trading_ea** in the Navigator
+3. Press **F7** to compile — must show `0 errors, 0 warnings`
+4. Open an **XAUUSD M5** chart
+5. Drag `gold_trading_ea` from the Navigator onto the chart
+6. In the EA dialog, set these inputs:
 
-1. In MT5, open an **XAUUSD chart** (match the symbol from `config.yaml`)
-2. Set the timeframe to **M5**
-3. Drag **gold_trading_ea** from the Navigator panel onto the chart
-4. In the dialog that appears:
-   - **Common tab:** check `Allow live trading` and `Allow DLL imports`
-   - **Inputs tab:** verify these values match your `config.yaml`:
-
-| Parameter | Default | Notes |
+| Parameter | XGBoost Account | LightGBM Account |
 |---|---|---|
-| `SignalFileName` | `signal.txt` | Do not change |
-| `MagicNumber` | `123456` | Must match `config.yaml` |
-| `LotSize` | `0.03` | Fixed lot when `RiskPercent` is 0 |
-| `RiskPercent` | `0` | % of balance per trade (0 = use LotSize) |
-| `MaxSpread` | `30` | Points |
+| `SignalUrl` | `https://gold.yepwoo.com/api/signal/xgboost-v1` | `https://gold.yepwoo.com/api/signal/lgbm-session-v1` |
+| `ApiKey` | *(same admin API key)* | *(same)* |
+| `SignalFileName` | *(leave blank)* | *(leave blank)* |
+| `MagicNumber` | `123456` | `123457` |
+| `LotSize` | `0.03` | `0.03` |
 
-5. Click **OK**
-6. Click the **Auto Trading** button in the toolbar (turns green when active)
+Legacy: `https://gold.yepwoo.com/api/signal` still works and tracks the `xgboost-v1` stream when that bot exists.
 
-The EA smiley face should appear in the top-right corner of the chart.
+7. In **Common** tab: check `Allow live trading` and `Allow DLL imports`
+8. Click **OK** → click **Auto Trading** in the toolbar (turns green)
 
----
+**Allow WebRequest in MT5** (required for both accounts):
 
-## 7. Running the Pipeline
-
-Train all models from scratch:
-
-```bat
-python run_pipeline.py
-```
-
-This runs these steps in order:
-
-| Step | Script | Output |
-|---|---|---|
-| 1 | `01_data_collection.py` | `data/gold_trading.db` |
-| 2 | `02_feature_engineering.py` | Feature tables in DB |
-| 3 | `03_train_xgboost.py` | `models/xgboost/` |
-| 4 | `04_train_transformer.py` | `models/transformer/` |
-| 5 | `05_train_rl_agent.py` | `models/rl_agent/` |
-| 6 | `06_ensemble.py` | `models/ensemble/` |
-| 7 | `08_backtester.py` | `backtest_reports/` |
-
-You can also run any step individually:
-
-```bat
-python scripts\03_train_xgboost.py
-```
-
-Logs are written to `logs/system.log`.
+Go to **Tools > Options > Expert Advisors** and add your site, e.g. `https://gold.yepwoo.com`
 
 ---
 
-## 8. Running Live Trading
+## 7. Running Both Signal Generators
 
-Once models are trained and the EA is attached and running:
+Open two Command Prompt windows (or two NSSM services).
+
+**XGBoost signal generator:**
 
 ```bat
-start_trading.bat
+:: Sets MODEL_TYPE=xgboost and BOT_SLUG=xgboost-v1
+start_xgboost_signal.bat
+
+:: Manual
+set MODEL_TYPE=xgboost
+set BOT_SLUG=xgboost-v1
+python scripts\07_trading_logic.py
 ```
 
-This starts the signal generator loop (`scripts/07_trading_logic.py`). It runs every 60 seconds, writes a signal to `mt5_ea/signal.txt`, and mirrors it to the MT5 Files folder. The EA picks it up and acts accordingly.
+**LightGBM signal generator:**
 
-To stop: press **Ctrl+C** in the terminal window. The signal generator will write a final `hold` signal before exiting.
+```bat
+:: Edit BACKEND_URL, INTERNAL_SIGNAL_SECRET, MT5_TERMINAL_ID first
+start_lgbm_signal.bat
+
+:: Manual (same BACKEND_URL / secret as backend\.env)
+set MODEL_TYPE=lightgbm
+set BOT_SLUG=lgbm-session-v1
+set BACKEND_URL=https://gold.yepwoo.com
+set INTERNAL_SIGNAL_SECRET=<same as backend/.env>
+set MT5_TERMINAL_ID=<LightGBM terminal ID>
+set SIGNAL_FILE_PATH=mt5_ea\signal_lgbm.txt
+python scripts\07_trading_logic.py
+```
+
+> The LightGBM signal generator will automatically hold during Asian session hours (21:00–08:00 UTC) and only generate signals during London (08:00–17:00 UTC) and New York (13:00–21:00 UTC) sessions.
+
+**Register signal generators as NSSM services** (run as Administrator):
+
+```bat
+nssm install GoldSignalXGB "python" "scripts\07_trading_logic.py"
+nssm set GoldSignalXGB AppDirectory "C:\path\to\gold_trading_system"
+nssm set GoldSignalXGB AppEnvironmentExtra "MODEL_TYPE=xgboost BOT_SLUG=xgboost-v1 BACKEND_URL=https://gold.yepwoo.com INTERNAL_SIGNAL_SECRET=<secret>"
+nssm start GoldSignalXGB
+
+nssm install GoldSignalLGBM "python" "scripts\07_trading_logic.py"
+nssm set GoldSignalLGBM AppDirectory "C:\path\to\gold_trading_system"
+nssm set GoldSignalLGBM AppEnvironmentExtra "MODEL_TYPE=lightgbm BOT_SLUG=lgbm-session-v1 BACKEND_URL=https://gold.yepwoo.com INTERNAL_SIGNAL_SECRET=<secret> MT5_TERMINAL_ID=<lgbm_terminal_id> SIGNAL_FILE_PATH=mt5_ea\signal_lgbm.txt"
+nssm start GoldSignalLGBM
+```
 
 ---
 
-## 9. Dashboard
+## 8. Switching Model and Bot Stream
 
-Launch the Streamlit monitoring dashboard:
+Set both `MODEL_TYPE` (which ML code runs) and `BOT_SLUG` (which backend stream receives signals):
+
+```bat
+set MODEL_TYPE=xgboost
+set BOT_SLUG=xgboost-v2
+python scripts\07_trading_logic.py
+```
+
+Add `xgboost-v2` to [`backend/bot_defaults.py`](backend/bot_defaults.py) (or insert into `bots` in the DB) before posting.
+
+`config.yaml` `model.active` still defaults `MODEL_TYPE` when the env var is unset.
+
+---
+
+## 9. Backtesting
+
+Run a backtest after training to evaluate each model before going live.
+
+**XGBoost:**
+
+```bat
+python scripts\08_backtester.py
+type backtest_reports\last_year_results.txt
+```
+
+**LightGBM:**
+
+```bat
+python scripts\11_backtest_lightgbm.py
+type backtest_reports\lgbm_last_year_results.txt
+```
+
+If a backtest produces no trades, the confidence threshold is too high. Lower it in `config.yaml`:
+
+```yaml
+# XGBoost threshold
+models:
+  ensemble:
+    confidence_threshold: 0.60   # lower = more trades
+
+# LightGBM threshold
+lightgbm:
+  confidence_threshold: 0.60
+```
+
+---
+
+## 10. Monitoring Dashboard
 
 ```bat
 streamlit run dashboard\app.py
 ```
 
-Open `http://localhost:8501` in your browser. Shows:
-- Equity curve from the last backtest
-- Latest signal (direction, confidence, SL, TP)
-- News sentiment chart
-- Recent trades (if trade logging is active)
-- Live price candlestick chart
-
----
-
-## 10. Auto-Start on Boot
-
-To make the signal generator start automatically when the VPS reboots:
-
-```bat
-setup_autostart.bat
-```
-
-This adds a Windows Startup shortcut. After running it, the signal generator will launch automatically on every login.
+Open `http://localhost:8501` to see equity curves, latest signals, and trade history.
 
 ---
 
@@ -274,295 +468,121 @@ This adds a Windows Startup shortcut. After running it, the signal generator wil
 
 ```
 gold_trading_system/
-├── config.yaml                  # All settings — edit this first
-├── run_pipeline.py              # Full training pipeline orchestrator
+│
+├── config.yaml                       # Central config — edit this first
+├── run_pipeline.py                   # XGBoost pipeline orchestrator
+├── requirements.txt
 │
 ├── scripts/
-│   ├── 01_data_collection.py    # OHLCV + news data → SQLite
-│   ├── 02_feature_engineering.py
-│   ├── 03_train_xgboost.py
-│   ├── 04_train_transformer.py
-│   ├── 05_train_rl_agent.py
-│   ├── 06_ensemble.py           # Meta-model combining all three
-│   ├── 07_trading_logic.py      # Live signal generator (run this for live trading)
-│   ├── 08_backtester.py
-│   └── 09_monitoring.py
+│   ├── 01_data_collection.py         # Downloads OHLCV data → SQLite
+│   ├── 02_feature_engineering.py     # XGBoost features → features_target_m5.parquet
+│   ├── 02b_feature_engineering_lgbm.py  # LightGBM features → features_lgbm_m5.parquet
+│   ├── 03_train_xgboost.py           # Trains XGBoost → models/xgboost/xgboost_best.pkl
+│   ├── 07_trading_logic.py           # Signal generator (MODEL_TYPE + BOT_SLUG → /internal/signal/{slug})
+│   ├── 08_backtester.py              # XGBoost backtest
+│   ├── 10_train_lightgbm.py          # Trains LightGBM → models/lightgbm/lgbm_best.pkl
+│   ├── 11_backtest_lightgbm.py       # LightGBM backtest
+│   └── utils.py
+│
+├── backend/
+│   ├── main.py                       # FastAPI app + startup migration + seed bots
+│   ├── config.py                     # Reads from .env (optional ENV_FILE)
+│   ├── models.py                     # User, Bot, Signal, …
+│   ├── bot_defaults.py               # Default bot rows + seed_default_bots()
+│   ├── database.py
+│   ├── auth.py
+│   ├── create_admin.py               # Admin user + seed bots
+│   ├── routers/
+│   │   ├── user.py
+│   │   ├── payments.py
+│   │   └── signals.py                # /api/signal, /api/signal/{slug}, /internal/signal/{slug}
+│   ├── templates/
+│   ├── static/
+│   ├── requirements.txt
+│   └── .env.example
 │
 ├── mt5_ea/
-│   ├── gold_trading_ea.mq5      # MetaTrader 5 Expert Advisor
-│   ├── signal_reader.mqh        # MQL5 include for reading signal.txt
-│   └── signal.txt               # Signal file (written by Python, read by EA)
+│   ├── gold_trading_ea.mq5           # MetaTrader 5 Expert Advisor
+│   ├── signal_reader.mqh
+│   ├── signal.txt                    # XGBoost signal file
+│   └── signal_lgbm.txt              # LightGBM signal file (created at runtime)
 │
-├── dashboard/
-│   └── app.py                   # Streamlit monitoring dashboard
+├── models/
+│   ├── xgboost/xgboost_best.pkl
+│   ├── lightgbm/lgbm_best.pkl
+│   └── scalers/
 │
-├── models/                      # Trained model artifacts (created by pipeline)
-├── data/                        # SQLite database and raw data
-├── backtest_reports/            # Backtest output files
-├── logs/                        # Runtime logs
+├── data/
+│   ├── gold_trading.db               # OHLCV + news data
+│   └── processed/
+│       ├── features_target_m5.parquet   # XGBoost features
+│       └── features_lgbm_m5.parquet     # LightGBM features
 │
-├── deploy.bat                   # Copies EA files into MT5 — run once after setup
-├── start_trading.bat            # Starts the live signal generator
-├── setup_autostart.bat          # Adds signal generator to Windows Startup
-└── requirements.txt
+├── backtest_reports/
+│   ├── last_year_results.txt         # XGBoost backtest
+│   └── lgbm_last_year_results.txt    # LightGBM backtest
+│
+├── dashboard/app.py                  # Streamlit monitoring dashboard
+│
+├── deploy.bat                        # Copies EA to MT5 folders
+├── start_xgboost_signal.bat        # XGBoost stream (BOT_SLUG=xgboost-v1)
+├── start_signal_generator.bat      # Deprecated alias → calls start_xgboost_signal.bat
+├── start_lgbm_signal.bat             # LightGBM stream (BOT_SLUG=lgbm-session-v1)
+└── setup_autostart.bat
 ```
 
 ---
 
-## 12. Windows VPS Deployment & Domain Setup
+## 12. Signal File Format
 
-This section covers running the full system on a Windows VPS and exposing the web portal on your own domain with HTTPS.
-
-### Overview
-
-```
-Internet
-   │
-   ▼
-[Your Domain]  →  DNS A record  →  VPS public IP
-                                        │
-                                   [Caddy :443]   ← handles HTTPS automatically
-                                        │
-                                   [Uvicorn :8000]  ← FastAPI backend
-                                        │
-                                   [MT5 + EA]  ← reads signals via localhost API
-                                   [Signal Generator]  ← posts signals to backend
-```
-
----
-
-### Step 1 — Set up the VPS
-
-On your Windows VPS (RDP in):
-
-```bat
-:: 1. Install Python 3.12 from https://python.org (check "Add to PATH")
-
-:: 2. Install Git from https://git-scm.com
-
-:: 3. Clone the repo
-git clone https://github.com/your-repo/gold_trading_system.git
-cd gold_trading_system
-
-:: 4. Install ML pipeline dependencies
-pip install -r requirements.txt
-
-:: 5. Install backend dependencies
-pip install -r backend\requirements.txt
-```
-
----
-
-### Step 2 — Configure the backend
-
-```bat
-copy backend\.env.example backend\.env
-notepad backend\.env
-```
-
-Fill in every value in `.env`:
-
-```env
-SECRET_KEY=<generate with: python -c "import secrets; print(secrets.token_hex(32))">
-NOWPAYMENTS_API_KEY=<from nowpayments.io dashboard>
-NOWPAYMENTS_IPN_SECRET=<from nowpayments.io dashboard>
-INTERNAL_SIGNAL_SECRET=<any long random string>
-BASE_URL=https://yourdomain.com
-SUBSCRIPTION_PRICE_USD=50
-```
-
-Then in `config.yaml`:
-
-```yaml
-backend:
-  url: "https://yourdomain.com"
-  internal_signal_secret: "<same value as INTERNAL_SIGNAL_SECRET above>"
-```
-
----
-
-### Step 3 — Point your domain to the VPS
-
-In your domain registrar's DNS settings, add an **A record**:
-
-| Type | Name | Value |
-|------|------|-------|
-| A | @ | `<VPS public IP>` |
-| A | www | `<VPS public IP>` |
-
-DNS changes can take 5–30 minutes to propagate.
-
----
-
-### Step 4 — Install Caddy (reverse proxy + automatic HTTPS)
-
-Caddy automatically obtains and renews a free Let's Encrypt SSL certificate.
-
-1. Download the Windows binary from [caddyserver.com/download](https://caddyserver.com/download)
-2. Place `caddy.exe` in `C:\caddy\`
-3. Create `C:\caddy\Caddyfile`:
-
-```
-yourdomain.com {
-    reverse_proxy localhost:8000
-}
-```
-
-4. Open **Windows Firewall** and allow inbound TCP on ports **80** and **443**.
-
-5. Run Caddy (keep terminal open, or install as a service — see below):
-
-```bat
-C:\caddy\caddy.exe run --config C:\caddy\Caddyfile
-```
-
----
-
-### Step 5 — Start the backend
-
-```bat
-:: From the project root
-uvicorn backend.main:app --host 127.0.0.1 --port 8000
-```
-
-> Use `127.0.0.1` (not `0.0.0.0`) since Caddy is the only thing that should reach it externally.
-
-Your site is now live at `https://yourdomain.com`.
-
----
-
-### Step 6 — Start the signal generator
-
-```bat
-start_signal_generator.bat
-```
-
-Or run directly:
-
-```bat
-python scripts\07_trading_logic.py
-```
-
-This posts signals to the backend every time the ML pipeline runs.
-
----
-
-### Step 7 — Auto-start everything on boot
-
-Run **once** as Administrator to register all services in Windows Startup:
-
-```bat
-setup_autostart.bat
-```
-
-This adds the signal generator to the Windows Startup folder.
-
-For the backend and Caddy, install them as Windows services using NSSM (Non-Sucking Service Manager):
-
-```bat
-:: Download NSSM from https://nssm.cc
-nssm install GoldSignalBackend "python" "-m uvicorn backend.main:app --host 127.0.0.1 --port 8000"
-nssm set GoldSignalBackend AppDirectory "C:\path\to\gold_trading_system"
-nssm start GoldSignalBackend
-
-nssm install Caddy "C:\caddy\caddy.exe" "run --config C:\caddy\Caddyfile"
-nssm start Caddy
-```
-
-After this, everything restarts automatically if the VPS reboots.
-
----
-
-### Step 8 — NOWPayments webhook
-
-In your [NOWPayments dashboard](https://nowpayments.io):
-
-1. Go to **Settings > IPN (Instant Payment Notifications)**
-2. Set the IPN URL to: `https://yourdomain.com/webhooks/nowpayments`
-3. Copy the IPN secret key into `NOWPAYMENTS_IPN_SECRET` in `.env`
-
-This webhook is how the backend knows a payment was confirmed and activates the subscription.
-
----
-
-### Verify everything is working
-
-```bat
-:: Check backend is running
-curl http://localhost:8000/
-
-:: Check domain resolves
-curl https://yourdomain.com/
-
-:: Check signal endpoint
-curl "https://yourdomain.com/api/signal?api_key=test"
-```
-
----
-
-## 13. SaaS Backend (Signal Subscription Service)
-
-The `backend/` folder contains a subscription web portal that lets users pay with crypto and receive signals in their MT5 EA.
-
-### Setup
-
-```bat
-cd backend
-pip install -r requirements.txt
-copy .env.example .env
-:: Edit .env with your NOWPayments keys and secrets
-```
-
-### Running the backend
-
-```bat
-:: From project root
-uvicorn backend.main:app --host 0.0.0.0 --port 8000
-```
-
-### Connect the signal generator
-
-In `config.yaml`, set:
-
-```yaml
-backend:
-  url: "https://your-domain.com"
-  internal_signal_secret: "same value as INTERNAL_SIGNAL_SECRET in .env"
-```
-
-### EA configuration for subscribers
-
-In MT5 EA inputs:
-- `SignalUrl` = `https://your-domain.com/api/signal`
-- `ApiKey` = the key shown in the user's dashboard
-- Leave `SignalFileName` blank
-
-**Important:** In MT5, go to **Tools > Options > Expert Advisors** and add your domain to the allowed WebRequest URLs list. Otherwise MT5 will block the HTTP call.
-
-### NOWPayments setup
-
-1. Create a free account at [nowpayments.io](https://nowpayments.io)
-2. Get your API key from the dashboard
-3. Set your IPN (webhook) URL to `https://your-domain.com/webhooks/nowpayments`
-4. Copy the IPN secret to `NOWPAYMENTS_IPN_SECRET` in `.env`
-
----
-
-## Signal File Format
-
-The signal file (`mt5_ea/signal.txt`) is JSON:
+Both signal generators write the same JSON format:
 
 ```json
 {
   "signal": "buy",
-  "confidence": 0.72,
+  "confidence": 0.81,
   "sl": 3180.50,
   "tp": 3250.00,
-  "reason": "ML ensemble buy signal",
-  "timestamp": "2026-04-25T10:30:00.000000"
+  "reason": "LightGBM (buy, conf=0.81)",
+  "timestamp": "2026-04-28T09:00:00.000000"
 }
 ```
 
-- `signal`: `"buy"`, `"sell"`, or `"hold"`
-- `confidence`: 0.0–1.0. The EA ignores signals below `confidence_threshold` (default `0.60`) set in `config.yaml`
-- `sl` / `tp`: absolute price levels in the instrument's quote currency
+| Field | Values | Notes |
+|---|---|---|
+| `signal` | `"buy"` / `"sell"` / `"hold"` | |
+| `confidence` | 0.0 – 1.0 | EA ignores signals below its configured threshold |
+| `sl` | price | Absolute stop-loss level |
+| `tp` | price | Absolute take-profit level |
+
+---
+
+## 13. Environment Variable Reference
+
+All env vars can be set in the shell before running any script. They always override `config.yaml`.
+
+| Variable | Used by | Description |
+|---|---|---|
+| `MODEL_TYPE` | `07_trading_logic.py` | `xgboost` or `lightgbm` |
+| `BOT_SLUG` | `07_trading_logic.py` | Backend bot id / URL slug (`xgboost-v1`, `lgbm-session-v1`, …); defaults from `MODEL_TYPE` |
+| `BACKEND_URL` | `07_trading_logic.py` | Overrides `backend.url` in `config.yaml` |
+| `INTERNAL_SIGNAL_SECRET` | `07_trading_logic.py` | Overrides `backend.internal_signal_secret` |
+| `MT5_TERMINAL_ID` | `07_trading_logic.py` | Overrides `trading.mt5_terminal_id` in `config.yaml` |
+| `SIGNAL_FILE_PATH` | `07_trading_logic.py` | Path to local signal file (default: `mt5_ea/signal.txt`) |
+| `ENV_FILE` | `backend/config.py` | Optional alternate path to load `.env` |
+
+---
+
+## Quick Reference — Starting Everything
+
+```bat
+:: Backend (single instance, port 8000)
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+
+:: Signal generators (one window each; different BOT_SLUG / MT5_TERMINAL_ID)
+start_xgboost_signal.bat
+start_lgbm_signal.bat
+
+:: Caddy
+C:\caddy\caddy.exe run --config C:\caddy\Caddyfile
+```
